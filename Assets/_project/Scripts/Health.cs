@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 
     public event Action Hit;
     public event Action Healed;
+    public event Action Died;
 
     public float CurrentHealth => _currentValue;
     public int MaxValue => _maxValue;
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour
                 if (_currentValue <= 0)
                 {
                     _currentValue = 0;
+                    Died?.Invoke();
                 }
 
                 Hit?.Invoke();

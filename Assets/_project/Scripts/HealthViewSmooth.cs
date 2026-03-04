@@ -33,7 +33,7 @@ public class HealthViewSmooth : MonoBehaviour
             float currentValue = _health.CurrentHealth / _health.MaxValue;
 
             _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
-            _text.text = currentValue.ToString();
+            _text.text = _health.CurrentHealth.ToString();
             yield return null;
         }
     }

@@ -1,13 +1,14 @@
+using System;
 using UnityEngine;
 
 public class PlayerPresenter
 {
-    private PlayerView _playerView;
-    private Mover _mover;
     private PlayerInput _playerInput;
+    private PlayerView _playerView;
+    private CharacterMover _mover;
     private Health _health;
 
-    public PlayerPresenter(PlayerView view, Health health, Mover mover, PlayerInput input)
+    public PlayerPresenter(PlayerView view, Health health, CharacterMover mover, PlayerInput input)
     {
         _playerView = view;
         _health = health;
@@ -22,6 +23,7 @@ public class PlayerPresenter
         _playerInput.IsMoving += SetRunAnim;
         _playerInput.Stopped += SetIdleAnim;
         _health.Hit += OnHit;
+        _health.Died += OnDie;
     }
 
     public void Disable()
@@ -31,6 +33,7 @@ public class PlayerPresenter
         _playerInput.IsMoving -= SetRunAnim;
         _playerInput.Stopped -= SetIdleAnim;
         _health.Hit -= OnHit;
+        _health.Died -= OnDie;
     }
 
     private void Move(Vector3 direction)
@@ -56,5 +59,12 @@ public class PlayerPresenter
     private void OnHit()
     {
         _playerView.UpdateHealth();
+        _playerView.PlayHit();
+    }
+
+    private void OnDie()
+    {
+        _playerView.PlayDie();
+        _playerInput.Disable();
     }
 }

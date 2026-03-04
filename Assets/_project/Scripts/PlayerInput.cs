@@ -33,4 +33,9 @@ public class PlayerInput : MonoBehaviour
             Stopped?.Invoke();
         }
     }
+
+    public void Disable()
+    {
+        this.enabled = false;
+    }
 }

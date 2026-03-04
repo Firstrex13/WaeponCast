@@ -1,13 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class Mover
+public class CharacterMover
 {
     private CharacterController _characterController;
 
     private float _moveSpeed = 5f;
 
-    public Mover(CharacterController controller)
+    public CharacterMover(CharacterController controller)
     {
         _characterController = controller;
     }

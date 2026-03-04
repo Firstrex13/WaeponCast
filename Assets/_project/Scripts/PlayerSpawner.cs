@@ -7,7 +7,7 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] private FloatingJoystick _joystick;
 
     private PlayerPresenter _presenter;
-    private Mover _mover;
+    private CharacterMover _mover;
 
     private void Awake()
     {
@@ -18,9 +18,10 @@ public class PlayerSpawner : MonoBehaviour
         Health health = player.GetComponent<Health>();
         HealthViewSmooth healthViewSmooth = player.GetComponent<HealthViewSmooth>();
         healthViewSmooth.Initialize(health);
-        _mover = new Mover(controller);
 
+        _mover = new CharacterMover(controller);
         _presenter = new PlayerPresenter(view, health, _mover, _input);
+
         player.Initialize(_presenter);
     }
 }
