@@ -3,16 +3,14 @@ using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour
 {
-    private int _collidedDamage = 1;
-    public event Action<int> CollidedWithEnemy;
-    
+    private int _collidedDamage = 30;
 
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider other)
     {
-        if (hit.collider.TryGetComponent<Enemy>(out _))
+        if (other.TryGetComponent<Player>(out Player player))
         {
-            CollidedWithEnemy?.Invoke(_collidedDamage);
+            Health health = player.GetComponent<Health>();
+            health.TakeDamage(_collidedDamage);                          
         }
     }
 }

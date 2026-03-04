@@ -1,9 +1,10 @@
 using System;
+using UnityEngine;
 
-public class Health 
+public class Health : MonoBehaviour
 {
-     private int _maxValue = 100;
-     private float _currentValue;
+    [SerializeField] private float _currentValue;
+    private int _maxValue = 100;
 
     public event Action Hit;
     public event Action Healed;
@@ -11,7 +12,7 @@ public class Health
     public float CurrentHealth => _currentValue;
     public int MaxValue => _maxValue;
 
-    public void Initialize()
+    public void Start()
     {
         _currentValue = _maxValue;
     }
@@ -31,7 +32,7 @@ public class Health
 
                 if (_currentValue <= 0)
                 {
-                    _currentValue = 0;                
+                    _currentValue = 0;
                 }
 
                 Hit?.Invoke();

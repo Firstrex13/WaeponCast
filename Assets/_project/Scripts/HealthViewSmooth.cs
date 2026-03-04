@@ -3,12 +3,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthViewSmooth : HealthViewBasic
+public class HealthViewSmooth : MonoBehaviour
 {
+    
     [SerializeField] private Slider _slider;
     [SerializeField] private TextMeshProUGUI _text;
 
-    public override void UpdateValue()
+    private Health _health;
+
+    public void Initialize(Health health)
+    {
+        _health = health;
+    }
+
+    public void UpdateValue()
     {
         StartCoroutine(nameof(ChangeValue));
     }
@@ -22,7 +30,7 @@ public class HealthViewSmooth : HealthViewBasic
         {
             time += Time.deltaTime;
 
-            float currentValue = Health.CurrentHealth / Health.MaxValue;
+            float currentValue = _health.CurrentHealth / _health.MaxValue;
 
             _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
             _text.text = currentValue.ToString();

@@ -3,44 +3,44 @@ using UnityEngine;
 public class PlayerPresenter
 {
     private PlayerView _playerView;
-    private PlayerModel _model;
+    private Mover _mover;
     private PlayerInput _playerInput;
-    private CollisionDetector _collisionDetector;
+    private Health _health;
 
-    public PlayerPresenter(PlayerView view, PlayerModel model, PlayerInput input, CollisionDetector detector)
+    public PlayerPresenter(PlayerView view, Health health, Mover mover, PlayerInput input)
     {
         _playerView = view;
-        _model = model;
+        _health = health;
+        _mover = mover;
         _playerInput = input;
-        _collisionDetector = detector;
     }
 
     public void Enable()
     {
-        _collisionDetector.CollidedWithEnemy += OnDetected;
         _playerInput.IsMoving += Move;
         _playerInput.IsMoving += Rotate;
         _playerInput.IsMoving += SetRunAnim;
         _playerInput.Stopped += SetIdleAnim;
+        _health.Hit += OnHit;
     }
 
     public void Disable()
     {
-        _collisionDetector.CollidedWithEnemy -= OnDetected;
         _playerInput.IsMoving -= Move;
         _playerInput.IsMoving -= Rotate;
         _playerInput.IsMoving -= SetRunAnim;
         _playerInput.Stopped -= SetIdleAnim;
+        _health.Hit -= OnHit;
     }
 
     private void Move(Vector3 direction)
     {
-        _model.Move(direction);
+        _mover.Move(direction);
     }
 
     private void Rotate(Vector3 direction)
     {
-        _model.Rotate(direction);
+        _mover.Rotate(direction);
     }
 
     private void SetRunAnim(Vector3 direction)
@@ -53,8 +53,8 @@ public class PlayerPresenter
         _playerView.PlayIdle();
     }
 
-    private void OnDetected(int damage)
+    private void OnHit()
     {
-        _model.OnDetected(damage);
+        _playerView.UpdateHealth();
     }
 }

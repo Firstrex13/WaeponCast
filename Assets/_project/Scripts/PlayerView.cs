@@ -15,4 +15,9 @@ public class PlayerView : MonoBehaviour
     {
         _animator.SetBool("IsRunning", false);
     }
+
+    public void UpdateHealth()
+    {
+        _HealthViewSmooth.UpdateValue();
+    }
 }
