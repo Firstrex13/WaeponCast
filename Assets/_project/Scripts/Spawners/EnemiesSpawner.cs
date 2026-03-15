@@ -6,7 +6,7 @@ public class EnemiesSpawner : MonoBehaviour
 {
     [SerializeField] private Dragon _dragon;
     [SerializeField] private Player _player;
-    [SerializeField] private Transform _spawnPosition;
+    [SerializeField] private Transform[] _spawnPositions;
 
     [Inject]
     public void Construct(Player player)
@@ -24,10 +24,12 @@ public class EnemiesSpawner : MonoBehaviour
 
         while (enabled)
         {
-            Dragon dragon = Instantiate(_dragon, _spawnPosition.position, Quaternion.identity, transform);
+            int randomPoint = Random.Range(0, _spawnPositions.Length);
+            Dragon dragon = Instantiate(_dragon, _spawnPositions[randomPoint].position, Quaternion.identity, transform);
             AIEnemy ai = dragon.GetComponent<AIEnemy>();
             ai.Initialize(_player);
             yield return delay;
+
         }
     }
 }

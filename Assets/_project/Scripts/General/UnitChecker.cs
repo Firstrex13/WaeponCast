@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitChecker : MonoBehaviour
@@ -8,8 +7,10 @@ public class UnitChecker : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _mask;
 
+
     private Enemy _nearestEnemy;
     private Collider[] _enemies;
+    private int _previousCount;
 
     public Enemy NearestEnemy => _nearestEnemy;
     public Collider[] Enemies => _enemies;
@@ -21,13 +22,18 @@ public class UnitChecker : MonoBehaviour
     {
         FindNearestUnit();
 
-        if (_enemies.Length > 0)
+        if (_previousCount == 0 && _enemies.Length != 0)
         {
             UnitInAttackZone?.Invoke();
-            Debug.Log("Invoke");
         }
-    }
 
+        if (_previousCount != 0 && _enemies.Length == 0)
+        {
+            NoUnitInAttackZone?.Invoke();
+        }
+
+        _previousCount = _enemies.Length;
+    }
     public Enemy FindNearestUnit()
     {
         float minDistance = float.MaxValue;

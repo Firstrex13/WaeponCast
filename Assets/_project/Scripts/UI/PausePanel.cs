@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ public class PausePanel : MonoBehaviour
     private float _minValue = 0;
     private float _maxValue = 1;
 
+    public event Action IsPaused;
+    public event Action Unpaused;
+
     private void Awake()
     {
         _toggle = GetComponentInChildren<Toggle>();
@@ -26,6 +30,7 @@ public class PausePanel : MonoBehaviour
         Time.timeScale = 0;
         _toggle.onValueChanged.AddListener(ToggleMusic);
         _slider.onValueChanged.AddListener(ChangeValue);
+        IsPaused?.Invoke();
     }
 
     private void OnDisable()
@@ -33,6 +38,7 @@ public class PausePanel : MonoBehaviour
         Time.timeScale = 1;
         _toggle.onValueChanged.RemoveListener(ToggleMusic);
         _slider.onValueChanged.RemoveListener(ChangeValue);
+        Unpaused?.Invoke();
     }
     private void Start()
     {

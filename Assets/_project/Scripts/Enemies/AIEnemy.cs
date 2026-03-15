@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
-using Zenject;
 
 public class AIEnemy : MonoBehaviour
 {
@@ -12,7 +9,7 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] private DragonAnimations _animations;
     [SerializeField] private float _attackSpeed;
 
-    private float _distanceToInteracte = 1.5f;
+    private float _distanceToAttack = 2f;
     private Coroutine _checkDistance;
     private Coroutine _attack;
 
@@ -21,6 +18,7 @@ public class AIEnemy : MonoBehaviour
     public void Initialize(Player player)
     {
         _player = player;
+        _agent.SetDestination(_player.transform.position);
     }
 
     private void Update()
@@ -29,7 +27,7 @@ public class AIEnemy : MonoBehaviour
         {
             _agent.SetDestination(_player.transform.position);
 
-            if (_agent.remainingDistance > _distanceToInteracte)
+            if (_agent.remainingDistance > _distanceToAttack)
             {
                 GoToTarget(_player.transform.position);
             }
@@ -52,7 +50,6 @@ public class AIEnemy : MonoBehaviour
 
     private void GoToTarget(Vector3 position)
     {
-
         _agent.SetDestination(position);
         _animations.PlayRun();
 
@@ -68,7 +65,7 @@ public class AIEnemy : MonoBehaviour
     {
         yield return null;
 
-        while (_agent.remainingDistance > _distanceToInteracte)
+        while (_agent.remainingDistance > _distanceToAttack)
         {
             yield return null;
         }
@@ -81,7 +78,7 @@ public class AIEnemy : MonoBehaviour
     {
         _delay = new WaitForSeconds(_attackSpeed);
 
-        while (_agent.remainingDistance < _distanceToInteracte)
+        while (_agent.remainingDistance < _distanceToAttack)
         {
             _animations.PlayAttack();
             yield return _delay;

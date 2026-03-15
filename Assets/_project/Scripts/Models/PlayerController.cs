@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour
     private FloatingJoystick _joystick;
     private Rigidbody _rigidbody;
     private Vector3 _direction;
+
+    private bool _moving;
+
+    public bool Moving => _moving;
 
     public event Action IsMoving;
     public event Action IsStopped;
@@ -41,6 +46,7 @@ public class PlayerController : MonoBehaviour
         Rotate();
     }
 
+    [Inject]
     public void Initialize(FloatingJoystick floatingJoystick)
     {
         _joystick = floatingJoystick;
@@ -73,10 +79,12 @@ public class PlayerController : MonoBehaviour
         if (_direction != Vector3.zero)
         {
             IsMoving?.Invoke();
+            _moving = true;
         }
         else
         {
             IsStopped?.Invoke();
+            _moving = false;
         }
     }
 

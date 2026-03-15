@@ -1,5 +1,6 @@
 using Cinemachine;
 using UnityEngine;
+using Zenject;
 
 public class CameraFollower : MonoBehaviour
 {
@@ -16,8 +17,9 @@ public class CameraFollower : MonoBehaviour
         _camera.Follow = _followPoint;
     }
 
-    public void Initialize(Transform point)
+    [Inject]
+    public void Initialize(Player point)
     {
-        _followPoint = point;
+        _followPoint = point.transform;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class Player : MonoBehaviour
 {
@@ -6,7 +7,6 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerAnimations _animations;
     [SerializeField] private Health _health;
     [SerializeField] private PlayerController _playerController;
-
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         _playerController.IsStopped -= PlayIdle;
         _health.Hit -= PlayHit;
         _health.Died -= PlayDie;
-    }
+    } 
 
     private void PlayMove()
     {

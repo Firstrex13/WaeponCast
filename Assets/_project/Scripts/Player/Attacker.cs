@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class Attacker : MonoBehaviour
 {
@@ -7,8 +8,9 @@ public class Attacker : MonoBehaviour
     [SerializeField] private PlayerAnimations _animations;
     [SerializeField] private AudioSource _throwSound;
     [SerializeField] private float _attackSpeed;
+    [SerializeField] private PlayerController _playerController;
 
-    private WaitForSeconds _delay;
+    private WaitForSecondsRealtime _delay;
     private Coroutine _throw;
 
     private void OnEnable()
@@ -23,21 +25,22 @@ public class Attacker : MonoBehaviour
         _unitChecker.NoUnitInAttackZone -= StopAttack;
     }
 
+
     private void Attack()
     {
         if (_throw != null)
         {
-            StopCoroutine(Throw());
+            StopCoroutine(_throw);
         }
 
-        StartCoroutine(Throw());
+        _throw = StartCoroutine(Throw());
     }
 
     private void StopAttack()
     {
         if (_throw != null)
         {
-            StopCoroutine(Throw());
+            StopCoroutine(_throw);
         }
 
         _throw = null;
@@ -45,13 +48,28 @@ public class Attacker : MonoBehaviour
 
     private IEnumerator Throw()
     {
-        _delay = new WaitForSeconds(_attackSpeed);
+        _delay = new WaitForSecondsRealtime(_attackSpeed);
 
         while (_unitChecker.NearestEnemy)
         {
-            _animations.PlayThrow();
-            _throwSound.Play();
-            yield return _delay;
+            if (!_playerController.Moving)
+            {
+                if (Time.timeScale > 0)
+                {
+                    _animations.PlayThrow();
+                    _throwSound.Play();
+
+                    yield return _delay;
+                }
+                else
+                {
+                    yield return _delay;
+                }
+            }
+            else
+            {
+                yield return _delay;
+            }
         }
 
         _throw = null;
