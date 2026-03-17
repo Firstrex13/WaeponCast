@@ -203,7 +203,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8750535703996549837, guid: 435d63d165745fb47bd71fd81f0eedfe, type: 2}
   m_audioClip: {fileID: 8300000, guid: c95941706db7d774bb9dfd4e23b0a029, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1090,7 +1090,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8750535703996549837, guid: 435d63d165745fb47bd71fd81f0eedfe, type: 2}
   m_audioClip: {fileID: 8300000, guid: f162afca22304ee4a9b3a894cfe0f073, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   _unitChecker: {fileID: 4291284058807243918}
   _animations: {fileID: 174023234994822722}
   _throwSound: {fileID: 6452057720078839910}
-  _attackSpeed: 2
+  _attackSpeed: 0.5
   _playerController: {fileID: 6302676011896887513}
 --- !u!1 &4192108790264432269
 GameObject:
@@ -1557,7 +1557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 6302676011896887513}
-  _radius: 6
+  _radius: 10
   _mask:
     serializedVersion: 2
     m_Bits: 64
@@ -2814,6 +2814,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7129715762253451088, guid: 7fa592d25ff486e488a40cdf766f748c, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7245527361941083854, guid: 7fa592d25ff486e488a40cdf766f748c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2821,6 +2825,10 @@ PrefabInstance:
     - target: {fileID: 7245527361941083854, guid: 7fa592d25ff486e488a40cdf766f748c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039943493566985478, guid: 7fa592d25ff486e488a40cdf766f748c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8579883237598756058, guid: 7fa592d25ff486e488a40cdf766f748c, type: 3}
       propertyPath: m_Pivot.x

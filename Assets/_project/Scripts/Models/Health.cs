@@ -15,7 +15,7 @@ public class Health : MonoBehaviour, IDamageable
     public float CurrentHealth => _currentValue;
     public int MaxValue => _maxValue;
 
-    public void Awake()
+    public void Start()
     {
         _maxValue = _playerConfig.Health;
         _currentValue = _maxValue;

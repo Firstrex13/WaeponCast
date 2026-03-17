@@ -1,9 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
-    public void Initialize(Vector3 direction)
+    [SerializeField] private int _damageAmount = 40;
+
+    public event Action<Knife> Destroyed;
+
+    public void Initialize(Vector3 startPoint, Vector3 direction)
     {
+        transform.position = startPoint;
         transform.forward = direction;
     }
 
@@ -11,13 +17,21 @@ public class Knife : MonoBehaviour
     {
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            damageable.TakeDamage(40);
+            damageable.TakeDamage(_damageAmount);
+            Destroy(gameObject);
+            //gameObject.SetActive(false);
+        }
+
+        if(other.TryGetComponent<Wall>(out _))
+        {
+            //Destroyed?.Invoke(this);
+            //gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }
 
-    public void TurnOn()
-    {
-        gameObject.SetActive(true);
-    }
+    //public void TurnOn()
+    //{
+    //    gameObject.SetActive(true);
+    //}
 }

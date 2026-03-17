@@ -18,7 +18,7 @@ public class CameraFollower : MonoBehaviour
     }
 
     [Inject]
-    public void Initialize(Player point)
+    public void Construct(Player point)
     {
         _followPoint = point.transform;
     }
