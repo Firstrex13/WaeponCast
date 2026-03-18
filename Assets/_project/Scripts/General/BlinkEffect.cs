@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlinkEffect : MonoBehaviour
@@ -14,24 +13,27 @@ public class BlinkEffect : MonoBehaviour
         _renderer = GetComponent<SkinnedMeshRenderer>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         _health.Hit += PlayBlink;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         _health.Hit -= PlayBlink;
     }
 
     private void PlayBlink()
     {
-        if (_blink != null)
+        if (gameObject.activeSelf)
         {
-            StopCoroutine(_blink);
-        }
+            if (_blink != null)
+            {
+                StopCoroutine(_blink);
+            }
 
-        _blink = StartCoroutine(PlayBlinkEffect());
+            _blink = StartCoroutine(PlayBlinkEffect());
+        }
     }
 
     private IEnumerator PlayBlinkEffect()

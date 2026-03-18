@@ -18,20 +18,13 @@ public class Knife : MonoBehaviour
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             damageable.TakeDamage(_damageAmount);
-            Destroy(gameObject);
-            //gameObject.SetActive(false);
+            Destroyed?.Invoke(this);
         }
 
         if(other.TryGetComponent<Wall>(out _))
         {
-            //Destroyed?.Invoke(this);
-            //gameObject.SetActive(false);
-            Destroy(gameObject);
+            Destroyed?.Invoke(this);
+            gameObject.SetActive(false);
         }
     }
-
-    //public void TurnOn()
-    //{
-    //    gameObject.SetActive(true);
-    //}
 }

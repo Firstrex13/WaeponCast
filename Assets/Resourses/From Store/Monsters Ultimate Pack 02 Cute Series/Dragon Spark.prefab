@@ -935,7 +935,6 @@ GameObject:
   - component: {fileID: 3071737027381793684}
   - component: {fileID: 9117398710154001137}
   - component: {fileID: 23278167426567667}
-  - component: {fileID: 8552339813393198442}
   - component: {fileID: 8413202588261241058}
   - component: {fileID: 991506176856563386}
   - component: {fileID: 2379473215648817354}
@@ -1038,6 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d80053901224b646b75ad6c2aaf8036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 3071737027381793684}
 --- !u!136 &1344356503134759899
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1105,19 +1105,6 @@ MonoBehaviour:
   _health: {fileID: 3071737027381793684}
   _collider: {fileID: 1344356503134759899}
   _aIEnemy: {fileID: 2379473215648817354}
---- !u!114 &8552339813393198442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955717841895258307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaf835ded359bd446aa1c49f9f779a62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 3071737027381793684}
 --- !u!114 &8413202588261241058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1820,7 +1807,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ad4e33b68ffb3114b83b347a678e9739, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

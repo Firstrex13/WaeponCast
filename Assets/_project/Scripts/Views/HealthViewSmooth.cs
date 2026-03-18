@@ -9,24 +9,27 @@ public class HealthViewSmooth : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private TextMeshProUGUI _text;
 
-    public void Initialize(Health health)
+    private void OnEnable()
     {
-        _health = health;
+        _text.text = _health.MaxValue.ToString();
+        _slider.value = _health.MaxValue;
+        _health.Hit += UpdateValue;
     }
 
     private void Start()
     {
         _text.text = _health.MaxValue.ToString();
-        _health.Hit += UpdateValue;
+        _slider.value = _health.MaxValue;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         _health.Hit -= UpdateValue;
     }
 
     public void UpdateValue()
     {
+        if(gameObject.activeSelf) 
         StartCoroutine(nameof(ChangeValue));
     }
 
