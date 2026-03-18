@@ -14,7 +14,7 @@ public class AIEnemy : MonoBehaviour
     private Coroutine _attack;
 
     private WaitForSeconds _delay;
-
+    
     public void Initialize(Player player)
     {
         _player = player;
@@ -23,32 +23,35 @@ public class AIEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (!gameObject.activeSelf)
-            return;
-
-
-        if (_animations.CanRun == false)
-            return;
-
-
-        if (_player == null)
-            return;
-
-
-        _agent.SetDestination(_player.transform.position);
-
-        if (_agent.remainingDistance > _distanceToAttack)
+        float distanceSquared = Vector3.SqrMagnitude(_player.transform.position - transform.position);
+       
+        if (_player != null)
         {
-            GoToTarget(_player.transform.position);
-        }
-        else
-        {
-            if (_attack != null)
+            if (gameObject.activeSelf)
             {
-                StopCoroutine(_attack);
-            }
+                if (_animations.CanRun == true)
+                {
+                    _agent.SetDestination(_player.transform.position);
 
-            _attack = StartCoroutine(Attack());
+                    if (distanceSquared > _distanceToAttack * _distanceToAttack)
+                    {
+                        GoToTarget(_player.transform.position);
+                    }
+                    else
+                    {
+                        if (_attack != null)
+                        {
+                            StopCoroutine(_attack);
+                        }
+
+                        _attack = StartCoroutine(Attack());
+                    }
+                }
+                else
+                {
+                    _agent.ResetPath();
+                }
+            }
         }
     }
 

@@ -2,22 +2,20 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Dragon : MonoBehaviour
+public class Dragon : Enemy
 {
-    [SerializeField] private Health _health;
-
     private Coroutine _coroutine;
 
     public event Action<Dragon> Died;
 
     private void OnEnable()
     {
-        _health.Died += SendDieMessage;
+        Health.Died += SendDieMessage;
     }
 
     private void OnDisable()
     {
-        _health.Died -= SendDieMessage;
+        Health.Died -= SendDieMessage;
     }
 
     private void SendDieMessage()

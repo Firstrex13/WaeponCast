@@ -934,7 +934,6 @@ GameObject:
   - component: {fileID: 1344356503134759899}
   - component: {fileID: 3071737027381793684}
   - component: {fileID: 9117398710154001137}
-  - component: {fileID: 23278167426567667}
   - component: {fileID: 8413202588261241058}
   - component: {fileID: 991506176856563386}
   - component: {fileID: 2379473215648817354}
@@ -1037,7 +1036,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d80053901224b646b75ad6c2aaf8036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 3071737027381793684}
+  Health: {fileID: 3071737027381793684}
+  _collider: {fileID: 1344356503134759899}
+  _aIEnemy: {fileID: 2379473215648817354}
 --- !u!136 &1344356503134759899
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1090,21 +1091,6 @@ MonoBehaviour:
   _health: {fileID: 3071737027381793684}
   _slider: {fileID: 5154438542436368195}
   _text: {fileID: 8633522666809710534}
---- !u!114 &23278167426567667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955717841895258307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c35eefbb45868014bac386b3c3c21d0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 3071737027381793684}
-  _collider: {fileID: 1344356503134759899}
-  _aIEnemy: {fileID: 2379473215648817354}
 --- !u!114 &8413202588261241058
 MonoBehaviour:
   m_ObjectHideFlags: 0

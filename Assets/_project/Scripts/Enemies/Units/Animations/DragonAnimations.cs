@@ -10,10 +10,9 @@ public class DragonAnimations : MonoBehaviour
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Health _health;
+    public bool CanRun { get; private set; }
 
     private Coroutine _hitCoroutine;
-
-    public bool CanRun { get; private set; }
 
     private void OnEnable()
     {
@@ -45,7 +44,6 @@ public class DragonAnimations : MonoBehaviour
 
     private void PlayHit()
     {
-
         _animator.SetTrigger(Hit);
 
         if (gameObject.activeSelf)

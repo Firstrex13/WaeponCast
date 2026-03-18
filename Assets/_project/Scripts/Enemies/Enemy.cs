@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Health _health;
+    [SerializeField] protected Health Health;
     [SerializeField] private Collider _collider;
     [SerializeField] private AIEnemy _aIEnemy;
 
     private void Start()
     {
 
-        _health.Died += MakeDisable;
+        Health.Died += MakeDisable;
     }
 
     private void OnDestroy()
     {
 
-        _health.Died -= MakeDisable;
+        Health.Died -= MakeDisable;
     }
 
     private void MakeDisable()
