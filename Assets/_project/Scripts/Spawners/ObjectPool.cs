@@ -28,7 +28,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         if (_pool.Count > 0)
         {
             T obj = _pool.Dequeue();
-            obj.gameObject.SetActive(true);
+           // obj.gameObject.SetActive(true);
             Activated?.Invoke();
             return obj;
         }

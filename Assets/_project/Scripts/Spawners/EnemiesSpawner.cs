@@ -44,6 +44,7 @@ public class EnemiesSpawner : BaseSpawner<Dragon>
             dragon.transform.position = _spawnPositions[randomPoint].position;
           //  Dragon dragon = Instantiate(_dragon, _spawnPositions[randomPoint].position, Quaternion.identity, transform);
             AIEnemy ai = dragon.GetComponent<AIEnemy>();
+            dragon.gameObject.SetActive(true);
             ai.Initialize(_player);
             yield return delay;
 

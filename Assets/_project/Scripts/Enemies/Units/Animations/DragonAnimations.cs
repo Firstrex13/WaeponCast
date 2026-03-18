@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DragonAnimations : MonoBehaviour
@@ -10,13 +11,18 @@ public class DragonAnimations : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Health _health;
 
-    private void Start()
+    private Coroutine _hitCoroutine;
+
+    public bool CanRun { get; private set; }
+
+    private void OnEnable()
     {
+        CanRun = true;
         _health.Hit += PlayHit;
         _health.Died += PlayDie;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         _health.Hit -= PlayHit;
         _health.Died -= PlayDie;
@@ -39,12 +45,41 @@ public class DragonAnimations : MonoBehaviour
 
     private void PlayHit()
     {
+
         _animator.SetTrigger(Hit);
+
+        if (gameObject.activeSelf)
+        {
+            if (_hitCoroutine != null)
+            {
+                StopCoroutine(_hitCoroutine);
+            }
+
+            _hitCoroutine = StartCoroutine(InteruptMoving());
+        }
     }
 
     public void PlayAttack()
     {
         _animator.SetTrigger(Bite);
-       
+
+        if (gameObject.activeSelf)
+        {
+            if (_hitCoroutine != null)
+            {
+                StopCoroutine(_hitCoroutine);
+            }
+
+            _hitCoroutine = StartCoroutine(InteruptMoving());
+        }
+    }
+
+    private IEnumerator InteruptMoving()
+    {
+        WaitForSeconds delay = new WaitForSeconds(1);
+
+        CanRun = false;
+        yield return delay;
+        CanRun = true;
     }
 }

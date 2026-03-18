@@ -1,15 +1,23 @@
+using System;
 using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour
 {
-    private int _collidedDamage = 30;
+    [SerializeField] private int _damageAmount = 40;
+
+    public event Action Collided;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Player>(out Player player))
+        if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            Health health = player.GetComponent<Health>();
-            health.TakeDamage(_collidedDamage);                          
+            damageable.TakeDamage(_damageAmount);
+            Collided?.Invoke();
+        }
+
+        if (other.TryGetComponent<Wall>(out _))
+        {
+            Collided?.Invoke();
         }
     }
 }

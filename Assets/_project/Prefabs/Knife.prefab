@@ -92,9 +92,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5975567137158674965}
+  - component: {fileID: 8596709122766635515}
+  - component: {fileID: 602193608008824521}
   - component: {fileID: 4386136884058036120}
-  - component: {fileID: 7459648341954426835}
-  - component: {fileID: 3031924594363721175}
+  - component: {fileID: 2629134171878044343}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -118,19 +119,7 @@ Transform:
   - {fileID: 9105903045496932306}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4386136884058036120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4604875622215207130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e107493e63637409fad9c2a0ed31ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &7459648341954426835
+--- !u!65 &8596709122766635515
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,9 +138,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.035281338, y: 0.051165324, z: 0.41931593}
-  m_Center: {x: 0.0007099137, y: -0.001291329, z: 0.32568032}
---- !u!54 &3031924594363721175
+  m_Size: {x: 0.062164, y: 0.101898074, z: 0.48223943}
+  m_Center: {x: 0.003135901, y: -0.0036343858, z: 0.3008372}
+--- !u!54 &602193608008824521
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,5 +165,33 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 2
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &4386136884058036120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604875622215207130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e107493e63637409fad9c2a0ed31ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _collisionDetector: {fileID: 2629134171878044343}
+  _rigidbody: {fileID: 602193608008824521}
+--- !u!114 &2629134171878044343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604875622215207130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d729dbfd957e0e41b8fead49ad3d459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 40

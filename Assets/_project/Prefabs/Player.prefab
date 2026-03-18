@@ -1221,7 +1221,7 @@ MonoBehaviour:
   _unitChecker: {fileID: 4291284058807243918}
   _animations: {fileID: 174023234994822722}
   _throwSound: {fileID: 6452057720078839910}
-  _attackSpeed: 0.5
+  _attackSpeed: 1
   _playerController: {fileID: 6302676011896887513}
 --- !u!1 &4192108790264432269
 GameObject:
@@ -1314,8 +1314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _knife: {fileID: 4386136884058036120, guid: 62bdcc6dd14a6f3469e21861294f87df, type: 3}
   _spawnPosition: {fileID: 3367002352905910863}
-  _throwSpeed: 10
   _unitChecker: {fileID: 4291284058807243918}
+  _throwSpeed: 10
 --- !u!1 &4288505560279609209
 GameObject:
   m_ObjectHideFlags: 0

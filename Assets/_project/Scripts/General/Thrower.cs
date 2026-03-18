@@ -1,12 +1,11 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Thrower : BaseSpawner<Knife>
 {
     [SerializeField] private Knife _knife;
     [SerializeField] private Transform _spawnPosition;
-    [SerializeField] private int _throwSpeed;
     [SerializeField] private UnitChecker _unitChecker;
+    [SerializeField] private int _throwSpeed;
 
     private int _poolCapacity = 10;
 
@@ -25,7 +24,7 @@ public class Thrower : BaseSpawner<Knife>
         Knife knife = Pool.GetFromPool();
         knife.Destroyed += OnReturnToPool;
         knife.Initialize(_spawnPosition.position, _spawnPosition.forward);
-        knife.GetComponent<Rigidbody>().AddForce(_spawnPosition.transform.forward * _throwSpeed, ForceMode.VelocityChange);
+        knife.gameObject.SetActive(true);
     }
 
     protected override void OnReturnToPool(Knife knife)

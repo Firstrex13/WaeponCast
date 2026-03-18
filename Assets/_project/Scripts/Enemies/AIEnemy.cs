@@ -23,23 +23,32 @@ public class AIEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (_player != null)
+        if (!gameObject.activeSelf)
+            return;
+
+
+        if (_animations.CanRun == false)
+            return;
+
+
+        if (_player == null)
+            return;
+
+
+        _agent.SetDestination(_player.transform.position);
+
+        if (_agent.remainingDistance > _distanceToAttack)
         {
-            _agent.SetDestination(_player.transform.position);
-
-            if (_agent.remainingDistance > _distanceToAttack)
+            GoToTarget(_player.transform.position);
+        }
+        else
+        {
+            if (_attack != null)
             {
-                GoToTarget(_player.transform.position);
+                StopCoroutine(_attack);
             }
-            else
-            {
-                if(_attack != null)
-                {
-                    StopCoroutine(_attack);
-                }
 
-               _attack =  StartCoroutine(Attack());
-            }
+            _attack = StartCoroutine(Attack());
         }
     }
 
