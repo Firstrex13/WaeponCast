@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private CollisionDetector _collisionDetector;
     [SerializeField] private Rigidbody _rigidbody;
 
     public void Launch(Vector3 force)
