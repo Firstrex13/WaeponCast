@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   <Weapon>k__BackingField: {fileID: 7307565329194577215, guid: 57aec776cb083d54b9d4e660fd605060, type: 3}
-  <Damage>k__BackingField: 80
-  <AttackRate>k__BackingField: 2
+  <Damage>k__BackingField: 60
+  <AttackRate>k__BackingField: 1.5
   <ThrowForce>k__BackingField: 6
+  <ManaCost>k__BackingField: 15

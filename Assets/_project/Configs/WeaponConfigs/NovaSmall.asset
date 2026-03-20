@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f16f80c27d384474c83fcdc190e51f1e, type: 3}
-  m_Name: Axe
+  m_Name: NovaSmall
   m_EditorClassIdentifier: 
-  <Weapon>k__BackingField: {fileID: 5214640115585564868, guid: 47b30eccb75ec1c4298c34f204ff3a7c, type: 3}
-  <Damage>k__BackingField: 60
-  <AttackRate>k__BackingField: 1
-  <ThrowForce>k__BackingField: 8
+  <Weapon>k__BackingField: {fileID: 6995938100299263712, guid: e23a523b3d4579b4683d60e9a46ebd6c, type: 3}
+  <Damage>k__BackingField: 30
+  <AttackRate>k__BackingField: 3
+  <ThrowForce>k__BackingField: 5
+  <ManaCost>k__BackingField: 20

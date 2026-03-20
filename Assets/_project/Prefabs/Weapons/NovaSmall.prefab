@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2615579564686986142
+--- !u!1 &4574431785896747208
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9032810530829805541}
-  - component: {fileID: 2463934068963521944}
-  - component: {fileID: 1735986945284915589}
-  - component: {fileID: 8630341700838717464}
-  - component: {fileID: 7307565329194577215}
-  - component: {fileID: 8077186082455017927}
+  - component: {fileID: 7721344507296337179}
+  - component: {fileID: 7205161505176206177}
+  - component: {fileID: 3992069712971176610}
+  - component: {fileID: 4958093495599990664}
+  - component: {fileID: 6995938100299263712}
+  - component: {fileID: 1502179332338031878}
   m_Layer: 0
-  m_Name: FireBall
+  m_Name: NovaSmall
   m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9032810530829805541
+--- !u!4 &7721344507296337179
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615579564686986142}
+  m_GameObject: {fileID: 4574431785896747208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.596879, y: -0.00000047683716, z: 2.4278765}
+  m_LocalPosition: {x: 3.156703, y: 1.63, z: 3.0358343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2463934068963521944
+--- !u!135 &7205161505176206177
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615579564686986142}
+  m_GameObject: {fileID: 4574431785896747208}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -57,13 +57,13 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1735986945284915589
+--- !u!54 &3992069712971176610
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615579564686986142}
+  m_GameObject: {fileID: 4574431785896747208}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -84,50 +84,50 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8630341700838717464
+--- !u!114 &4958093495599990664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615579564686986142}
+  m_GameObject: {fileID: 4574431785896747208}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acd27932048c3254597a02078fa2cb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactParticle: {fileID: 130848, guid: d16221e794fe16e4e8994a7f8c770561, type: 3}
-  projectileParticle: {fileID: 147436, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
-  muzzleParticle: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
+  impactParticle: {fileID: 108204, guid: a895033e3fd07214d80b3e159c61873f, type: 3}
+  projectileParticle: {fileID: 115870, guid: 7d1405f1d86b0b54c9d71d23ce7c0b7c, type: 3}
+  muzzleParticle: {fileID: 138568, guid: 09a92a023de770c4ab1b2e669d6c660b, type: 3}
   colliderRadius: 0.1
   collideOffset: 0.1
---- !u!114 &7307565329194577215
+--- !u!114 &6995938100299263712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615579564686986142}
+  m_GameObject: {fileID: 4574431785896747208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d901e63189d5e8246ba8bfecc99c4dba, type: 3}
+  m_Script: {fileID: 11500000, guid: 460e906e2fe43ba40b23a2adab7ee145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 1735986945284915589}
---- !u!114 &8077186082455017927
+  _rigidbody: {fileID: 3992069712971176610}
+--- !u!114 &1502179332338031878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615579564686986142}
+  m_GameObject: {fileID: 4574431785896747208}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc183757225ba1b4cbeba843b6735ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponConfig: {fileID: 11400000, guid: eb6c8de011574b046b7c4a793047f11f, type: 2}
-  _radious: 1.5
+  _weaponConfig: {fileID: 11400000, guid: 817729975f344a24683972f96c6de037, type: 2}
+  _radious: 2
   _layerMask:
     serializedVersion: 2
     m_Bits: 64

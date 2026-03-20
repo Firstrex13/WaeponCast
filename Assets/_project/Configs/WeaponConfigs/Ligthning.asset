@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f16f80c27d384474c83fcdc190e51f1e, type: 3}
-  m_Name: Knife
+  m_Name: Ligthning
   m_EditorClassIdentifier: 
-  <Weapon>k__BackingField: {fileID: 4386136884058036120, guid: 62bdcc6dd14a6f3469e21861294f87df, type: 3}
+  <Weapon>k__BackingField: {fileID: -8108749216110822839, guid: 323df1d26825d7846a8536c4c72a05f5, type: 3}
   <Damage>k__BackingField: 40
-  <AttackRate>k__BackingField: 0.5
+  <AttackRate>k__BackingField: 0.8
   <ThrowForce>k__BackingField: 10
+  <ManaCost>k__BackingField: 10

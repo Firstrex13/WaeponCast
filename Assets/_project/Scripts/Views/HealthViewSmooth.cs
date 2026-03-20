@@ -7,18 +7,15 @@ public class HealthViewSmooth : MonoBehaviour
 {
     [SerializeField] private Health _health;
     [SerializeField] private Slider _slider;
-    [SerializeField] private TextMeshProUGUI _text;
 
     private void OnEnable()
     {
-        _text.text = _health.MaxValue.ToString();
         _slider.value = _health.MaxValue;
         _health.Hit += UpdateValue;
     }
 
     private void Start()
     {
-        _text.text = _health.MaxValue.ToString();
         _slider.value = _health.MaxValue;
     }
 
@@ -45,7 +42,6 @@ public class HealthViewSmooth : MonoBehaviour
             float currentValue = _health.CurrentHealth / _health.MaxValue;
 
             _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
-            _text.text = _health.CurrentHealth.ToString();
             yield return null;
         }
     }

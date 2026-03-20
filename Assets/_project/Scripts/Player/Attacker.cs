@@ -7,40 +7,38 @@ public class Attacker : MonoBehaviour
     [SerializeField] private AudioSource _throwSound;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private AbillityUser _abillityUser;
+    [SerializeField] private Mana _mana;
 
-    private WaitForSecondsRealtime _delay;
-    private Coroutine _throw;
     private float _timer;
+    private bool _isReadyToAttack = true;
 
     private void Update()
     {
-        if (!_unitChecker.NearestEnemy)
+        if (_unitChecker.NearestEnemy)
         {
-            return;
-        }
-
-        if (_playerController.Moving)
-        {
-            return;
-        }
-
-        if (Time.timeScale < 0)
-        {
-            return;
+            if (!_playerController.Moving)
+            {
+                if (Time.timeScale > 0)
+                {
+                    if (_isReadyToAttack && _mana.CurrentMana >= _abillityUser.ManaCost)
+                    {
+                        Attack();
+                        _isReadyToAttack = false;
+                        _timer = 0;
+                    }
+                }
+            }
         }
 
         _timer += Time.deltaTime;
-
         if (_timer > _abillityUser.AttackRate)
         {
-            Attack();
-            _timer = 0;
+            _isReadyToAttack = true;
         }
     }
 
     private void Attack()
     {
         _animations.PlayThrow();
-        _throwSound.Play();
     }
 }

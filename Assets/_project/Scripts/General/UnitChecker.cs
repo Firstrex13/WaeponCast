@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class UnitChecker : MonoBehaviour
@@ -7,32 +6,15 @@ public class UnitChecker : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _mask;
 
-
     private Enemy _nearestEnemy;
     private Collider[] _enemies;
-    private int _previousCount;
 
     public Enemy NearestEnemy => _nearestEnemy;
     public Collider[] Enemies => _enemies;
 
-    public Action UnitInAttackZone;
-    public Action NoUnitInAttackZone;
-
     private void Update()
     {
         FindNearestUnit();
-
-        if (_previousCount == 0 && _enemies.Length != 0)
-        {
-            UnitInAttackZone?.Invoke();
-        }
-
-        if (_previousCount != 0 && _enemies.Length == 0)
-        {
-            NoUnitInAttackZone?.Invoke();
-        }
-
-        _previousCount = _enemies.Length;
     }
     public Enemy FindNearestUnit()
     {
@@ -59,8 +41,12 @@ public class UnitChecker : MonoBehaviour
                     }
                 }
             }
+            return _nearestEnemy;
+        }
+        else
+        {
+            return _nearestEnemy = null;
         }
 
-        return _nearestEnemy;
     }
 }

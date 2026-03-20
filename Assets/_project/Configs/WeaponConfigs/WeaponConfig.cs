@@ -7,4 +7,5 @@ public class WeaponConfig : ScriptableObject
     [field: SerializeField] public int Damage { get; private set; }
     [field: SerializeField] public float AttackRate { get; private set; }
     [field: SerializeField] public float ThrowForce { get; private set; }
+    [field: SerializeField] public float ManaCost { get; private set; }
 }

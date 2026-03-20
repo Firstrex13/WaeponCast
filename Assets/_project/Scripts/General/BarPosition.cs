@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthPosition : MonoBehaviour
+public class BarPosition : MonoBehaviour
 {
     private Camera _camera;
 
