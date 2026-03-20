@@ -30,7 +30,7 @@ public class Dragon : Enemy
 
     private IEnumerator SendWithDelay()
     {
-        WaitForSeconds delay = new WaitForSeconds(3);
+        WaitForSeconds delay = new WaitForSeconds(1.5f);
 
         yield return delay;
         Died?.Invoke(this);

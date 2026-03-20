@@ -8,8 +8,10 @@ public class EnemiesSpawner : BaseSpawner<Dragon>
     [SerializeField] private Dragon _dragon;
     [SerializeField] private Player _player;
     [SerializeField] private Transform[] _spawnPositions;
+    [SerializeField] private ParticleSystem _dieEffect;
 
-    private int _poolCapacity = 10;
+    private int _poolCapacity = 5;
+
     private void Awake()
     {
         Pool = new ObjectPool<Dragon>(_dragon, _poolCapacity);
@@ -29,6 +31,7 @@ public class EnemiesSpawner : BaseSpawner<Dragon>
     protected override void OnReturnToPool(Dragon dragon)
     {
         base.OnReturnToPool(dragon);
+        Instantiate(_dieEffect, dragon.transform.position, Quaternion.identity);
         dragon.Died -= OnReturnToPool;
     }
 
@@ -40,15 +43,13 @@ public class EnemiesSpawner : BaseSpawner<Dragon>
         {
             int randomPoint = Random.Range(0, _spawnPositions.Length);
             Dragon dragon = Pool.GetFromPool();
+            dragon.MakeEnable();
             dragon.Died += OnReturnToPool;
             dragon.transform.position = _spawnPositions[randomPoint].position;
-          //  Dragon dragon = Instantiate(_dragon, _spawnPositions[randomPoint].position, Quaternion.identity, transform);
             AIEnemy ai = dragon.GetComponent<AIEnemy>();
             dragon.gameObject.SetActive(true);
             ai.Initialize(_player);
             yield return delay;
-
         }
-    } 
-    
+    }     
 }

@@ -74,7 +74,7 @@ public class DragonAnimations : MonoBehaviour
 
     private IEnumerator InteruptMoving()
     {
-        WaitForSeconds delay = new WaitForSeconds(1);
+        WaitForSeconds delay = new WaitForSeconds(0.8f);
 
         CanRun = false;
         yield return delay;

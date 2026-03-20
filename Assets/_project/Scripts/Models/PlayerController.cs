@@ -6,6 +6,7 @@ using Zenject;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _rotationSpeed;
     [SerializeField] private UnitChecker _unitChecker;
     [SerializeField] private Health _health;
 
@@ -56,7 +57,10 @@ public class PlayerController : MonoBehaviour
     {
         if (_direction != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(_direction);
+            Quaternion lookRotation = Quaternion.LookRotation(_direction);
+            float step = _rotationSpeed * Time.deltaTime;
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
         }
         else
         {

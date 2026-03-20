@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-
         Health.Died += MakeDisable;
     }
 
@@ -16,6 +15,12 @@ public class Enemy : MonoBehaviour
     {
 
         Health.Died -= MakeDisable;
+    }
+    public void MakeEnable()
+    {
+        _collider.enabled = true;
+        _aIEnemy.MakeEnable();
+        enabled = true;
     }
 
     private void MakeDisable()

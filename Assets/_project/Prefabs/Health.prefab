@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7731361682982686721}
   - component: {fileID: 8039943493566985478}
   - component: {fileID: 5983647834400720824}
-  - component: {fileID: 3802791933478660738}
-  m_Layer: 5
+  - component: {fileID: 2957621523306070454}
+  m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2886882317865458945}
-  m_LocalRotation: {x: 0.5943831, y: -0, z: -0, w: 0.804182}
+  m_LocalRotation: {x: 0.5943807, y: 0, z: 0, w: 0.8041839}
   m_LocalPosition: {x: 0, y: 0, z: 0.883}
   m_LocalScale: {x: 0.0009040721, y: 0.0009040721, z: 0.0009040721}
   m_ConstrainProportionsScale: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3802791933478660738
+--- !u!114 &2957621523306070454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7245527361941083854}
   - component: {fileID: 7703451742755220574}
   - component: {fileID: 9203435669314920869}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 1428787272199412146}
   - component: {fileID: 1050647603373643991}
   - component: {fileID: 7129715762253451088}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 5513153929431612867}
   - component: {fileID: 4959577810313863321}
   - component: {fileID: 7243325351941143217}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 626894752914131233}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3030097791878982307}
   - component: {fileID: 5956440562262829013}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

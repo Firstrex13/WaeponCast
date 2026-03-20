@@ -14,12 +14,6 @@ public class AIEnemy : MonoBehaviour
     private Coroutine _attack;
 
     private WaitForSeconds _delay;
-    
-    public void Initialize(Player player)
-    {
-        _player = player;
-        _agent.SetDestination(_player.transform.position);
-    }
 
     private void Update()
     {
@@ -55,9 +49,20 @@ public class AIEnemy : MonoBehaviour
         }
     }
 
+    public void Initialize(Player player)
+    {
+        _player = player;
+        _agent.SetDestination(_player.transform.position);
+    }
+
     public void MakeDisable()
     {
         enabled = false;
+    }
+
+    public void MakeEnable()
+    {
+        enabled = true;
     }
 
     private void GoToTarget(Vector3 position)
