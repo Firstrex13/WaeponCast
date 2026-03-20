@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16f80c27d384474c83fcdc190e51f1e, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
+  <Weapon>k__BackingField: {fileID: 7307565329194577215, guid: 57aec776cb083d54b9d4e660fd605060, type: 3}
   <Damage>k__BackingField: 80
+  <AttackRate>k__BackingField: 2
+  <ThrowForce>k__BackingField: 6

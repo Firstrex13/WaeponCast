@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16f80c27d384474c83fcdc190e51f1e, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  <WeaponPrefab>k__BackingField: {fileID: 5214640115585564868, guid: 47b30eccb75ec1c4298c34f204ff3a7c, type: 3}
+  <Weapon>k__BackingField: {fileID: 5214640115585564868, guid: 47b30eccb75ec1c4298c34f204ff3a7c, type: 3}
   <Damage>k__BackingField: 60
-  <ThrowSpeed>k__BackingField: 6
+  <AttackRate>k__BackingField: 1
+  <ThrowForce>k__BackingField: 8

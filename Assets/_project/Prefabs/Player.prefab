@@ -1221,8 +1221,8 @@ MonoBehaviour:
   _unitChecker: {fileID: 4291284058807243918}
   _animations: {fileID: 174023234994822722}
   _throwSound: {fileID: 6452057720078839910}
-  _attackSpeed: 1
   _playerController: {fileID: 6302676011896887513}
+  _abillityUser: {fileID: 5846716321093880324}
 --- !u!1 &4192108790264432269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPosition: {fileID: 3367002352905910863}
+  _attackRate: 0
 --- !u!1 &4288505560279609209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,12 +2455,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abillityUser: {fileID: 5846716321093880324}
-  _knifePrefab: {fileID: 4386136884058036120, guid: 62bdcc6dd14a6f3469e21861294f87df, type: 3}
-  _axePrefab: {fileID: 5214640115585564868, guid: 47b30eccb75ec1c4298c34f204ff3a7c, type: 3}
-  _fireballPrefab: {fileID: 7307565329194577215, guid: 57aec776cb083d54b9d4e660fd605060, type: 3}
-  _knifeThrowForce: 10
-  _axeThrowForce: 6
-  _fireballThrowForce: 8
+  _knifeConfig: {fileID: 11400000, guid: 8fb25a8afbc8def4d9f4ec11412a2069, type: 2}
+  _axeConfig: {fileID: 11400000, guid: 817729975f344a24683972f96c6de037, type: 2}
+  _fireballConfig: {fileID: 11400000, guid: eb6c8de011574b046b7c4a793047f11f, type: 2}
 --- !u!1 &7626592377411126394
 GameObject:
   m_ObjectHideFlags: 0

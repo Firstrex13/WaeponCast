@@ -4,35 +4,30 @@ public class AbilitySetter : MonoBehaviour
 {
     [SerializeField] private AbillityUser _abillityUser;
 
-    [SerializeField] private Knife _knifePrefab;
-    [SerializeField] private Axe _axePrefab;
-    [SerializeField] private Fireball _fireballPrefab;
-
-    [SerializeField] private float _knifeThrowForce;
-    [SerializeField] private float _axeThrowForce;
-    [SerializeField] private float _fireballThrowForce;
-
+    [SerializeField] private WeaponConfig _knifeConfig;
+    [SerializeField] private WeaponConfig _axeConfig;
+    [SerializeField] private WeaponConfig _fireballConfig;
 
     private void Start()
     {
-        _abillityUser.SetupAbillity(new WeaponAbillity(_knifePrefab, _knifeThrowForce));
+        _abillityUser.SetupAbillity(new WeaponAbillity(_knifeConfig.Weapon, _knifeConfig.ThrowForce), _knifeConfig.AttackRate);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _abillityUser.SetupAbillity(new WeaponAbillity(_knifePrefab, _knifeThrowForce));
+            _abillityUser.SetupAbillity(new WeaponAbillity(_knifeConfig.Weapon, _knifeConfig.ThrowForce), _knifeConfig.AttackRate);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _abillityUser.SetupAbillity(new WeaponAbillity(_axePrefab, _axeThrowForce));
+            _abillityUser.SetupAbillity(new WeaponAbillity(_axeConfig.Weapon, _axeConfig.ThrowForce), _axeConfig.AttackRate);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            _abillityUser.SetupAbillity(new WeaponAbillity(_fireballPrefab, _fireballThrowForce));
+            _abillityUser.SetupAbillity(new WeaponAbillity(_fireballConfig.Weapon, _fireballConfig.ThrowForce), _fireballConfig.AttackRate);
         }
     }
 }

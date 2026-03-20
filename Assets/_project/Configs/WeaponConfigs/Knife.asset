@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16f80c27d384474c83fcdc190e51f1e, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  <WeaponPrefab>k__BackingField: {fileID: 4386136884058036120, guid: 62bdcc6dd14a6f3469e21861294f87df, type: 3}
+  <Weapon>k__BackingField: {fileID: 4386136884058036120, guid: 62bdcc6dd14a6f3469e21861294f87df, type: 3}
   <Damage>k__BackingField: 40
-  <ThrowSpeed>k__BackingField: 10
+  <AttackRate>k__BackingField: 0.5
+  <ThrowForce>k__BackingField: 10

@@ -13,7 +13,6 @@ public class WeaponAbillity : IAbilityWeapon
 
     public void Throw(Transform spawnPoint)
     {
-
         Transform spawnPosition = spawnPoint;
         Quaternion lookRotation = Quaternion.LookRotation(spawnPoint.transform.forward);
 
