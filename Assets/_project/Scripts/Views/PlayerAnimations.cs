@@ -3,22 +3,17 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimations : MonoBehaviour
 {
-    private readonly int Running = Animator.StringToHash(nameof(Running));
     private readonly int Hit = Animator.StringToHash(nameof(Hit));
     private readonly int Die = Animator.StringToHash(nameof(Die));
     private readonly int Throw = Animator.StringToHash(nameof(Throw));
+    private readonly int Velocity = Animator.StringToHash(nameof(Velocity));
 
     [SerializeField] private Animator _animator;
     [SerializeField] private HealthViewSmooth _HealthViewSmooth;
 
-    public void PlayRun()
+    public void PlayMove(float velocity)
     {
-        _animator.SetBool(Running, true);
-    }
-
-    public void PlayIdle()
-    {
-        _animator.SetBool(Running, false);
+        _animator.SetFloat(Velocity, velocity);
     }
 
     public void UpdateHealth()

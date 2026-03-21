@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -8,37 +7,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private UnitChecker _unitChecker;
-    [SerializeField] private Health _health;
+    [SerializeField] private PlayerAnimations _playerAnimations;
 
     private FloatingJoystick _joystick;
     private Rigidbody _rigidbody;
-    private Vector3 _direction;
 
     private bool _moving;
 
+    public Vector3 Velocity { get; private set; }
     public bool Moving => _moving;
-
-    public event Action IsMoving;
-    public event Action IsStopped;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Start()
-    {
-        _health.Died += MakeDisable;
-    }
-
-    private void OnDestroy()
-    {
-        _health.Died -= MakeDisable;
-    }
-
     private void Update()
     {
-        GetDirection();
+        GetVelocity();
     }
 
     private void FixedUpdate()
@@ -55,9 +41,9 @@ public class PlayerController : MonoBehaviour
 
     private void Rotate()
     {
-        if (_direction != Vector3.zero)
+        if (Velocity != Vector3.zero)
         {
-            Quaternion lookRotation = Quaternion.LookRotation(_direction);
+            Quaternion lookRotation = Quaternion.LookRotation(Velocity);
             float step = _rotationSpeed * Time.deltaTime;
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
@@ -66,33 +52,35 @@ public class PlayerController : MonoBehaviour
         {
             if (_unitChecker.NearestEnemy)
             {
-                transform.rotation = Quaternion.LookRotation(_unitChecker.NearestEnemy.transform.position - transform.position);
+                Quaternion lookRotation = Quaternion.LookRotation(_unitChecker.NearestEnemy.transform.position - transform.position);
+                float step = _rotationSpeed * Time.deltaTime;
+
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
             }
         }
     }
 
     private void Move()
     {
-        _rigidbody.AddForce(_direction * _moveSpeed, ForceMode.VelocityChange);
+        _rigidbody.AddForce(Velocity * _moveSpeed, ForceMode.VelocityChange);
+        _playerAnimations.PlayMove(Velocity.magnitude);
     }
 
-    private void GetDirection()
+    private void GetVelocity()
     {
-        _direction = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
+        Velocity = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
 
-        if (_direction != Vector3.zero)
+        if (Velocity != Vector3.zero)
         {
-            IsMoving?.Invoke();
             _moving = true;
         }
         else
         {
-            IsStopped?.Invoke();
             _moving = false;
         }
     }
 
-    private void MakeDisable()
+    public void MakeDisable()
     {
         enabled = false;
     }

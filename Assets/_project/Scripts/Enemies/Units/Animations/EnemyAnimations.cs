@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DragonAnimations : MonoBehaviour
+public class EnemyAnimations : MonoBehaviour
 {
     private readonly int Run = Animator.StringToHash(nameof(Run));
     private readonly int Hit = Animator.StringToHash(nameof(Hit));

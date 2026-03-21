@@ -4,7 +4,6 @@ public class Attacker : MonoBehaviour
 {
     [SerializeField] private UnitChecker _unitChecker;
     [SerializeField] private PlayerAnimations _animations;
-    [SerializeField] private AudioSource _throwSound;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private AbillityUser _abillityUser;
     [SerializeField] private Mana _mana;
@@ -20,7 +19,7 @@ public class Attacker : MonoBehaviour
             {
                 if (Time.timeScale > 0)
                 {
-                    if (_isReadyToAttack && _mana.CurrentMana >= _abillityUser.ManaCost)
+                    if (_isReadyToAttack && _mana.CurrentValue >= _abillityUser.ManaCost)
                     {
                         Attack();
                         _isReadyToAttack = false;

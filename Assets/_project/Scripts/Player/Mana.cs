@@ -1,16 +1,8 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
-public class Mana : MonoBehaviour
+public class Mana : Bar
 {
-    [SerializeField] private float _currentValue;
-
-    [SerializeField] private int _maxValue;
     [SerializeField] private int _speedRecovery;
-
-    public float CurrentMana => _currentValue;
-    public int MaxValue => _maxValue;
 
     private void OnEnable()
     {

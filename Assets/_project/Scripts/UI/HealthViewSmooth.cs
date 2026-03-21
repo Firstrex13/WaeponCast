@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +38,7 @@ public class HealthViewSmooth : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            float currentValue = _health.CurrentHealth / _health.MaxValue;
+            float currentValue = _health.CurrentValue / _health.MaxValue;
 
             _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
             yield return null;

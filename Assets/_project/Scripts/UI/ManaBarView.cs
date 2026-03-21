@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,7 @@ public class ManaBarView : MonoBehaviour
 {
     [SerializeField] private Mana _mana;
     [SerializeField] private Slider _slider;
+    [SerializeField] private TextMeshProUGUI _text;
 
     private void Start()
     {
@@ -18,7 +20,8 @@ public class ManaBarView : MonoBehaviour
 
     private void UpdateValue()
     {
-        float currentValue = _mana.CurrentMana / _mana.MaxValue;
+        float currentValue = _mana.CurrentValue / _mana.MaxValue;
         _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
+        _text.text =Mathf.Ceil(_mana.CurrentValue).ToString();
     }
 }

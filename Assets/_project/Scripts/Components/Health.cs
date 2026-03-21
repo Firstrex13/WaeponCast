@@ -1,19 +1,13 @@
 using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour, IDamageable
+public class Health : Bar, IDamageable
 {
     [SerializeField] private HealthConfig _playerConfig;
-    [SerializeField] private float _currentValue;
-
-    private int _maxValue;
 
     public event Action Hit;
     public event Action Healed;
     public event Action Died;
-
-    public float CurrentHealth => _currentValue;
-    public int MaxValue => _maxValue;
 
     private void OnEnable()
     {

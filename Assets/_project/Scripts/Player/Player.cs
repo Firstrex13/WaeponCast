@@ -9,29 +9,15 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _playerController.IsMoving += PlayMove;
-        _playerController.IsStopped += PlayIdle;
         _health.Hit += PlayHit;
         _health.Died += PlayDie;
     }
 
     private void OnDestroy()
     {
-        _playerController.IsMoving -= PlayMove;
-        _playerController.IsStopped -= PlayIdle;
         _health.Hit -= PlayHit;
         _health.Died -= PlayDie;
     } 
-
-    private void PlayMove()
-    {
-        _animations.PlayRun();
-    }
-
-    private void PlayIdle()
-    {
-        _animations.PlayIdle();
-    }
 
     private void PlayHit()
     {
@@ -42,5 +28,6 @@ public class Player : MonoBehaviour
     private void PlayDie()
     {
         _animations.PlayDie();
+        _playerController.MakeDisable();
     }
 }

@@ -6,7 +6,7 @@ public class AIEnemy : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private DragonAnimations _animations;
+    [SerializeField] private EnemyAnimations _animations;
     [SerializeField] private float _attackSpeed;
 
     private float _distanceToAttack = 2f;
@@ -17,10 +17,10 @@ public class AIEnemy : MonoBehaviour
 
     private void Update()
     {
-        float distanceSquared = Vector3.SqrMagnitude(_player.transform.position - transform.position);
-       
         if (_player != null)
         {
+            float distanceSquared = Vector3.SqrMagnitude(_player.transform.position - transform.position);
+
             if (gameObject.activeSelf)
             {
                 if (_animations.CanRun == true)
