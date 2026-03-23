@@ -16,7 +16,7 @@ public class WeaponAbillity : IAbilityWeapon
         Transform spawnPosition = spawnPoint;
         Quaternion lookRotation = Quaternion.LookRotation(spawnPoint.transform.forward);
 
-        Weapon knife = Object.Instantiate(_weaponPrefab, spawnPosition.transform.position, lookRotation);
-        knife.Launch(spawnPoint.transform.forward * _force);
+        Weapon weapon = Object.Instantiate(_weaponPrefab, spawnPosition.transform.position, lookRotation);
+        weapon.Launch(spawnPoint.transform.forward * _force);
     }
 }

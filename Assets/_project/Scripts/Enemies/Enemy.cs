@@ -14,13 +14,12 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        Health.Died += SendDieMessage; ;
+        Health.Died += DieWithDelay; ;
     }
 
     private void OnDestroy()
     {
-
-        Health.Died -= SendDieMessage;
+        Health.Died -= DieWithDelay;
     }
     public void MakeEnable()
     {
@@ -36,7 +35,7 @@ public class Enemy : MonoBehaviour
         enabled = false;
     }
 
-    private void SendDieMessage()
+    private void DieWithDelay()
     {
         MakeDisable();
 
@@ -53,6 +52,6 @@ public class Enemy : MonoBehaviour
         WaitForSeconds delay = new WaitForSeconds(1.5f);
 
         yield return delay;
-        Died?.Invoke(this);
+        gameObject.SetActive(false);
     }
 }
