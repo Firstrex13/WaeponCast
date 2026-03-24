@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] protected Health Health;
+    [SerializeField] protected EnemyHealth Health;
     [SerializeField] private Collider _collider;
     [SerializeField] private AIEnemy _aIEnemy;
-
-    public event Action<Enemy> Died;
 
     private Coroutine _dieMessage;
 

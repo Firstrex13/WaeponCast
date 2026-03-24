@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerAudioManager _audioManager;
     [SerializeField] private PlayerAnimations _animations;
-    [SerializeField] private Health _health;
+    [SerializeField] private PlayerHealth _health;
     [SerializeField] private PlayerController _playerController;
 
     private void Start()

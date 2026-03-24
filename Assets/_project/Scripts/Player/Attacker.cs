@@ -19,7 +19,7 @@ public class Attacker : MonoBehaviour
             {
                 if (Time.timeScale > 0)
                 {
-                    if (_isReadyToAttack && _mana.CurrentValue >= _abillityUser.ManaCost)
+                    if (_isReadyToAttack && _mana.Current >= _abillityUser.ManaCost)
                     {
                         Attack();
                         _isReadyToAttack = false;

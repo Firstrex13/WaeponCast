@@ -10,7 +10,7 @@ public class ManaBarView : MonoBehaviour
 
     private void Start()
     {
-        _slider.value = _mana.MaxValue;
+        _slider.value = _mana.Max;
     }
 
     private void Update()
@@ -20,8 +20,8 @@ public class ManaBarView : MonoBehaviour
 
     private void UpdateValue()
     {
-        float currentValue = _mana.CurrentValue / _mana.MaxValue;
+        float currentValue = _mana.Current / _mana.Max;
         _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
-        _text.text =Mathf.Ceil(_mana.CurrentValue).ToString();
+        _text.text =Mathf.Ceil(_mana.Current).ToString();
     }
 }

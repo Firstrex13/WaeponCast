@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    [SerializeField] private Health _health;
+    [SerializeField] private PlayerHealth _health;
 
     private void OnEnable()
     {

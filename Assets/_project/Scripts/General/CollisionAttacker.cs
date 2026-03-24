@@ -8,7 +8,7 @@ public class CollisionAttacker : MonoBehaviour
     {
         if (other.TryGetComponent<Player>(out Player player))
         {
-            Health health = player.GetComponent<Health>();
+            PlayerHealth health = player.GetComponent<PlayerHealth>();
             health.TakeDamage(_collidedDamage);                          
         }
     }

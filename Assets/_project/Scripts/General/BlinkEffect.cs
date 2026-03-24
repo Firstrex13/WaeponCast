@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BlinkEffect : MonoBehaviour
 {
-    [SerializeField] private Health _health;
+    [SerializeField] private EnemyHealth _health;
 
     private SkinnedMeshRenderer _renderer;
     private Coroutine _blink;

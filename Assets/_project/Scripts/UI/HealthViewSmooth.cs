@@ -4,18 +4,20 @@ using UnityEngine.UI;
 
 public class HealthViewSmooth : MonoBehaviour
 {
-    [SerializeField] private Health _health;
+    [SerializeField] private Bar _health;
     [SerializeField] private Slider _slider;
 
-    private void OnEnable()
+    public Bar Health => _health;
+
+    public virtual void OnEnable()
     {
-        _slider.value = _health.MaxValue;
+        _slider.value = _health.Max;
         _health.Hit += UpdateValue;
     }
 
     private void Start()
     {
-        _slider.value = _health.MaxValue;
+        _slider.value = _health.Max;
     }
 
     private void OnDisable()
@@ -23,7 +25,7 @@ public class HealthViewSmooth : MonoBehaviour
         _health.Hit -= UpdateValue;
     }
 
-    public void UpdateValue()
+    public virtual void UpdateValue()
     {
         if(gameObject.activeSelf) 
         StartCoroutine(nameof(ChangeValue));
@@ -38,7 +40,7 @@ public class HealthViewSmooth : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            float currentValue = _health.CurrentValue / _health.MaxValue;
+            float currentValue = _health.Current / _health.Max;
 
             _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
             yield return null;

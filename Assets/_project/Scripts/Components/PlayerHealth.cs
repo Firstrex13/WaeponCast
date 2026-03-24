@@ -1,23 +1,19 @@
 using System;
-using UnityEngine;
 
-public class Health : Bar, IDamageable
+public class PlayerHealth : Bar, IDamageable
 {
-    [SerializeField] private HealthConfig _playerConfig;
-
-    public event Action Hit;
     public event Action Healed;
     public event Action Died;
 
     private void OnEnable()
     {
-        _maxValue = _playerConfig.Health;
-        _currentValue = _maxValue;
+        MaxValue = PlayerData.Stats.Health;
+        CurrentValue = MaxValue;
     }
 
     public void TakeDamage(int damage)
     {
-        if (_currentValue > 0)
+        if (CurrentValue > 0)
         {
             if (damage < 0)
             {
@@ -26,15 +22,15 @@ public class Health : Bar, IDamageable
 
             if (damage > 0)
             {
-                _currentValue -= damage;
+                CurrentValue -= damage;
 
-                if (_currentValue <= 0)
+                if (CurrentValue <= 0)
                 {
-                    _currentValue = 0;
+                    CurrentValue = 0;
                     Died?.Invoke();
                 }
 
-                Hit?.Invoke();
+                OnHit();
             }
         }
     }
@@ -48,14 +44,19 @@ public class Health : Bar, IDamageable
 
         if (healAmount > 0)
         {
-            _currentValue += healAmount;
+            CurrentValue += healAmount;
 
-            if (_currentValue >= _maxValue)
+            if (CurrentValue >= MaxValue)
             {
-                _currentValue = _maxValue;
+                CurrentValue = MaxValue;
             }
 
             Healed?.Invoke();
         }
+    }
+
+    public override void OnHit()
+    {
+        base.OnHit();
     }
 }

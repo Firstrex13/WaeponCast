@@ -17,7 +17,7 @@ public class DamageApplayerAtPosition : MonoBehaviour
             {
                 if (colliders[i].TryGetComponent(out Player player))
                 {
-                    IDamageable damageable = player.GetComponent<Health>();
+                    IDamageable damageable = player.GetComponent<PlayerHealth>();
                     damageable.TakeDamage(_damageAmount);
                 }
             }

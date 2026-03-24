@@ -3,8 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-    [SerializeField] GameObject _levelUpPanel;
-    [SerializeField] GameObject _menuPanel;
+    [SerializeField] private GameObject _levelUpPanel;
+    [SerializeField] private GameObject _menuPanel;
+    [SerializeField] private StatsUpgraderOnButton _statsUpgrader;
 
     public void StartGame()
     {
@@ -19,6 +20,8 @@ public class MenuHandler : MonoBehaviour
     public void OpenSkillsPenal()
     {
         _menuPanel.SetActive(false);
+        _statsUpgrader.UpdateHealthDisplay();
+        _statsUpgrader.UpdateManaDisplay();
         _levelUpPanel.SetActive(true);
     }
 

@@ -6,22 +6,23 @@ public class Mana : Bar
 
     private void OnEnable()
     {
-        _currentValue = _maxValue;
+        MaxValue = PlayerData.Stats.Mana;
+        CurrentValue = MaxValue;
     }
 
     private void Update()
     {
-        _currentValue += _speedRecovery * Time.deltaTime;
+        CurrentValue += _speedRecovery * Time.deltaTime;
 
-        if (_currentValue > _maxValue)
+        if (CurrentValue > MaxValue)
         {
-            _currentValue = _maxValue;
+            CurrentValue = MaxValue;
         }
     }
 
     public void Reduce(float cost)
     {
-        if (_currentValue > 0)
+        if (CurrentValue > 0)
         {
             if (cost < 0)
             {
@@ -31,11 +32,11 @@ public class Mana : Bar
 
         if (cost > 0)
         {
-            _currentValue -= cost;
+            CurrentValue -= cost;
 
-            if (_currentValue <= 0)
+            if (CurrentValue <= 0)
             {
-                _currentValue = 0;
+                CurrentValue = 0;
             }
         }
     }

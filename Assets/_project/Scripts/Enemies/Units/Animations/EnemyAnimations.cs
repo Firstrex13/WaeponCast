@@ -9,7 +9,7 @@ public class EnemyAnimations : MonoBehaviour
     private readonly int Bite = Animator.StringToHash(nameof(Bite));
 
     [SerializeField] private Animator _animator;
-    [SerializeField] private Health _health;
+    [SerializeField] private EnemyHealth _health;
     public bool CanRun { get; private set; }
 
     private Coroutine _hitCoroutine;

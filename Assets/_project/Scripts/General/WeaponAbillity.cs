@@ -5,9 +5,9 @@ public class WeaponAbillity : IAbilityWeapon
     private Weapon _weaponPrefab;
     private float _force;
 
-    public WeaponAbillity(Weapon knifePrefab, float force)
+    public WeaponAbillity(Weapon weaponPrefab, float force)
     {
-        _weaponPrefab = knifePrefab;
+        _weaponPrefab = weaponPrefab;
         _force = force;
     }
 

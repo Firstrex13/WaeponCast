@@ -1,10 +1,18 @@
+using System;
 using UnityEngine;
 
-public class Bar : MonoBehaviour
+public class Bar : MonoBehaviour, IBar
 {
-    [SerializeField] protected float _currentValue;
-    [SerializeField] protected int _maxValue;
+    protected int MaxValue;
+    protected float CurrentValue;
 
-    public float CurrentValue => _currentValue;
-    public int MaxValue => _maxValue;
+    public float Current => CurrentValue;
+    public int Max => MaxValue;
+
+    public event Action Hit;
+
+    public virtual void OnHit()
+    {
+        Hit?.Invoke();
+    }
 }
