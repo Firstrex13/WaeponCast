@@ -5,7 +5,7 @@ public class MenuHandler : MonoBehaviour
 {
     [SerializeField] private GameObject _levelUpPanel;
     [SerializeField] private GameObject _menuPanel;
-    [SerializeField] private StatsUpgraderOnButton _statsUpgrader;
+    [SerializeField] private StatsUpgraderOnButton[] _statsUpgraders;
 
     public void StartGame()
     {
@@ -20,8 +20,12 @@ public class MenuHandler : MonoBehaviour
     public void OpenSkillsPenal()
     {
         _menuPanel.SetActive(false);
-        _statsUpgrader.UpdateHealthDisplay();
-        _statsUpgrader.UpdateManaDisplay();
+
+        foreach (var stat in _statsUpgraders)
+        {
+            stat.UpdateDisplay();
+        }
+
         _levelUpPanel.SetActive(true);
     }
 

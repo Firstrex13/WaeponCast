@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected EnemyHealth Health;
     [SerializeField] private Collider _collider;
     [SerializeField] private AIEnemy _aIEnemy;
+    [SerializeField] private ParticleSystem _dieEffect;
 
     private Coroutine _dieMessage;
 
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
         WaitForSeconds delay = new WaitForSeconds(1.5f);
 
         yield return delay;
+        Instantiate(_dieEffect, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
 }

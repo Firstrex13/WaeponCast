@@ -1158,15 +1158,14 @@ MonoBehaviour:
   - {fileID: 146502421}
   - {fileID: 16236356}
   - {fileID: 2024567221}
-  _dieEffect: {fileID: 19819134, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   _waves:
   - _objectPooller: {fileID: 1891515032}
     _spawnInterval: 3
-    _objectsPerWave: 3
+    _objectsPerWave: 2
     _enemiesCount: 0
   - _objectPooller: {fileID: 271870859}
     _spawnInterval: 4
-    _objectsPerWave: 5
+    _objectsPerWave: 2
     _enemiesCount: 0
   _waveNumber: 0
 --- !u!1 &645577281

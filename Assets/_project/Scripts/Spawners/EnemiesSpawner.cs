@@ -32,7 +32,6 @@ public class EnemiesSpawner : MonoBehaviour
 
     [SerializeField] private Player _player;
     [SerializeField] private Transform[] _spawnPositions;
-    [SerializeField] private ParticleSystem _dieEffect;
 
     [SerializeField] private List<Wave> _waves;
     [SerializeField] private int _waveNumber;
@@ -59,17 +58,23 @@ public class EnemiesSpawner : MonoBehaviour
     {
         WaitForSeconds delay = new WaitForSeconds(_waves[_waveNumber].SpawnInterval);
 
-        while (_player != null)
+        while (_player != null && _waveNumber < _waves.Count)
         {
             if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
             {
-                _waves[_waveNumber].ResetCount();
-
-                _waveNumber++;
-
-                if (_waveNumber >= _waves.Count)
+                if (_waveNumber < _waves.Count - 1)
                 {
-                    _waveNumber = 0;
+                    _waves[_waveNumber].ResetCount();
+
+                    _waveNumber++;
+                }
+
+                if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
+                {
+                    Debug.Log("Spawn finished");
+                    StopCoroutine(_spawnCoroutine);
+                    _spawnCoroutine = null;
+                    yield return null;
                 }
             }
 
@@ -78,7 +83,7 @@ public class EnemiesSpawner : MonoBehaviour
             GameObject pooledObject = _waves[_waveNumber].ObjectPooller.GetPooledObject();
             Enemy enemy = pooledObject.GetComponent<Enemy>();
             enemy.transform.position = _spawnPositions[randomPoint].position;
-            transform.rotation = Quaternion.identity;     
+            transform.rotation = Quaternion.identity;
             enemy.MakeEnable();
             AIEnemy ai = enemy.GetComponent<AIEnemy>();
             enemy.gameObject.SetActive(true);

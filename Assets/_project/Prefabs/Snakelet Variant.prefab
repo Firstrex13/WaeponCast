@@ -503,6 +503,7 @@ MonoBehaviour:
   Health: {fileID: 3122217831987452761}
   _collider: {fileID: 6381196997912537607}
   _aIEnemy: {fileID: 5144849676701141042}
+  _dieEffect: {fileID: 19819134, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
 --- !u!114 &5144849676701141042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d087ebf1194a1745be5323c03f45b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 0
   _config: {fileID: 11400000, guid: e47e4ee5f0f850546a55ef06efc2c192, type: 2}
 --- !u!114 &1616201824465847063
 MonoBehaviour:

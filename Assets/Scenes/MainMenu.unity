@@ -624,8 +624,6 @@ RectTransform:
   m_Children:
   - {fileID: 1145297924}
   - {fileID: 765646487}
-  - {fileID: 1226790274}
-  - {fileID: 2132825424}
   - {fileID: 1069996938}
   m_Father: {fileID: 497662537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1542,7 +1540,7 @@ GameObject:
   - component: {fileID: 765646491}
   - component: {fileID: 765646490}
   - component: {fileID: 765646489}
-  - component: {fileID: 765646488}
+  - component: {fileID: 765646492}
   m_Layer: 5
   m_Name: Mana
   m_TagString: Untagged
@@ -1563,6 +1561,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 688663353}
+  - {fileID: 2132825424}
   m_Father: {fileID: 174740926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1570,23 +1569,6 @@ RectTransform:
   m_AnchoredPosition: {x: -532, y: 104}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &765646488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765646486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e55e9a835df0f54898aa1c463796640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _saver: {fileID: 1264436780}
-  _currentHealthStat: {fileID: 1703163385}
-  _nextHealthLevelStat: {fileID: 454712340}
-  _currentManaStat: {fileID: 1635564255}
-  _nextManaLevelStat: {fileID: 1613155226}
 --- !u!114 &765646489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,9 +1613,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 765646488}
-        m_TargetAssemblyTypeName: StatsUpgraderOnButton, Assembly-CSharp
-        m_MethodName: UpgradeManaStat
+      - m_Target: {fileID: 765646492}
+        m_TargetAssemblyTypeName: ManaUpgraderOnButton, Assembly-CSharp
+        m_MethodName: UpgradeStat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1681,6 +1663,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765646486}
   m_CullTransparentMesh: 1
+--- !u!114 &765646492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765646486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe11f3b0d774f249a1e350cda52b758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _saver: {fileID: 1264436780}
+  CurrentStat: {fileID: 1635564255}
+  NextLevelStat: {fileID: 1613155226}
 --- !u!1 &834535020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,6 +2030,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2914941}
+  - {fileID: 1226790274}
   m_Father: {fileID: 174740926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2085,8 +2083,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1145297928}
-        m_TargetAssemblyTypeName: StatsUpgraderOnButton, Assembly-CSharp
-        m_MethodName: UpgradeHealthStat
+        m_TargetAssemblyTypeName: HealthUpgraderOnButton, Assembly-CSharp
+        m_MethodName: UpgradeStat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2143,14 +2141,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1145297923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e55e9a835df0f54898aa1c463796640, type: 3}
+  m_Script: {fileID: 11500000, guid: c7a30c7ca58560548a75dff0c431c879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 1264436780}
-  _currentHealthStat: {fileID: 1703163385}
-  _nextHealthLevelStat: {fileID: 454712340}
-  _currentManaStat: {fileID: 1635564255}
-  _nextManaLevelStat: {fileID: 1613155226}
+  CurrentStat: {fileID: 1703163385}
+  NextLevelStat: {fileID: 454712340}
 --- !u!1 &1162962640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,18 +2308,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226790273}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5582403, y: 0.111746974, z: 0.111746974}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1162962641}
-  m_Father: {fileID: 174740926}
+  m_Father: {fileID: 1145297924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 285, y: 244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 817.00006, y: -2.0000458}
+  m_SizeDelta: {x: 1620, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1226790275
 MonoBehaviour:
@@ -2850,7 +2846,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelUpPanel: {fileID: 174740925}
   _menuPanel: {fileID: 1264436778}
-  _statsUpgrader: {fileID: 1145297928}
+  _statsUpgraders:
+  - {fileID: 1145297928}
+  - {fileID: 765646492}
 --- !u!4 &1621545279
 Transform:
   m_ObjectHideFlags: 0
@@ -3560,18 +3558,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132825423}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5582403, y: 0.111746974, z: 0.111746974}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1555407527}
-  m_Father: {fileID: 174740926}
+  m_Father: {fileID: 765646487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 285, y: 107}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 817.00006, y: 3.0000305}
+  m_SizeDelta: {x: 1620, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132825425
 MonoBehaviour:

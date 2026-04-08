@@ -62,13 +62,13 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _rigidbody.AddForce(Velocity * _moveSpeed, ForceMode.VelocityChange);
+        _rigidbody.velocity = Velocity * _moveSpeed;
         _playerAnimations.PlayMove(Velocity.magnitude);
     }
 
     private void GetVelocity()
     {
-        Velocity = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
+        Velocity = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical).normalized;
 
         if (Velocity != Vector3.zero)
         {

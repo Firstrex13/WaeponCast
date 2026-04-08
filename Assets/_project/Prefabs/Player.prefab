@@ -720,7 +720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55e9a835df0f54898aa1c463796640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthConfig: {fileID: 11400000, guid: 77f3ab4734f226b408d109f6b022d9e9, type: 2}
+  _saver: {fileID: 0}
+  CurrentStat: {fileID: 0}
+  NextLevelStat: {fileID: 0}
 --- !u!1 &2100635653161217693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,7 +3054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b7ed3cf84fa24dbe4685f3a5d8629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 1
+  _moveSpeed: 6
   _rotationSpeed: 600
   _unitChecker: {fileID: 4291284058807243918}
   _playerAnimations: {fileID: 174023234994822722}
@@ -3097,7 +3099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db4386f42d63504d948eae23fd06765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 100
   _speedRecovery: 2
 --- !u!114 &1853932450446633211
 MonoBehaviour:
@@ -3126,7 +3127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66601418fa082c449a01d107080384bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 0
 --- !u!114 &6206296544013924255
 MonoBehaviour:
   m_ObjectHideFlags: 0

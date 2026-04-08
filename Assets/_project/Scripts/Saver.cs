@@ -13,7 +13,7 @@ public class Saver : MonoBehaviour
     private void Start()
     {
        //DeleteSave();
-      LoadGame();
+       //LoadGame();
     }
 
     public void SaveGame()
