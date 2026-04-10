@@ -13,7 +13,6 @@ public class EnemiesSpawner : MonoBehaviour
         [SerializeField] private float _spawnInterval;
         [SerializeField] private int _objectsPerWave;
         [SerializeField] private int _enemiesCount;
-
         public ObjectPooller ObjectPooller => _objectPooller;
         public float SpawnInterval => _spawnInterval;
         public int ObjectsPerWave => _objectsPerWave;
@@ -37,6 +36,8 @@ public class EnemiesSpawner : MonoBehaviour
     [SerializeField] private int _waveNumber;
 
     private Coroutine _spawnCoroutine;
+
+    public event Action<Vector3> CoinDropped;
 
     private void Start()
     {
@@ -87,9 +88,16 @@ public class EnemiesSpawner : MonoBehaviour
             enemy.MakeEnable();
             AIEnemy ai = enemy.GetComponent<AIEnemy>();
             enemy.gameObject.SetActive(true);
+            enemy.CoinDropped += SandDropCoinMessage;
             ai.Initialize(_player);
             _waves[_waveNumber].IncreaseCount();
             yield return delay;
         }
+    }
+
+    private void SandDropCoinMessage(Enemy enemy)
+    {
+        CoinDropped?.Invoke(enemy.transform.position + enemy.transform.up);
+        enemy.CoinDropped -= SandDropCoinMessage;
     }
 }

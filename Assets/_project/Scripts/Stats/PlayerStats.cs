@@ -22,5 +22,5 @@ public class PlayerStats
 
 public static class PlayerData
 {
-    public static PlayerStats Stats = new PlayerStats(100, 50);
+    public static PlayerStats Stats = new PlayerStats(100, 100);
 }

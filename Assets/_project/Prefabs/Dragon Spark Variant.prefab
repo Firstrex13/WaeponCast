@@ -57,6 +57,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8165941763686152109}
     - target: {fileID: 3662145130224749615, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
+      propertyPath: _coin
+      value: 
+      objectReference: {fileID: 1195519081631681613, guid: 15b70ee519e45a2498c9f88754145f76, type: 3}
+    - target: {fileID: 3662145130224749615, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
       propertyPath: Health
       value: 
       objectReference: {fileID: 8165941763686152109}
@@ -64,6 +68,14 @@ PrefabInstance:
       propertyPath: _dieEffect
       value: 
       objectReference: {fileID: 19819134, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
+    - target: {fileID: 3662145130224749615, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
+      propertyPath: _coinDropChance
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662145130224749615, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
+      propertyPath: _coinSpawnChance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4176746633044811233, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

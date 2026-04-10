@@ -2891,7 +2891,6 @@ GameObject:
   - component: {fileID: 1456437507506467206}
   - component: {fileID: 174023234994822722}
   - component: {fileID: 6302676011896887513}
-  - component: {fileID: 820104929468319265}
   - component: {fileID: 3983880434075936346}
   - component: {fileID: 326298646158188736}
   - component: {fileID: 1853932450446633211}
@@ -3058,19 +3057,6 @@ MonoBehaviour:
   _rotationSpeed: 600
   _unitChecker: {fileID: 4291284058807243918}
   _playerAnimations: {fileID: 174023234994822722}
---- !u!114 &820104929468319265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7568473833435199886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaf835ded359bd446aa1c49f9f779a62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 6400875135453430331}
 --- !u!114 &3983880434075936346
 MonoBehaviour:
   m_ObjectHideFlags: 0

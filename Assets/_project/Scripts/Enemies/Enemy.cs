@@ -8,8 +8,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Collider _collider;
     [SerializeField] private AIEnemy _aIEnemy;
     [SerializeField] private ParticleSystem _dieEffect;
+    [SerializeField] private int _coinDropChance = 20;
 
     private Coroutine _dieMessage;
+
+    public event Action<Enemy> CoinDropped;
 
     private void Start()
     {
@@ -52,6 +55,14 @@ public class Enemy : MonoBehaviour
 
         yield return delay;
         Instantiate(_dieEffect, transform.position, Quaternion.identity);
+
+        int randomNumber = UnityEngine.Random.Range(0, 100);
+
         gameObject.SetActive(false);
+
+        if (randomNumber < _coinDropChance)
+        {
+            CoinDropped?.Invoke(this);
+        }
     }
 }

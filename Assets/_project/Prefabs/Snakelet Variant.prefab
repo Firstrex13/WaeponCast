@@ -504,6 +504,7 @@ MonoBehaviour:
   _collider: {fileID: 6381196997912537607}
   _aIEnemy: {fileID: 5144849676701141042}
   _dieEffect: {fileID: 19819134, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
+  _coinDropChance: 50
 --- !u!114 &5144849676701141042
 MonoBehaviour:
   m_ObjectHideFlags: 0
