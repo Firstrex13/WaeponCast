@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     private Coroutine _dieMessage;
 
     public event Action<Enemy> CoinDropped;
+    public event Action<Enemy> Died;
 
     private void Start()
     {
@@ -59,6 +60,7 @@ public class Enemy : MonoBehaviour
         int randomNumber = UnityEngine.Random.Range(0, 100);
 
         gameObject.SetActive(false);
+        Died?.Invoke(this);
 
         if (randomNumber < _coinDropChance)
         {

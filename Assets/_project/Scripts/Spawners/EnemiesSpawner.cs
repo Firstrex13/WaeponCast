@@ -34,10 +34,12 @@ public class EnemiesSpawner : MonoBehaviour
 
     [SerializeField] private List<Wave> _waves;
     [SerializeField] private int _waveNumber;
+    [SerializeField] private int _enemyCount;
 
     private Coroutine _spawnCoroutine;
 
     public event Action<Vector3> CoinDropped;
+    public event Action AllEnemiesDefeated;
 
     private void Start()
     {
@@ -72,9 +74,9 @@ public class EnemiesSpawner : MonoBehaviour
 
                 if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
                 {
-                    Debug.Log("Spawn finished");
+                    Debug.Log("Spawn finished");                 
                     StopCoroutine(_spawnCoroutine);
-                    _spawnCoroutine = null;
+                    _spawnCoroutine = null;   
                     yield return null;
                 }
             }
@@ -88,7 +90,9 @@ public class EnemiesSpawner : MonoBehaviour
             enemy.MakeEnable();
             AIEnemy ai = enemy.GetComponent<AIEnemy>();
             enemy.gameObject.SetActive(true);
+            _enemyCount++;
             enemy.CoinDropped += SandDropCoinMessage;
+            enemy.Died += DecreaseEnemyCount;
             ai.Initialize(_player);
             _waves[_waveNumber].IncreaseCount();
             yield return delay;
@@ -99,5 +103,16 @@ public class EnemiesSpawner : MonoBehaviour
     {
         CoinDropped?.Invoke(enemy.transform.position + enemy.transform.up);
         enemy.CoinDropped -= SandDropCoinMessage;
+    }
+
+    private void DecreaseEnemyCount(Enemy enemy)
+    {
+        _enemyCount--;
+
+        if (_enemyCount <= 0)
+        {
+            AllEnemiesDefeated?.Invoke(); ;
+        }
+        enemy.CoinDropped -= DecreaseEnemyCount;
     }
 }
