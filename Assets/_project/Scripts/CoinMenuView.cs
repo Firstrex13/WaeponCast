@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class CoinCounterView : MonoBehaviour
+public class CoinMenuView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _coinText;
 
@@ -13,6 +13,12 @@ public class CoinCounterView : MonoBehaviour
     {
         _coinCounter = coinCounter;
     }
+
+    private void Start()
+    {
+        UpdateCoinCount();
+    }
+
     private void OnEnable()
     {
         _coinCounter.CoinCountUpdated += UpdateCoinCount;
@@ -25,6 +31,6 @@ public class CoinCounterView : MonoBehaviour
 
     private void UpdateCoinCount()
     {
-        _coinText.text = _coinCounter.CoinCountOnLevel.ToString();
+        _coinText.text = _coinCounter.TotalCoinCount.ToString();
     }
 }

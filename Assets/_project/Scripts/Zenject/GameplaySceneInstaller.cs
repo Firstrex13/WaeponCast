@@ -10,6 +10,6 @@ public class GameplaySceneInstaller : MonoInstaller
     {     
         Container.Bind<FloatingJoystick>().FromInstance(_floatingJoystick);
         Player player = Container.InstantiatePrefabForComponent<Player>(_player);
-        Container.Bind<Player>().FromInstance(player);
+        Container.Bind<Player>().FromInstance(player);      
     }
 }

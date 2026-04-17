@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StatsUpgraderOnButton : MonoBehaviour
 {
-    [SerializeField] private Saver _saver;
+    [SerializeField] private GameSaver _saver;
     [SerializeField] protected TextMeshProUGUI CurrentStat;
     [SerializeField] protected TextMeshProUGUI NextLevelStat;
 
