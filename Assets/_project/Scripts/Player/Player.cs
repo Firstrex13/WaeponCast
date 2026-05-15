@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerAudioManager _audioManager;
     [SerializeField] private PlayerAnimations _animations;
     [SerializeField] private PlayerHealth _health;
+    [SerializeField] private Mana _mana;
     [SerializeField] private PlayerController _playerController;
 
     private void Start()
@@ -18,6 +19,12 @@ public class Player : MonoBehaviour
         _health.Hit -= PlayHit;
         _health.Died -= PlayDie;
     } 
+
+    public void InitializePlayer(IProgressService playerProgress)
+    {
+        _health.Initialize(playerProgress);
+        _mana.Initialize(playerProgress);
+    }
 
     private void PlayHit()
     {

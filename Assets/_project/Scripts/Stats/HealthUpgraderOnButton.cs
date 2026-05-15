@@ -1,14 +1,27 @@
+using UnityEngine;
+
 public class HealthUpgraderOnButton : StatsUpgraderOnButton
 {
     public override void UpgradeStat()
     {
-        PlayerData.Stats.UpgradeHealth();
-        base.UpgradeStat();
+        if (CoinCounter.TotalCoinCount >= UpgradeCost)
+        {
+            ProgressService.GetProgress().Stats.UpgradeHealth();
+            ProgressService.GetProgress().Counter.DecreaseCoin(UpgradeCost);
+            UpdateDisplay();
+            base.UpgradeStat();
+        }
+        else
+        {
+            Debug.Log("Недостаточно монет");
+        }
     }
 
     public override void UpdateDisplay()
     {
-        CurrentStat.text = PlayerData.Stats.Health.ToString();
-        NextLevelStat.text = $"{PlayerData.Stats.Health + 10}";
+        CurrentStat.text = ProgressService.GetProgress().Stats.Health.ToString();
+        NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Health + ProgressService.GetProgress().Stats.UpgradeHealthCount}";
     }
+
+
 }

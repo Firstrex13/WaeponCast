@@ -1709,6 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
+  UpgradeCost: 2
   CurrentStat: {fileID: 1635564255}
   NextLevelStat: {fileID: 1613155226}
 --- !u!1 &834535020
@@ -2178,6 +2179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
+  UpgradeCost: 1
   CurrentStat: {fileID: 1703163385}
   NextLevelStat: {fileID: 454712340}
 --- !u!1 &1162962640
@@ -5019,6 +5021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 0}
+  UpgradeCost: 0
   CurrentStat: {fileID: 0}
   NextLevelStat: {fileID: 0}
 --- !u!1 &3809015048590147664

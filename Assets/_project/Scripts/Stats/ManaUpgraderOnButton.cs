@@ -1,14 +1,25 @@
+using UnityEngine;
+
 public class ManaUpgraderOnButton : StatsUpgraderOnButton
 {
     public override void UpgradeStat()
     {
-        PlayerData.Stats.UpgradeMana();
-        base.UpgradeStat();
+        if (CoinCounter.TotalCoinCount >= UpgradeCost)
+        {
+            ProgressService.GetProgress().Stats.UpgradeMana();
+            ProgressService.GetProgress().Counter.DecreaseCoin(UpgradeCost);
+            UpdateDisplay();
+            base.UpgradeStat();
+        }
+        else
+        {
+            Debug.Log("Недостаточно монет");
+        }
     }
 
     public override void UpdateDisplay()
     {
-        CurrentStat.text = PlayerData.Stats.Mana.ToString();
-        NextLevelStat.text = $"{PlayerData.Stats.Mana + 5}";
+        CurrentStat.text = ProgressService.GetProgress().Stats.Mana.ToString();
+        NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Mana + ProgressService.GetProgress().Stats.UpgradeManaCount}";
     }
 }

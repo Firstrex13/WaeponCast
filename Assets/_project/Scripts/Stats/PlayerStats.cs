@@ -1,26 +1,29 @@
+using System;
+
+[Serializable]
 public class PlayerStats 
 {
     public int Health;
     public int Mana;
 
-    public PlayerStats(int health, int mana)
+    public int UpgradeHealthCount;
+    public int UpgradeManaCount;
+
+    public PlayerStats(int health, int mana, int upgadeHealthCost, int upgradeManaCount)
     {
         Health = health;
         Mana = mana;
+        UpgradeHealthCount = upgadeHealthCost;
+        UpgradeManaCount = upgradeManaCount;
     }
 
     public void UpgradeHealth()
     {
-        Health += 10;
+        Health += UpgradeHealthCount;
     }
 
     public void UpgradeMana()
     {
-        Mana += 5;
+        Mana += UpgradeManaCount;
     }
-}
-
-public static class PlayerData
-{
-    public static PlayerStats Stats = new PlayerStats(100, 100); 
 }

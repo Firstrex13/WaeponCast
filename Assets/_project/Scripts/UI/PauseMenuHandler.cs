@@ -37,10 +37,10 @@ public class PauseMenuHandler : MonoBehaviour
     }
 
     [Inject]
-    public void Construct(Player player, CoinCounter coinCounter)
+    public void Construct(Player player, IProgressService progress)
     {
         _playerHealth = player.GetComponent<PlayerHealth>();
-        _coinCounter = coinCounter;
+        _coinCounter = progress.GetProgress().Counter;
     }
 
     public void OpenMenu()

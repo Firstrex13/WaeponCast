@@ -3013,6 +3013,7 @@ MonoBehaviour:
   _audioManager: {fileID: 1456437507506467206}
   _animations: {fileID: 174023234994822722}
   _health: {fileID: 6400875135453430331}
+  _mana: {fileID: 326298646158188736}
   _playerController: {fileID: 6302676011896887513}
 --- !u!114 &1456437507506467206
 MonoBehaviour:
@@ -3113,6 +3114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66601418fa082c449a01d107080384bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerHealthView: {fileID: 6206296544013924255}
 --- !u!114 &6206296544013924255
 MonoBehaviour:
   m_ObjectHideFlags: 0

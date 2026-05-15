@@ -4,9 +4,16 @@ public class Mana : Bar
 {
     [SerializeField] private int _speedRecovery;
 
-    private void OnEnable()
+    private PlayerProgress _playerProgress;
+
+    public void Initialize(IProgressService playerProgress)
     {
-        MaxValue = PlayerData.Stats.Mana;
+        _playerProgress = playerProgress.GetProgress();
+    }
+    
+    private void Start()
+    {
+        MaxValue =  _playerProgress.Stats.Mana;
         CurrentValue = MaxValue;
     }
 

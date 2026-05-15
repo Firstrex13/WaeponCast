@@ -1,14 +1,25 @@
 using System;
+using UnityEngine;
 
 public class PlayerHealth : Bar, IDamageable
 {
+    [SerializeField] private PlayerHealthView _playerHealthView;
+
+    private PlayerProgress _playerProgress;
+
     public event Action Healed;
     public event Action Died;
 
-    private void OnEnable()
+    private void Start()
     {
-        MaxValue = PlayerData.Stats.Health;
+        MaxValue = _playerProgress.Stats.Health;
         CurrentValue = MaxValue;
+    }
+
+    public void Initialize(IProgressService playerProgress)
+    {
+        _playerProgress = playerProgress.GetProgress();
+        _playerHealthView.Initialize();
     }
 
     public void TakeDamage(int damage)

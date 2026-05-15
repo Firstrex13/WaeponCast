@@ -6,12 +6,14 @@ public class CoinCounterView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _coinText;
 
+    private IProgressService _progressService;
     private CoinCounter _coinCounter;
 
     [Inject]
-    public void Construct(CoinCounter coinCounter)
+    public void Construct(IProgressService progress)
     {
-        _coinCounter = coinCounter;
+        _progressService = progress;
+        _coinCounter = _progressService.GetProgress().Counter;
     }
     private void OnEnable()
     {

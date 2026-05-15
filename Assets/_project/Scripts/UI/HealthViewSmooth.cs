@@ -15,7 +15,7 @@ public class HealthViewSmooth : MonoBehaviour
         _health.Hit += UpdateValue;
     }
 
-    private void Start()
+    public virtual void Start()
     {
         _slider.value = _health.Max;
     }

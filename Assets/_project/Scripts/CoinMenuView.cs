@@ -9,9 +9,9 @@ public class CoinMenuView : MonoBehaviour
     private CoinCounter _coinCounter;
 
     [Inject]
-    public void Construct(CoinCounter coinCounter)
+    public void Construct(IProgressService progress)
     {
-        _coinCounter = coinCounter;
+        _coinCounter = progress.GetProgress().Counter;
     }
 
     private void Start()

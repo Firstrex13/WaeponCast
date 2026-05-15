@@ -1,5 +1,6 @@
 using System;
 
+[Serializable]
 public class CoinCounter
 {
     public int TotalCoinCount;
@@ -26,9 +27,10 @@ public class CoinCounter
     {
         TotalCoinCount = count;
     }
-}
 
-public static class CounterData
-{
-    public static CoinCounter CoinCounter = new CoinCounter(); 
+    public void DecreaseCoin(int cost)
+    {
+        TotalCoinCount -= cost;
+        CoinCountUpdated?.Invoke();
+    }
 }
