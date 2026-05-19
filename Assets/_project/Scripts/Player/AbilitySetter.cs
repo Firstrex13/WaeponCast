@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class AbilitySetter : MonoBehaviour
 {
@@ -8,26 +9,34 @@ public class AbilitySetter : MonoBehaviour
     [SerializeField] private WeaponConfig _NovaSmallConfig;
     [SerializeField] private WeaponConfig _fireballConfig;
 
+    public PlayerProgress Progress { get; private set; }
+
     private void Start()
     {
-        _abillityUser.SetupAbillity(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce), _lightningConfig.AttackRate, _lightningConfig.ManaCost);
+        _abillityUser.SetupAbillity(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate, _lightningConfig.ManaCost);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _abillityUser.SetupAbillity(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce), _lightningConfig.AttackRate, _lightningConfig.ManaCost);
+            _abillityUser.SetupAbillity(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate, _lightningConfig.ManaCost);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _abillityUser.SetupAbillity(new WeaponAbillity(_NovaSmallConfig.Weapon, _NovaSmallConfig.ThrowForce), _NovaSmallConfig.AttackRate, _NovaSmallConfig.ManaCost);
+            _abillityUser.SetupAbillity(new WeaponAbillity(_NovaSmallConfig.Weapon, _NovaSmallConfig.ThrowForce, Progress.Stats.Force), _NovaSmallConfig.AttackRate, _NovaSmallConfig.ManaCost);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            _abillityUser.SetupAbillity(new WeaponAbillity(_fireballConfig.Weapon, _fireballConfig.ThrowForce), _fireballConfig.AttackRate, _fireballConfig.ManaCost);
+            _abillityUser.SetupAbillity(new WeaponAbillity(_fireballConfig.Weapon, _fireballConfig.ThrowForce, Progress.Stats.Force), _fireballConfig.AttackRate, _fireballConfig.ManaCost);
         }
+    }
+
+    [Inject]
+    public void Construct(IProgressService progress)
+    {
+        Progress = progress.GetProgress();
     }
 }

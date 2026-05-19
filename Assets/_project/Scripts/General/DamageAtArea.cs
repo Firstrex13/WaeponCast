@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class DamageAtArea : MonoBehaviour
+public class DamageAtArea : Collision
 {
     [SerializeField] private WeaponConfig _weaponConfig;
     [SerializeField] private float  _radious;
     [SerializeField] private LayerMask _layerMask;
 
+
     public int DamageAmount => _weaponConfig.Damage;
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -17,7 +19,7 @@ public class DamageAtArea : MonoBehaviour
         {
             if (collider.TryGetComponent(out IDamageable damageable))
             {
-                damageable.TakeDamage(DamageAmount);
+                damageable.TakeDamage(DamageAmount + Force);
                 Destroy(gameObject);
 
             }

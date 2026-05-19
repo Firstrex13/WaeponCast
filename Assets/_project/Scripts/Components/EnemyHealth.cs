@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyHealth : Bar, IDamageable
 {
     [SerializeField] private HealthConfig _config;
+    [SerializeField] private DamageTextPopUp _damageTextPopUp;
 
     public event Action Died;
 
@@ -30,9 +31,11 @@ public class EnemyHealth : Bar, IDamageable
                 {
                     CurrentValue = 0;
                     Died?.Invoke();
+                    _damageTextPopUp.ShowDamageText(damage);
                 }
 
-               OnHit();
+                OnHit();
+                _damageTextPopUp.ShowDamageText(damage);
             }
         }
     }

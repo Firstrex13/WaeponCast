@@ -5907,7 +5907,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _floatingJoystick: {fileID: 7693746215347177614}
   _player: {fileID: 7095381907133665543, guid: 3f7e2db372fea9946b51db5b18cef39d, type: 3}
-  _gameSaver: {fileID: 294189054}
 --- !u!1001 &1782336554
 PrefabInstance:
   m_ObjectHideFlags: 0

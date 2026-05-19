@@ -1,12 +1,9 @@
-using System.IO;
 using UnityEngine;
 using Zenject;
 using YG;
-using YG.Insides;
 
 public class GameSaver : MonoBehaviour
 {
-
     public PlayerProgress Progress { get; private set; }
 
     private CoinCounter _coinCounter;
@@ -28,7 +25,7 @@ public class GameSaver : MonoBehaviour
         }
         else
         {
-            PlayerProgress progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 10, 5));
+            PlayerProgress progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 10, 10, 5));
             return progress;
         }
     }

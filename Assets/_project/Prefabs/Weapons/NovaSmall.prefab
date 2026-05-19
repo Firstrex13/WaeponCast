@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3992069712971176610}
+  _collision: {fileID: 1502179332338031878}
 --- !u!114 &1502179332338031878
 MonoBehaviour:
   m_ObjectHideFlags: 0

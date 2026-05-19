@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: _radius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6530306369061828735, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9117398710154001137, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
       propertyPath: _health
       value: 
@@ -140,6 +144,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2562129615151051004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 473705725454469134, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
+  m_PrefabInstance: {fileID: 2674139373785479410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0186a8cfb17d42745baf61a103e1ac79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2909070031427272753 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 955717841895258307, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
@@ -158,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 1125ee51323a0a64bbec71cdd3b055b3, type: 2}
+  _damageTextPopUp: {fileID: 2562129615151051004}
 --- !u!114 &8505997826544563533
 MonoBehaviour:
   m_ObjectHideFlags: 0

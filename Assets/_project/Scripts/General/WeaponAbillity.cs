@@ -1,14 +1,17 @@
 using UnityEngine;
+using Zenject;
 
 public class WeaponAbillity : IAbilityWeapon
 {
     private Weapon _weaponPrefab;
-    private float _force;
+    private float _throwForce;
+    private int _statsDamage;
 
-    public WeaponAbillity(Weapon weaponPrefab, float force)
+    public WeaponAbillity(Weapon weaponPrefab, float force, int statsDamage)
     {
         _weaponPrefab = weaponPrefab;
-        _force = force;
+        _throwForce = force;
+        _statsDamage = statsDamage;
     }
 
     public void Throw(Transform spawnPoint)
@@ -17,6 +20,7 @@ public class WeaponAbillity : IAbilityWeapon
         Quaternion lookRotation = Quaternion.LookRotation(spawnPoint.transform.forward);
 
         Weapon weapon = Object.Instantiate(_weaponPrefab, spawnPosition.transform.position, lookRotation);
-        weapon.Launch(spawnPoint.transform.forward * _force);
+        weapon.Launch(spawnPoint.transform.forward * _throwForce);
+        weapon.Initialize(_statsDamage);
     }
 }
