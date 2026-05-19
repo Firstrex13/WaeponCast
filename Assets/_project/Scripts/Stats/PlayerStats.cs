@@ -9,14 +9,16 @@ public class PlayerStats
 
     public int UpgradeHealthCount;
     public int UpgradeManaCount;
+    public int UpgradeForceCount;
 
-    public PlayerStats(int health, int mana, int force, int upgadeHealthCost, int upgradeManaCount)
+    public PlayerStats(int health, int mana, int force, int upgadeHealthCost, int upgradeManaCount, int upgradeForceCount)
     {
         Health = health;
         Mana = mana;
         Force = force;
         UpgradeHealthCount = upgadeHealthCost;
         UpgradeManaCount = upgradeManaCount;
+        UpgradeForceCount = upgradeForceCount;
     }
 
     public void UpgradeHealth()
@@ -28,4 +30,9 @@ public class PlayerStats
     {
         Mana += UpgradeManaCount;
     }
+    public void UpgradeForce()
+    {
+        Force += UpgradeForceCount;
+    }
+
 }
