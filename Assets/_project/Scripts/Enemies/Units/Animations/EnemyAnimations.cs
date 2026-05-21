@@ -18,13 +18,13 @@ public class EnemyAnimations : MonoBehaviour
     {
         CanRun = true;
         _health.Hit += PlayHit;
-        _health.Died += PlayDie;
+        _health.EnemyDied += PlayDie;
     }
 
     private void OnDisable()
     {
         _health.Hit -= PlayHit;
-        _health.Died -= PlayDie;
+        _health.EnemyDied -= PlayDie;
     }
 
     public void PlayIdle()

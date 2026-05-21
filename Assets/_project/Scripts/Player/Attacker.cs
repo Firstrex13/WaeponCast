@@ -15,15 +15,18 @@ public class Attacker : MonoBehaviour
     {
         if (_unitChecker.NearestEnemy)
         {
-            if (!_playerController.Moving)
+            if (_unitChecker.NearestEnemy.EnemyHealth.CurentHealth > 0)
             {
-                if (Time.timeScale > 0)
+                if (!_playerController.Moving)
                 {
-                    if (_isReadyToAttack && _mana.Current >= _abillityUser.ManaCost)
+                    if (Time.timeScale > 0)
                     {
-                        Attack();
-                        _isReadyToAttack = false;
-                        _timer = 0;
+                        if (_isReadyToAttack && _mana.Current >= _abillityUser.ManaCost)
+                        {
+                            Attack();
+                            _isReadyToAttack = false;
+                            _timer = 0;
+                        }
                     }
                 }
             }

@@ -20,7 +20,6 @@ public class GameSaver : MonoBehaviour
         if (YG2.saves.Json != null)
         {
             Progress = JsonUtility.FromJson<PlayerProgress>(YG2.saves.Json);
-            Debug.Log($"{YG2.saves.Json}");
             return Progress;
         }
         else

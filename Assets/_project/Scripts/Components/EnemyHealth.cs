@@ -6,7 +6,9 @@ public class EnemyHealth : Bar, IDamageable
     [SerializeField] private HealthConfig _config;
     [SerializeField] private DamageTextPopUp _damageTextPopUp;
 
-    public event Action Died;
+    public event Action EnemyDied;
+
+    public float CurentHealth => Current;
 
     private void OnEnable()
     {
@@ -30,7 +32,7 @@ public class EnemyHealth : Bar, IDamageable
                 if (CurrentValue <= 0)
                 {
                     CurrentValue = 0;
-                    Died?.Invoke();
+                    EnemyDied?.Invoke();
                     _damageTextPopUp.ShowDamageText(damage);
                 }
 

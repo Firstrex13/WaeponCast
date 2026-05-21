@@ -15,14 +15,16 @@ public class Enemy : MonoBehaviour
     public event Action<Enemy> CoinDropped;
     public event Action<Enemy> Died;
 
+    public EnemyHealth EnemyHealth => Health;
+
     private void Start()
     {
-        Health.Died += DieWithDelay; ;
+        Health.EnemyDied += DieWithDelay; ;
     }
 
     private void OnDestroy()
     {
-        Health.Died -= DieWithDelay;
+        Health.EnemyDied -= DieWithDelay;
     }
     public void MakeEnable()
     {
@@ -31,14 +33,7 @@ public class Enemy : MonoBehaviour
         enabled = true;
     }
 
-    private void MakeDisable()
-    {
-        _collider.enabled = false;
-        _aIEnemy.MakeDisable();
-        enabled = false;
-    }
-
-    private void DieWithDelay()
+    public void DieWithDelay()
     {
         MakeDisable();
 
@@ -48,6 +43,13 @@ public class Enemy : MonoBehaviour
         }
 
         _dieMessage = StartCoroutine(SendWithDelay());
+    }
+
+    private void MakeDisable()
+    {
+        _collider.enabled = false;
+        _aIEnemy.MakeDisable();
+        enabled = false;
     }
 
     private IEnumerator SendWithDelay()
