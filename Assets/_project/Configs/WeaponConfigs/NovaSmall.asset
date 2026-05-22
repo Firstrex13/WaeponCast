@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Weapon>k__BackingField: {fileID: 6995938100299263712, guid: e23a523b3d4579b4683d60e9a46ebd6c, type: 3}
   <Damage>k__BackingField: 30
-  <AttackRate>k__BackingField: 3
-  <ThrowForce>k__BackingField: 5
+  <AttackRate>k__BackingField: 2
+  <ThrowForce>k__BackingField: 10
   <ManaCost>k__BackingField: 20
