@@ -40,15 +40,22 @@ public class EnemiesSpawner : MonoBehaviour
     [SerializeField] private int _enemyCount;
 
     private Coroutine _spawnCoroutine;
+    [SerializeField] private int _totalEnemiesOnLevel;
 
     public event Action<Vector3> CoinDropped;
     public event Action AllEnemiesDefeated;
     public event Action<int> WaveChanged;
 
     public int WaveNumber => _waveNumber;
+    public List<Wave> Waves => _waves;
 
     private void Start()
     {
+        foreach (var wave in _waves)
+        {
+            _totalEnemiesOnLevel += wave.ObjectsPerWave;
+        }
+
         if (_spawnCoroutine != null)
         {
             StopCoroutine(_spawnCoroutine);
@@ -83,9 +90,9 @@ public class EnemiesSpawner : MonoBehaviour
 
                 if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
                 {
-                    Debug.Log("Spawn finished");                 
+                    Debug.Log("Spawn finished");
                     StopCoroutine(_spawnCoroutine);
-                    _spawnCoroutine = null;   
+                    _spawnCoroutine = null;
                     yield return null;
                 }
             }
@@ -117,11 +124,13 @@ public class EnemiesSpawner : MonoBehaviour
     private void DecreaseEnemyCount(Enemy enemy)
     {
         _enemyCount--;
+        _totalEnemiesOnLevel--;
 
-        if (_enemyCount <= 0 && WaveNumber == _waves.Count - 1)
+        if (WaveNumber == _waves.Count - 1 && _totalEnemiesOnLevel <=0)
         {
             AllEnemiesDefeated?.Invoke(); ;
         }
-        enemy.CoinDropped -= DecreaseEnemyCount;
+
+        enemy.Died -= DecreaseEnemyCount;
     }
 }
