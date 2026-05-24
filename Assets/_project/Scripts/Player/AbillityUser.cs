@@ -10,11 +10,6 @@ public class AbillityUser : MonoBehaviour
 
     public float AttackRate => _attackRate;
 
-    public virtual void ThrowWeapon()
-    {
-        Weapon.Throw(SpawnPosition);
-    }
-
     public void SetupAbility(IAbilityWeapon abilityWeapon, float rate)
     {
         Weapon = abilityWeapon;

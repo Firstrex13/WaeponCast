@@ -8,9 +8,9 @@ public class AbilityPlayerUser : AbillityUser
 
     public float ManaCost => _manaCost;
 
-    public override void ThrowWeapon()
+    public void ThrowWeapon()
     {
-        base.ThrowWeapon();
+        Weapon.Throw(SpawnPosition);
         _mana.Reduce(_manaCost);
     }
 
