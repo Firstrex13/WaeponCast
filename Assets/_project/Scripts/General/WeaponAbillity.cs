@@ -14,6 +14,12 @@ public class WeaponAbillity : IAbilityWeapon
         _statsDamage = statsDamage;
     }
 
+    public WeaponAbillity(Weapon weaponPrefab, float force)
+    {
+        _weaponPrefab = weaponPrefab;
+        _throwForce = force;
+    }
+
     public void Throw(Transform spawnPoint)
     {
         Transform spawnPosition = spawnPoint;

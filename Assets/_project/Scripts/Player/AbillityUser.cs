@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class AbillityUser : MonoBehaviour
 {
-    [SerializeField] private Transform _spawnPosition;
-    [SerializeField] private Mana _mana;
+    [SerializeField] protected Transform SpawnPosition;
 
-    private float _attackRate;
-    private float _manaCost;
+    protected float _attackRate;
 
-    private IAbilityWeapon _weapon;
+    protected IAbilityWeapon Weapon;
 
     public float AttackRate => _attackRate;
-    public float ManaCost => _manaCost;
 
-    public void ThrowWeapon()
+    public virtual void ThrowWeapon()
     {
-        _weapon.Throw(_spawnPosition);
-        _mana.Reduce(ManaCost);
-
+        Weapon.Throw(SpawnPosition);
     }
 
-    public void SetupAbillity(IAbilityWeapon abilityWeapon, float rate, float manaCost)
+    public void SetupAbility(IAbilityWeapon abilityWeapon, float rate)
     {
-        _weapon = abilityWeapon;
+        Weapon = abilityWeapon;
         _attackRate = rate;
-        _manaCost = manaCost;
+    }
+
+    public virtual void SetupAbility(IAbilityWeapon abilityWeapon, float rate, float manaCost)
+    {
+        Weapon = abilityWeapon;
+        _attackRate = rate;
     }
 }

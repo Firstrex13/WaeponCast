@@ -1,4 +1,4 @@
-public class Dragon : Enemy
+public class Dragon : EnemyUnit
 {
      
 }

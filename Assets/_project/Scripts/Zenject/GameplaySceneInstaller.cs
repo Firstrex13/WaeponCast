@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class GameplaySceneInstaller : MonoInstaller
@@ -14,7 +15,6 @@ public class GameplaySceneInstaller : MonoInstaller
         Player player = Container.InstantiatePrefabForComponent<Player>(_player);
         Container.Bind<Player>().FromInstance(player);
 
-        
         player.InitializePlayer(_playerProgress);
     }
 }

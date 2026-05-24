@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BarPosition : MonoBehaviour
 {
-    
     private Camera _camera;
 
     private void Awake()

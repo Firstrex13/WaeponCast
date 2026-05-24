@@ -1,72 +1,24 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected EnemyHealth Health;
-    [SerializeField] private Collider _collider;
-    [SerializeField] private AIEnemy _aIEnemy;
-    [SerializeField] private ParticleSystem _dieEffect;
-    [SerializeField] private int _coinDropChance = 20;
+    [SerializeField] protected AIEnemy AIEnemy;
 
-    private Coroutine _dieMessage;
+    protected Coroutine DieMessage;
 
-    public event Action<Enemy> CoinDropped;
     public event Action<Enemy> Died;
 
     public EnemyHealth EnemyHealth => Health;
 
-    private void Start()
+    protected void SendDieMessage(Enemy enemy)
     {
-        Health.EnemyDied += DieWithDelay; ;
+        Died?.Invoke(enemy);
     }
 
-    private void OnDestroy()
+    public virtual void MakeDisable()
     {
-        Health.EnemyDied -= DieWithDelay;
-    }
-    public void MakeEnable()
-    {
-        _collider.enabled = true;
-        _aIEnemy.MakeEnable();
-        enabled = true;
-    }
-
-    public void DieWithDelay()
-    {
-        MakeDisable();
-
-        if (_dieMessage != null)
-        {
-            StopCoroutine(_dieMessage);
-        }
-
-        _dieMessage = StartCoroutine(SendWithDelay());
-    }
-
-    private void MakeDisable()
-    {
-        _collider.enabled = false;
-        _aIEnemy.MakeDisable();
-        enabled = false;
-    }
-
-    private IEnumerator SendWithDelay()
-    {
-        WaitForSeconds delay = new WaitForSeconds(1.5f);
-
-        yield return delay;
-        Instantiate(_dieEffect, transform.position, Quaternion.identity);
-
-        int randomNumber = UnityEngine.Random.Range(0, 100);
-
-        gameObject.SetActive(false);
-        Died?.Invoke(this);
-
-        if (randomNumber < _coinDropChance)
-        {
-            CoinDropped?.Invoke(this);
-        }
+        AIEnemy.MakeDisable();
     }
 }

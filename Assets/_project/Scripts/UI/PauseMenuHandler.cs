@@ -8,6 +8,7 @@ public class PauseMenuHandler : MonoBehaviour
     [SerializeField] private GameObject _pauseButton;
     [SerializeField] private GameObject _winPanel;
     [SerializeField] private GameObject _losePanel;
+    [SerializeField] private GameObject _BossUI;
     [SerializeField] private EnemiesSpawner _enemiesSpawner;
     [SerializeField] private GameSaver _gameSaver;
 
@@ -19,12 +20,14 @@ public class PauseMenuHandler : MonoBehaviour
     {
         _enemiesSpawner.AllEnemiesDefeated += OpenWinPanel;
         _playerHealth.Died += OpenLosePanel;
+        _enemiesSpawner.BossSpawned += ActivateBossUI;
     }
 
     private void OnDisable()
     {
         _enemiesSpawner.AllEnemiesDefeated += OpenWinPanel;
         _playerHealth.Died -= OpenLosePanel;
+        _enemiesSpawner.BossSpawned -= ActivateBossUI;
     }
 
     private void Start()
@@ -75,5 +78,10 @@ public class PauseMenuHandler : MonoBehaviour
     private void OpenLosePanel()
     {
         _losePanel.SetActive(true);
+    }
+
+    private void ActivateBossUI()
+    {
+        _BossUI.SetActive(true);
     }
 }

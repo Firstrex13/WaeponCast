@@ -5,7 +5,7 @@ public class Attacker : MonoBehaviour
     [SerializeField] private UnitChecker _unitChecker;
     [SerializeField] private PlayerAnimations _animations;
     [SerializeField] private PlayerController _playerController;
-    [SerializeField] private AbillityUser _abillityUser;
+    [SerializeField] private AbilityPlayerUser _abillityUser;
     [SerializeField] private Mana _mana;
 
     private float _timer;

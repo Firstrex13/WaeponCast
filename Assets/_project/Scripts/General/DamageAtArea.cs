@@ -6,10 +6,7 @@ public class DamageAtArea : Collision
     [SerializeField] private float  _radious;
     [SerializeField] private LayerMask _layerMask;
 
-
     public int DamageAmount => _weaponConfig.Damage;
-
-
 
     private void OnTriggerEnter(Collider other)
     {

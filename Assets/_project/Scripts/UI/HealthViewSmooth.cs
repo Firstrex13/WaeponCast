@@ -11,7 +11,11 @@ public class HealthViewSmooth : MonoBehaviour
 
     public virtual void OnEnable()
     {
-        _slider.value = _health.Max;
+        if (_slider != null)
+        {
+            _slider.value = _health.Max;
+        }
+
         _health.Hit += UpdateValue;
     }
 
@@ -27,8 +31,8 @@ public class HealthViewSmooth : MonoBehaviour
 
     public virtual void UpdateValue()
     {
-        if(gameObject.activeSelf) 
-        StartCoroutine(nameof(ChangeValue));
+        if (gameObject.activeSelf)
+            StartCoroutine(nameof(ChangeValue));
     }
 
     private IEnumerator ChangeValue()
@@ -45,5 +49,10 @@ public class HealthViewSmooth : MonoBehaviour
             _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
             yield return null;
         }
+    }
+
+    public void SetSlider(Slider slider)
+    {
+        _slider = slider;
     }
 }

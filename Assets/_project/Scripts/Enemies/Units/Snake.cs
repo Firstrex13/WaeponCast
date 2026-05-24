@@ -1,4 +1,4 @@
-public class Snake : Enemy
+public class Snake : EnemyUnit
 {
 
 }

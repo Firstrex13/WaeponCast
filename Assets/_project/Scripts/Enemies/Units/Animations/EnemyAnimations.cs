@@ -7,9 +7,11 @@ public class EnemyAnimations : MonoBehaviour
     private readonly int Hit = Animator.StringToHash(nameof(Hit));
     private readonly int Die = Animator.StringToHash(nameof(Die));
     private readonly int Bite = Animator.StringToHash(nameof(Bite));
+    private readonly int DistanceAttack = Animator.StringToHash(nameof(DistanceAttack));
 
     [SerializeField] private Animator _animator;
     [SerializeField] private EnemyHealth _health;
+
     public bool CanRun { get; private set; }
 
     private Coroutine _hitCoroutine;
@@ -70,6 +72,11 @@ public class EnemyAnimations : MonoBehaviour
 
             _hitCoroutine = StartCoroutine(InteruptMoving());
         }
+    }
+
+    public void PlayDistanceAttack()
+    {
+        _animator.SetTrigger(DistanceAttack);      
     }
 
     private IEnumerator InteruptMoving()

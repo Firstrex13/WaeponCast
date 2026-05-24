@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class EnemiesSpawner : MonoBehaviour
@@ -32,12 +33,14 @@ public class EnemiesSpawner : MonoBehaviour
         }
     }
 
+    [SerializeField] private Enemy _bossPrefab;
+    [SerializeField] private Slider _slider;
+
     [SerializeField] private Player _player;
     [SerializeField] private Transform[] _spawnPositions;
 
     [SerializeField] private List<Wave> _waves;
     [SerializeField] private int _waveNumber;
-    [SerializeField] private int _enemyCount;
 
     private Coroutine _spawnCoroutine;
     [SerializeField] private int _totalEnemiesOnLevel;
@@ -45,6 +48,7 @@ public class EnemiesSpawner : MonoBehaviour
     public event Action<Vector3> CoinDropped;
     public event Action AllEnemiesDefeated;
     public event Action<int> WaveChanged;
+    public event Action BossSpawned;
 
     public int WaveNumber => _waveNumber;
     public List<Wave> Waves => _waves;
@@ -55,6 +59,8 @@ public class EnemiesSpawner : MonoBehaviour
         {
             _totalEnemiesOnLevel += wave.ObjectsPerWave;
         }
+
+        _totalEnemiesOnLevel++;
 
         if (_spawnCoroutine != null)
         {
@@ -90,9 +96,15 @@ public class EnemiesSpawner : MonoBehaviour
 
                 if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
                 {
-                    Debug.Log("Spawn finished");
                     StopCoroutine(_spawnCoroutine);
                     _spawnCoroutine = null;
+                    Enemy boss = Instantiate(_bossPrefab, Vector3.zero, Quaternion.identity);
+                    BossHealthView bossHealth = boss.GetComponent<BossHealthView>();
+                    AIEnemyBoss aiBoss = boss.GetComponent<AIEnemyBoss>();
+                    aiBoss.Initialize(_player);
+                    bossHealth.Initialize(_slider);
+                    BossSpawned?.Invoke();
+                    boss.Died += DecreaseEnemyCount;
                     yield return null;
                 }
             }
@@ -100,13 +112,12 @@ public class EnemiesSpawner : MonoBehaviour
             int randomPoint = UnityEngine.Random.Range(0, _spawnPositions.Length);
 
             GameObject pooledObject = _waves[_waveNumber].ObjectPooller.GetPooledObject();
-            Enemy enemy = pooledObject.GetComponent<Enemy>();
+            EnemyUnit enemy = pooledObject.GetComponent<EnemyUnit>();
             enemy.transform.position = _spawnPositions[randomPoint].position;
             transform.rotation = Quaternion.identity;
             enemy.MakeEnable();
-            AIEnemy ai = enemy.GetComponent<AIEnemy>();
+            AIEnemyUnit ai = enemy.GetComponent<AIEnemyUnit>();
             enemy.gameObject.SetActive(true);
-            _enemyCount++;
             enemy.CoinDropped += SandDropCoinMessage;
             enemy.Died += DecreaseEnemyCount;
             ai.Initialize(_player);
@@ -115,7 +126,7 @@ public class EnemiesSpawner : MonoBehaviour
         }
     }
 
-    private void SandDropCoinMessage(Enemy enemy)
+    private void SandDropCoinMessage(EnemyUnit enemy)
     {
         CoinDropped?.Invoke(enemy.transform.position + enemy.transform.up);
         enemy.CoinDropped -= SandDropCoinMessage;
@@ -123,10 +134,9 @@ public class EnemiesSpawner : MonoBehaviour
 
     private void DecreaseEnemyCount(Enemy enemy)
     {
-        _enemyCount--;
         _totalEnemiesOnLevel--;
 
-        if (WaveNumber == _waves.Count - 1 && _totalEnemiesOnLevel <=0)
+        if (WaveNumber == _waves.Count - 1 && _totalEnemiesOnLevel <= 0)
         {
             AllEnemiesDefeated?.Invoke(); ;
         }

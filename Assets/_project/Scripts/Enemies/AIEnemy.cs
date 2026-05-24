@@ -4,60 +4,65 @@ using UnityEngine.AI;
 
 public class AIEnemy : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private EnemyAnimations _animations;
-    [SerializeField] private float _attackSpeed;
+    [SerializeField] protected Player Player;
+    [SerializeField] protected NavMeshAgent Agent;
+    [SerializeField] protected EnemyAnimations Animations;
+    [SerializeField] protected float AttackSpeed;
 
-    private float _distanceToAttack = 2f;
-    private Coroutine _checkDistance;
-    private Coroutine _attack;
+    protected float DistanceToAttack = 2f;
+    protected Coroutine CheckDistance;
+    protected Coroutine Attack;
 
-    private WaitForSeconds _delay;
+    protected WaitForSeconds Delay;
 
-    private void Update()
+    public virtual void Initialize(Player player)
     {
-        if (_player != null)
-        {
-            float distanceSquared = Vector3.SqrMagnitude(_player.transform.position - transform.position);
-
-            if (gameObject.activeSelf)
-            {
-                if (_animations.CanRun == true)
-                {
-                    _agent.SetDestination(_player.transform.position);
-
-                    if (distanceSquared > _distanceToAttack * _distanceToAttack)
-                    {
-                        GoToTarget(_player.transform.position);
-                    }
-                    else
-                    {
-                        if (_attack != null)
-                        {
-                            StopCoroutine(_attack);
-                        }
-
-                        _attack = StartCoroutine(Attack());
-                    }
-                }
-                else
-                {
-                    _agent.ResetPath();
-                }
-            }
-        }
+        Player = player;
     }
 
-    public void Initialize(Player player)
+    public void GoToTarget(Vector3 position)
     {
-        _player = player;
-        _agent.SetDestination(_player.transform.position);
+        Agent.SetDestination(position);
+        Animations.PlayRun();
+
+        if (CheckDistance != null)
+        {
+            StopCoroutine(CheckDistance);
+        }
+
+        CheckDistance = StartCoroutine(CheckDistanceCoroutine(position));
+    }
+
+    private IEnumerator CheckDistanceCoroutine(Vector3 position)
+    {
+        yield return null;
+
+        while (Agent.remainingDistance > DistanceToAttack)
+        {
+            yield return null;
+        }
+
+        CheckDistance = null;
+        Animations.PlayIdle();
+    }
+
+    public IEnumerator AttackCoroutine()
+    {
+        Delay = new WaitForSeconds(AttackSpeed);
+
+        while (Agent.remainingDistance < DistanceToAttack)
+        {
+            Animations.PlayAttack();
+            yield return Delay;
+        }
+
+        Attack = null;
     }
 
     public void MakeDisable()
     {
         enabled = false;
+        Agent.ResetPath();
     }
 
     public void MakeEnable()
@@ -65,42 +70,4 @@ public class AIEnemy : MonoBehaviour
         enabled = true;
     }
 
-    private void GoToTarget(Vector3 position)
-    {
-        _agent.SetDestination(position);
-        _animations.PlayRun();
-
-        if (_checkDistance != null)
-        {
-            StopCoroutine(_checkDistance);
-        }
-
-        _checkDistance = StartCoroutine(CheckDistance(position));
-    }
-
-    private IEnumerator CheckDistance(Vector3 position)
-    {
-        yield return null;
-
-        while (_agent.remainingDistance > _distanceToAttack)
-        {
-            yield return null;
-        }
-
-        _checkDistance = null;
-        _animations.PlayIdle();
-    }
-
-    private IEnumerator Attack()
-    {
-        _delay = new WaitForSeconds(_attackSpeed);
-
-        while (_agent.remainingDistance < _distanceToAttack)
-        {
-            _animations.PlayAttack();
-            yield return _delay;
-        }
-
-        _attack = null;
-    }
 }
