@@ -60,6 +60,8 @@ public class PauseMenuHandler : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        _coinCounter.AddCoinsToTotalCount();
+        _gameSaver.SaveGame();
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class CollisionAttacker : MonoBehaviour
 {
-    private int _collidedDamage = 30;
+    [SerializeField] private int _collidedDamage = 30;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Player>(out Player player))
+        if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            PlayerHealth health = player.GetComponent<PlayerHealth>();
-            health.TakeDamage(_collidedDamage);                          
+            damageable.TakeDamage(_collidedDamage);                          
+        }     
+    }
+
+    private void OnCollisionEnter(UnityEngine.Collision collision)
+    {
+        if(collision.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
+        {
+            damageable.TakeDamage(_collidedDamage);
         }
     }
 }

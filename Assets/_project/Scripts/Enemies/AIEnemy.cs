@@ -8,8 +8,8 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] protected NavMeshAgent Agent;
     [SerializeField] protected EnemyAnimations Animations;
     [SerializeField] protected float AttackSpeed;
+    [SerializeField] protected float DistanceToAttack = 2f;
 
-    protected float DistanceToAttack = 2f;
     protected Coroutine CheckDistance;
     protected Coroutine Attack;
 

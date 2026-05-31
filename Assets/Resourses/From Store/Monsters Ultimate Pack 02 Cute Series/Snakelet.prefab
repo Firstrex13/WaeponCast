@@ -549,7 +549,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4707392404464396428}
   - component: {fileID: 4707392404468005374}
-  - component: {fileID: 1742806996057402420}
   m_Layer: 6
   m_Name: Snakelet
   m_TagString: Untagged
@@ -592,7 +591,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b1a7899fb9438414a84eabd73b5d0218, type: 2}
+  - {fileID: 2100000, guid: f3ffe8a1659fa484ab8dfbdbcc86d2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -642,19 +641,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.12720725, y: -0.24476412, z: 0.00000008940697}
     m_Extent: {x: 0.5324619, y: 0.3428968, z: 0.18818325}
   m_DirtyAABB: 0
---- !u!114 &1742806996057402420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4707392404464825516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a20927b3d991745b1ee7d523701778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 1244074805900672693}
 --- !u!1 &4707392404464825518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,8 +1417,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 1244074805900672693}
+  AIEnemy: {fileID: 5312409162930222376}
   _collider: {fileID: 7439296154047846575}
-  _aIEnemy: {fileID: 0}
   _dieEffect: {fileID: 19819134, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   _coinDropChance: 50
 --- !u!114 &196749022280558633
@@ -1533,6 +1519,7 @@ MonoBehaviour:
   Agent: {fileID: 4271715853881768143}
   Animations: {fileID: 1326572984920837746}
   AttackSpeed: 1.5
+  DistanceToAttack: 2
 --- !u!1001 &159976581556120454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1541,6 +1528,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4707392404464396506}
     m_Modifications:
+    - target: {fileID: 3262957161062433923, guid: 7fa592d25ff486e488a40cdf766f748c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3875939128903372127, guid: 7fa592d25ff486e488a40cdf766f748c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

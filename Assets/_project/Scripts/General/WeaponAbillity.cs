@@ -1,14 +1,10 @@
 using UnityEngine;
-using UnityEngine.UIElements;
-using Zenject;
 
 public class WeaponAbillity : IAbilityWeapon
 {
     private Weapon _weaponPrefab;
     private float _throwForce;
     private int _statsDamage;
-
-    [Inject] private Player _player;
 
     public WeaponAbillity(Weapon weaponPrefab, float force, int statsDamage)
     {

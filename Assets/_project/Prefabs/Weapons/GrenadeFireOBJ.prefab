@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponConfig: {fileID: 11400000, guid: 471b97b45ae41a6428e2b8806e0c4318, type: 2}
-  _radious: 1
+  _radious: 1.5
   _layerMask:
     serializedVersion: 2
     m_Bits: 128

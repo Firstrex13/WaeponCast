@@ -38,7 +38,7 @@ public class BlinkEffect : MonoBehaviour
 
     private IEnumerator PlayBlinkEffect()
     {
-        WaitForSeconds interval = new WaitForSeconds(0.2f);
+        WaitForSeconds interval = new WaitForSeconds(0.5f);
 
         _renderer.material.SetColor("_EmissionColor", Color.white);
         yield return interval;

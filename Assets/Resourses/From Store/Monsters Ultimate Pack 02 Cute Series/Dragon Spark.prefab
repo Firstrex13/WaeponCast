@@ -1036,8 +1036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 6608853029203374993}
+  AIEnemy: {fileID: 4844570130302132176}
   _collider: {fileID: 1344356503134759899}
-  _aIEnemy: {fileID: 4844570130302132176}
   _dieEffect: {fileID: 19819134, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   _coinDropChance: 90
 --- !u!136 &1344356503134759899
@@ -1150,9 +1150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Agent: {fileID: 0}
-  Animations: {fileID: 0}
-  AttackSpeed: 0
+  Agent: {fileID: 299574052867682953}
+  Animations: {fileID: 991506176856563386}
+  AttackSpeed: 1.2
+  DistanceToAttack: 2
 --- !u!1 &955717841895258309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1164,6 @@ GameObject:
   m_Component:
   - component: {fileID: 955717841895351525}
   - component: {fileID: 955717841892144577}
-  - component: {fileID: 4781138763612095328}
   m_Layer: 6
   m_Name: Dragon Spark
   m_TagString: Untagged
@@ -1265,19 +1265,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.31945762, y: -0.08864899, z: -0.00000047683716}
     m_Extent: {x: 0.70611763, y: 0.51364255, z: 0.56233454}
   m_DirtyAABB: 0
---- !u!114 &4781138763612095328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955717841895258309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a20927b3d991745b1ee7d523701778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 6608853029203374993}
 --- !u!1 &955717841895258311
 GameObject:
   m_ObjectHideFlags: 0

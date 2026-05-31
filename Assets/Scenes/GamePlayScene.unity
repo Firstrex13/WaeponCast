@@ -1690,9 +1690,24 @@ MonoBehaviour:
   _waves:
   - _objectPooller: {fileID: 1891515032}
     _spawnInterval: 3
-    _objectsPerWave: 1
+    _objectsPerWave: 3
     _enemiesCount: 0
     _waveInterval: 0
+  - _objectPooller: {fileID: 271870859}
+    _spawnInterval: 4
+    _objectsPerWave: 2
+    _enemiesCount: 0
+    _waveInterval: 4
+  - _objectPooller: {fileID: 1891515032}
+    _spawnInterval: 2
+    _objectsPerWave: 5
+    _enemiesCount: 0
+    _waveInterval: 3
+  - _objectPooller: {fileID: 271870859}
+    _spawnInterval: 4
+    _objectsPerWave: 4
+    _enemiesCount: 0
+    _waveInterval: 5
   - _objectPooller: {fileID: 271870859}
     _spawnInterval: 4
     _objectsPerWave: 1

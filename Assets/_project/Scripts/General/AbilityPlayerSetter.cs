@@ -11,24 +11,24 @@ public class AbilityPlayerSetter : AbilitySetterGeneral
 
     private void Start()
     {
-        AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate, _lightningConfig.ManaCost);
+        AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate - Progress.Stats.AttackRate, _lightningConfig.ManaCost);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate, _lightningConfig.ManaCost);
+            AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate - Progress.Stats.AttackRate, _lightningConfig.ManaCost);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            AbillityUser.SetupAbility(new WeaponAbillity(_NovaSmallConfig.Weapon, _NovaSmallConfig.ThrowForce, Progress.Stats.Force), _NovaSmallConfig.AttackRate, _NovaSmallConfig.ManaCost);
+            AbillityUser.SetupAbility(new WeaponAbillity(_NovaSmallConfig.Weapon, _NovaSmallConfig.ThrowForce, Progress.Stats.Force), _NovaSmallConfig.AttackRate - Progress.Stats.AttackRate, _NovaSmallConfig.ManaCost);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            AbillityUser.SetupAbility(new WeaponAbillity(_fireballConfig.Weapon, _fireballConfig.ThrowForce, Progress.Stats.Force), _fireballConfig.AttackRate, _fireballConfig.ManaCost);
+            AbillityUser.SetupAbility(new WeaponAbillity(_fireballConfig.Weapon, _fireballConfig.ThrowForce, Progress.Stats.Force), _fireballConfig.AttackRate - Progress.Stats.AttackRate, _fireballConfig.ManaCost);
         }
     }
 
