@@ -50,12 +50,14 @@ public class PauseMenuHandler : MonoBehaviour
     {
         _pauseMenu.SetActive(true);
         _pauseButton.SetActive(false);
+        DeactivateBossUI();
     }
 
     public void CloseMenu()
     {
         _pauseMenu.SetActive(false);
         _pauseButton.SetActive(true);
+        ActivateBossUI();
     }
 
     public void ReturnToMenu()
@@ -75,15 +77,22 @@ public class PauseMenuHandler : MonoBehaviour
     private void OpenWinPanel()
     {
         _winPanel.SetActive(true);
+        DeactivateBossUI();
     }
 
     private void OpenLosePanel()
     {
         _losePanel.SetActive(true);
+        DeactivateBossUI();
     }
 
     private void ActivateBossUI()
     {
         _BossUI.SetActive(true);
+    }
+
+    private void DeactivateBossUI()
+    {
+        _BossUI.SetActive(false);
     }
 }

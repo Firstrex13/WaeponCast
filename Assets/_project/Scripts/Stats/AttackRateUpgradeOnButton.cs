@@ -14,7 +14,7 @@ public class AttackRateUpgradeOnButton : StatsUpgraderOnButton
         }
         else
         {
-            Debug.Log("Недостаточно монет");
+            ShowNotEnoghMoneyText();
         }
     }
 

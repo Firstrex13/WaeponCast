@@ -13,7 +13,7 @@ public class HealthUpgraderOnButton : StatsUpgraderOnButton
         }
         else
         {
-            Debug.Log("Недостаточно монет");
+            ShowNotEnoghMoneyText();
         }
     }
 

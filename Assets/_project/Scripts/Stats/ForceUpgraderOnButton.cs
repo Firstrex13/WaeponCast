@@ -13,7 +13,7 @@ public class ForceUpgraderOnButton : StatsUpgraderOnButton
         }
         else
         {
-            Debug.Log("Недостаточно монет");
+            ShowNotEnoghMoneyText();
         }
     }
 
