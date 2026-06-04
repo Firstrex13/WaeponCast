@@ -877,7 +877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &174740926
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 7
+  UpgradeCost: 0
   CurrentStat: {fileID: 216966503}
   NextLevelStat: {fileID: 40970939}
   NotEnoughCoinsText: {fileID: 680180917}

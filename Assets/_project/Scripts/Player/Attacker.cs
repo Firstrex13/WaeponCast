@@ -8,8 +8,7 @@ public class Attacker : MonoBehaviour
     [SerializeField] private AbilityPlayerUser _abillityUser;
     [SerializeField] private Mana _mana;
 
-    private float _timer;
-    private bool _isReadyToAttack = true;
+    private bool _isAttacking;
 
     private void Update()
     {
@@ -21,26 +20,29 @@ public class Attacker : MonoBehaviour
                 {
                     if (Time.timeScale > 0)
                     {
-                        if (_isReadyToAttack && _mana.Current >= _abillityUser.ManaCost)
+                        if (_mana.Current >= _abillityUser.ManaCost)
                         {
                             Attack();
-                            _isReadyToAttack = false;
-                            _timer = 0;
                         }
                     }
                 }
             }
         }
 
-        _timer += Time.deltaTime;
-        if (_timer > _abillityUser.AttackRate)
-        {
-            _isReadyToAttack = true;
-        }
+        _isAttacking = false;
     }
 
     private void Attack()
     {
-        _animations.PlayThrow();
+        _isAttacking = true;
+
+        if (_isAttacking == true)
+        {
+            _animations.PlayThrow();
+        }
+        else
+        {
+            return;
+        }
     }
 }

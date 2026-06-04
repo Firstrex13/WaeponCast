@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimations : MonoBehaviour
@@ -7,13 +8,28 @@ public class PlayerAnimations : MonoBehaviour
     private readonly int Die = Animator.StringToHash(nameof(Die));
     private readonly int Throw = Animator.StringToHash(nameof(Throw));
     private readonly int Velocity = Animator.StringToHash(nameof(Velocity));
+    private readonly int ThrowSpeedMultiplayer = Animator.StringToHash(nameof(ThrowSpeedMultiplayer));
 
     [SerializeField] private Animator _animator;
     [SerializeField] private HealthViewSmooth _HealthViewSmooth;
 
+    public PlayerProgress Progress { get; private set; }
+
+    [Inject]
+    public void Construct(IProgressService progress)
+    {
+        Progress = progress.GetProgress();
+    }
+
+    private void Start()
+    {
+        SetThrowSpeedMultiplayer();
+    }
+
     public void PlayMove(float velocity)
     {
         _animator.SetFloat(Velocity, velocity);
+        _animator.SetBool(Throw, false);
     }
 
     public void UpdateHealth()
@@ -33,6 +49,13 @@ public class PlayerAnimations : MonoBehaviour
 
     public void PlayThrow()
     {
-        _animator.SetTrigger(Throw);
+        _animator.SetBool(Throw, true);
     }
+
+    private void SetThrowSpeedMultiplayer()
+    {
+        _animator.SetFloat(ThrowSpeedMultiplayer, 1 + Progress.Stats.AttackRate);
+    }
+
+    
 }

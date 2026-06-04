@@ -24,7 +24,7 @@ public class GameSaver : MonoBehaviour
         }
         else
         {
-            PlayerProgress progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 0, 0, 10, 5, 2, 0.05f));
+            PlayerProgress progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 0, 0, 10, 5, 2, 0.1f));
             return progress;
         }
     }
