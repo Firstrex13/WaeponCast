@@ -21,5 +21,6 @@ public class ManaUpgraderOnButton : StatsUpgraderOnButton
     {
         CurrentStat.text = ProgressService.GetProgress().Stats.Mana.ToString();
         NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Mana + ProgressService.GetProgress().Stats.UpgradeManaCount}";
+        Cost.text = UpgradeCost.ToString();
     }
 }

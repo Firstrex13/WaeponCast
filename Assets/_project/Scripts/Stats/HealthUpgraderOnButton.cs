@@ -21,6 +21,7 @@ public class HealthUpgraderOnButton : StatsUpgraderOnButton
     {
         CurrentStat.text = ProgressService.GetProgress().Stats.Health.ToString();
         NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Health + ProgressService.GetProgress().Stats.UpgradeHealthCount}";
+        Cost.text = UpgradeCost.ToString();
     }
 
 

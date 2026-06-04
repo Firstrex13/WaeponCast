@@ -22,5 +22,6 @@ public class AttackRateUpgradeOnButton : StatsUpgraderOnButton
     {
         CurrentStat.text = ProgressService.GetProgress().Stats.AttackRate.ToString();
         NextLevelStat.text = $"{ProgressService.GetProgress().Stats.AttackRate + ProgressService.GetProgress().Stats.UpgradeAttackRateCount}";
+        Cost.text = UpgradeCost.ToString();
     }
 }

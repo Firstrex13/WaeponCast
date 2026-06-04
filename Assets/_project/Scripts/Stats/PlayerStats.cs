@@ -13,13 +13,13 @@ public class PlayerStats
     public int UpgradeForceCount;
     public float UpgradeAttackRateCount;
 
-    public PlayerStats(int health, int mana, int force, float attackRate, int upgadeHealthCost, int upgradeManaCount, int upgradeForceCount, float upgradeAttackRateCount)
+    public PlayerStats(int health, int mana, int force, float attackRate, int upgadeHealthCount, int upgradeManaCount, int upgradeForceCount, float upgradeAttackRateCount)
     {
         Health = health;
         Mana = mana;
         Force = force;
         AttackRate = attackRate;
-        UpgradeHealthCount = upgadeHealthCost;
+        UpgradeHealthCount = upgadeHealthCount;
         UpgradeManaCount = upgradeManaCount;
         UpgradeForceCount = upgradeForceCount;
         UpgradeAttackRateCount = upgradeAttackRateCount;

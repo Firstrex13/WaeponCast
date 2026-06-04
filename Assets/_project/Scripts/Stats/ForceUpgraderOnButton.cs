@@ -21,5 +21,6 @@ public class ForceUpgraderOnButton : StatsUpgraderOnButton
     {
         CurrentStat.text = ProgressService.GetProgress().Stats.Force.ToString();
         NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Force + ProgressService.GetProgress().Stats.UpgradeForceCount}";
+        Cost.text = UpgradeCost.ToString();
     }
 }

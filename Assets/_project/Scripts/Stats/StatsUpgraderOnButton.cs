@@ -10,6 +10,7 @@ public class StatsUpgraderOnButton : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI CurrentStat;
     [SerializeField] protected TextMeshProUGUI NextLevelStat;
     [SerializeField] protected TextMeshProUGUI NotEnoughCoinsText;
+    [SerializeField] protected TextMeshProUGUI Cost;
 
     protected IProgressService ProgressService;
     protected CoinCounter CoinCounter;
