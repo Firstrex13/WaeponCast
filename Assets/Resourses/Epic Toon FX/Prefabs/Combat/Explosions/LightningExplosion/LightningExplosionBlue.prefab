@@ -4878,7 +4878,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -9700,7 +9700,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8750535703996549837, guid: 435d63d165745fb47bd71fd81f0eedfe, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b1acecdf352627048b995eca86c0f8ec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8ae84c98b460ef3449fcd51cc5b35135, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -9860,7 +9860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f54e17d705a2894d88787e24190ebfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0.2
+  life: 0.1
   killAfterLife: 1
 --- !u!1 &130710
 GameObject:

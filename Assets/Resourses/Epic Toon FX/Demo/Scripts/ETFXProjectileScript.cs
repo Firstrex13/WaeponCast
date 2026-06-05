@@ -63,8 +63,8 @@ using System.Collections;
                     }
                 }
 
-                Destroy(projectileParticle, 3f); // Removes particle effect after delay
-                Destroy(impactP, 3.5f); // Removes impact effect after delay
+                Destroy(projectileParticle, 2f); // Removes particle effect after delay
+                Destroy(impactP, 2f); // Removes impact effect after delay
                 Destroy(gameObject); // Removes the projectile
             }
         }

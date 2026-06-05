@@ -16,6 +16,8 @@ public class PauseMenuHandler : MonoBehaviour
 
     private CoinCounter _coinCounter;
 
+    private bool _bossIsActive;
+
     private void OnEnable()
     {
         _enemiesSpawner.AllEnemiesDefeated += OpenWinPanel;
@@ -37,6 +39,8 @@ public class PauseMenuHandler : MonoBehaviour
 
         if (_losePanel.activeSelf)
             _losePanel.SetActive(false);
+
+        _bossIsActive = false;
     }
 
     [Inject]
@@ -57,17 +61,27 @@ public class PauseMenuHandler : MonoBehaviour
     {
         _pauseMenu.SetActive(false);
         _pauseButton.SetActive(true);
-        ActivateBossUI();
+
+        if (_bossIsActive)
+        {
+            ActivateBossUI();
+        }
     }
 
     public void ReturnToMenu()
+    {
+        _gameSaver.SaveGame();
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ReturnToMenuAfterWin()
     {
         _coinCounter.AddCoinsToTotalCount();
         _gameSaver.SaveGame();
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void ReturnToMenuAfterWin()
+    public void ReturnToMenuAfterLose()
     {
         _coinCounter.AddCoinsToTotalCount();
         _gameSaver.SaveGame();
@@ -88,6 +102,11 @@ public class PauseMenuHandler : MonoBehaviour
 
     private void ActivateBossUI()
     {
+        if(_bossIsActive == false)
+        {
+            _bossIsActive = true;
+        }
+
         _BossUI.SetActive(true);
     }
 
