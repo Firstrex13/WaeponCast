@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -9,22 +10,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private UnitChecker _unitChecker;
     [SerializeField] private PlayerAnimations _playerAnimations;
 
-    private FloatingJoystick _joystick;
+    private InputReader _inputReader;
     private Rigidbody _rigidbody;
 
     private bool _moving;
+    private bool _canMove;
 
-    public Vector3 Velocity { get; private set; }
     public bool Moving => _moving;
+    public bool CanMove => _canMove;
+
+    private Coroutine _stopPlayer;
+
+    private float _timer;
+    private float _stopPeriod = 1f;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void Start()
     {
-        GetVelocity();
+        _canMove = true;
     }
 
     private void FixedUpdate()
@@ -33,28 +40,45 @@ public class PlayerController : MonoBehaviour
         Rotate();
     }
 
-    [Inject]
-    public void Initialize(FloatingJoystick floatingJoystick)
+    private void Update()
     {
-        _joystick = floatingJoystick;
+        if (_timer > 0)
+        {
+            _timer -= Time.deltaTime;
+        }
+        else
+        {
+            _canMove = true;
+        }
+    }
+
+    [Inject]
+    public void Construct(InputReader input)
+    {
+        _inputReader = input;
     }
 
     private void Rotate()
     {
-        if (Velocity != Vector3.zero)
+        if (!_canMove)
         {
-            Quaternion lookRotation = Quaternion.LookRotation(Velocity);
-            float step = _rotationSpeed * Time.deltaTime;
+            return;
+        }
 
+        if (_inputReader.Velocity != Vector3.zero)
+        {
+            _moving = true;
+            Quaternion lookRotation = Quaternion.LookRotation(_inputReader.Velocity);
+            float step = _rotationSpeed * Time.deltaTime;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
         }
         else
         {
+            _moving = false;
             if (_unitChecker.NearestEnemy)
             {
                 Quaternion lookRotation = Quaternion.LookRotation(_unitChecker.NearestEnemy.transform.position - transform.position);
                 float step = _rotationSpeed * Time.deltaTime;
-
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
             }
         }
@@ -62,26 +86,21 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _rigidbody.velocity = Velocity * _moveSpeed;
-        _playerAnimations.PlayMove(Velocity.magnitude);
-    }
-
-    private void GetVelocity()
-    {
-        Velocity = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical).normalized;
-
-        if (Velocity != Vector3.zero)
+        if (_canMove)
         {
-            _moving = true;
-        }
-        else
-        {
-            _moving = false;
+            _playerAnimations.PlayMove(_inputReader.Velocity.magnitude);
+            _rigidbody.velocity = _inputReader.Velocity * _moveSpeed;
         }
     }
 
     public void MakeDisable()
     {
         enabled = false;
+    }
+
+    public void StopPlayer()
+    {
+        _canMove = false;
+        _timer = _stopPeriod;   
     }
 }

@@ -7,6 +7,7 @@ public class EnemyAnimations : MonoBehaviour
     private readonly int Hit = Animator.StringToHash(nameof(Hit));
     private readonly int Die = Animator.StringToHash(nameof(Die));
     private readonly int Bite = Animator.StringToHash(nameof(Bite));
+    private readonly int NoTarget = Animator.StringToHash(nameof(NoTarget));
     private readonly int DistanceAttack = Animator.StringToHash(nameof(DistanceAttack));
 
     [SerializeField] private Animator _animator;

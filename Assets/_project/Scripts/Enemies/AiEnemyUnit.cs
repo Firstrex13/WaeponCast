@@ -2,8 +2,17 @@ using UnityEngine;
 
 public class AIEnemyUnit : AIEnemy
 {
+    private void Start()
+    {
+        AttackTimer = 0;
+    }
     private void Update()
     {
+        if (AttackTimer > 0)
+        {
+            AttackTimer -= Time.deltaTime;
+        }
+
         if (Player != null)
         {
             float distanceSquared = Vector3.SqrMagnitude(Player.transform.position - transform.position);
@@ -20,12 +29,18 @@ public class AIEnemyUnit : AIEnemy
                     }
                     else
                     {
+                        if(AttackTimer > 0)
+                        {
+                            return;
+                        }
+
                         if (Attack != null)
                         {
                             StopCoroutine(Attack);
                         }
 
                         Attack = StartCoroutine(AttackCoroutine());
+                        AttackTimer = AttackSpeed;
                     }
                 }
                 else
@@ -33,6 +48,11 @@ public class AIEnemyUnit : AIEnemy
                     Agent.ResetPath();
                 }
             }
+        }
+        else
+        {
+            Agent.ResetPath();
+            Animations.PlayIdle();
         }
     }
 

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Bar : MonoBehaviour, IBar
+public class BarComponent : MonoBehaviour, IBar
 {
     protected int MaxValue;
     protected float CurrentValue;

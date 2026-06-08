@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-public class PlayerHealth : Bar, IDamageable
+public class PlayerHealth : BarComponent, IDamageable
 {
-    [SerializeField] private PlayerHealthView _playerHealthView;
-
     private PlayerProgress _playerProgress;
 
     public event Action Healed;
@@ -18,8 +16,7 @@ public class PlayerHealth : Bar, IDamageable
 
     public void Initialize(IProgressService playerProgress)
     {
-        _playerProgress = playerProgress.GetProgress();
-        _playerHealthView.Initialize();
+        _playerProgress = playerProgress.GetProgress();  
     }
 
     public void TakeDamage(int damage)

@@ -15,6 +15,8 @@ public class AIEnemy : MonoBehaviour
 
     protected WaitForSeconds Delay;
 
+    protected float AttackTimer;
+
     public virtual void Initialize(Player player)
     {
         Player = player;
@@ -24,39 +26,12 @@ public class AIEnemy : MonoBehaviour
     {
         Agent.SetDestination(position);
         Animations.PlayRun();
-
-        if (CheckDistance != null)
-        {
-            StopCoroutine(CheckDistance);
-        }
-
-        CheckDistance = StartCoroutine(CheckDistanceCoroutine(position));
-    }
-
-    private IEnumerator CheckDistanceCoroutine(Vector3 position)
-    {
-        yield return null;
-
-        while (Agent.remainingDistance > DistanceToAttack)
-        {
-            yield return null;
-        }
-
-        CheckDistance = null;
-        Animations.PlayIdle();
     }
 
     public IEnumerator AttackCoroutine()
     {
-        Delay = new WaitForSeconds(AttackSpeed);
-
-        while (Agent.remainingDistance < DistanceToAttack)
-        {
-            Animations.PlayAttack();
-            yield return Delay;
-        }
-
-        Attack = null;
+        Animations.PlayAttack();
+        yield return null;
     }
 
     public void MakeDisable()

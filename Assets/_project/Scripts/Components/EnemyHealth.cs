@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyHealth : Bar, IDamageable
+public class EnemyHealth : BarComponent, IDamageable
 {
     [SerializeField] private HealthConfig _config;
     [SerializeField] private DamageTextPopUp _damageTextPopUp;

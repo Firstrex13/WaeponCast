@@ -34,7 +34,7 @@ public class EnemiesSpawner : MonoBehaviour
     }
 
     [SerializeField] private Enemy _bossPrefab;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private Slider _bossHealthSlider;
 
     [SerializeField] private Player _player;
     [SerializeField] private Transform[] _spawnPositions;
@@ -101,8 +101,10 @@ public class EnemiesSpawner : MonoBehaviour
                     Enemy boss = Instantiate(_bossPrefab, Vector3.zero, Quaternion.identity);
                     BossHealthView bossHealth = boss.GetComponent<BossHealthView>();
                     AIEnemyBoss aiBoss = boss.GetComponent<AIEnemyBoss>();
+                    AbilityBossSetter bossSetter = boss.GetComponent<AbilityBossSetter>();
+                    bossSetter.Initialize(_player);
                     aiBoss.Initialize(_player);
-                    bossHealth.Initialize(_slider);
+                    bossHealth.Initialize(_bossHealthSlider);
                     BossSpawned?.Invoke();
                     boss.Died += DecreaseEnemyCount;
                     yield return null;

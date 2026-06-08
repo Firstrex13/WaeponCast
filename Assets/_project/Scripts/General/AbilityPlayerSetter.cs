@@ -18,7 +18,7 @@ public class AbilityPlayerSetter : AbilitySetterGeneral
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate - Progress.Stats.AttackRate, _lightningConfig.ManaCost);
+             AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate - Progress.Stats.AttackRate, _lightningConfig.ManaCost);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))

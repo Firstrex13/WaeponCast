@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8708299794309980421}
   - component: {fileID: 2768590632364828046}
   - component: {fileID: 6530867562840990506}
-  - component: {fileID: 71003655521041654}
   - component: {fileID: 1005935799125310450}
   - component: {fileID: 7521908355969065217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GrenadeFireOBJ
   m_TagString: Missile
   m_Icon: {fileID: 0}
@@ -55,7 +54,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.15
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6530867562840990506
 Rigidbody:
@@ -79,28 +78,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &71003655521041654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7295786930373144350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd27932048c3254597a02078fa2cb26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactParticle: {fileID: 180702, guid: a7c694f0877ea874fa57e033221095c3, type: 3}
-  projectileParticle: {fileID: 1258406917094090, guid: 14a334c03c1cccd458efe9a3d4fbc240, type: 3}
-  muzzleParticle: {fileID: 1509306094841910, guid: fcdd1e8116a2d2b4c8d9919c404efdc8, type: 3}
-  colliderRadius: 0.1
-  collideOffset: 0.1
 --- !u!114 &1005935799125310450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,8 +95,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cb504dd24c482438428ffebbb49323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 6530867562840990506}
+  Rigidbody: {fileID: 6530867562840990506}
   _collision: {fileID: 7521908355969065217}
+  Player: {fileID: 0}
+  _yCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 9.20377
+      outSlope: 9.20377
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0157294
+    - serializedVersion: 3
+      time: 1.0098573
+      value: -0.00007979758
+      inSlope: -4.5784936
+      outSlope: -4.5784936
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.030945733
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _playerPosition: {fileID: 0}
+  _speed: 2
+  _projectileParticle: {fileID: 1258406917094090, guid: 14a334c03c1cccd458efe9a3d4fbc240, type: 3}
+  _muzzleParticle: {fileID: 1509306094841910, guid: fcdd1e8116a2d2b4c8d9919c404efdc8, type: 3}
 --- !u!114 &7521908355969065217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,4 +142,5 @@ MonoBehaviour:
   _radious: 1.5
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
+  _impactParticle: {fileID: 180702, guid: a7c694f0877ea874fa57e033221095c3, type: 3}

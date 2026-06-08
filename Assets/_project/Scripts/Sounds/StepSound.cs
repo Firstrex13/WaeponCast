@@ -6,6 +6,7 @@ public class StepSound : MonoBehaviour
 
     public void Play()
     {
+        _stepSound.pitch = Random.Range(0.90f, 1.10f);
         _stepSound.Play();
     }
 }

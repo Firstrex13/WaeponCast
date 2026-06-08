@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerAudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource _hitSound;
+    [SerializeField] private AudioSource _sound;
 
-    public void PlayHit()
+    public void PlaySound()
     {
-        _hitSound.Play();
+        _sound.Play();
     }
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   <Weapon>k__BackingField: {fileID: 1005935799125310450, guid: 58bc8e2c2a679d44081893746f60b71b, type: 3}
   <Damage>k__BackingField: 45
   <AttackRate>k__BackingField: 2
-  <ThrowForce>k__BackingField: 15
+  <ThrowForce>k__BackingField: 1
   <ManaCost>k__BackingField: 0

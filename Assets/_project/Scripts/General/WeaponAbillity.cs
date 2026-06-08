@@ -5,6 +5,7 @@ public class WeaponAbillity : IAbilityWeapon
     private Weapon _weaponPrefab;
     private float _throwForce;
     private int _statsDamage;
+    [SerializeField] private Player _player;
 
     public WeaponAbillity(Weapon weaponPrefab, float force, int statsDamage)
     {
@@ -13,10 +14,11 @@ public class WeaponAbillity : IAbilityWeapon
         _statsDamage = statsDamage;
     }
 
-    public WeaponAbillity(Weapon weaponPrefab, float force)
+    public WeaponAbillity(Weapon weaponPrefab, float force, Player player)
     {
         _weaponPrefab = weaponPrefab;
         _throwForce = force;
+        _player = player;
     }
 
     public void Throw(Transform spawnPoint)
@@ -26,6 +28,6 @@ public class WeaponAbillity : IAbilityWeapon
 
         Weapon weapon = Object.Instantiate(_weaponPrefab, spawnPosition.transform.position, lookRotation);
         weapon.Launch(spawnPoint.transform.forward * _throwForce);
-        weapon.Initialize(_statsDamage);
+        weapon.Initialize(_statsDamage, _player);
     }
 }

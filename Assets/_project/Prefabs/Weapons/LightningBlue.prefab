@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 1403257314309811992}
   - component: {fileID: 1301325136519687986}
   - component: {fileID: 8850292019634070174}
-  - component: {fileID: 2289295238608628310}
-  - component: {fileID: 1586763545787945174}
   - component: {fileID: -8108749216110822839}
+  - component: {fileID: 3014074012511612954}
   m_Layer: 0
   m_Name: LightningBlue
   m_TagString: Missile
@@ -55,7 +54,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.15
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8850292019634070174
 Rigidbody:
@@ -83,37 +82,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &2289295238608628310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496749303880633815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd27932048c3254597a02078fa2cb26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactParticle: {fileID: 121496, guid: 5e8a137808d7d374487f34e236c723db, type: 3}
-  projectileParticle: {fileID: 163948, guid: 153ff601b9ac43240921bf65f009e220, type: 3}
-  muzzleParticle: {fileID: 170656, guid: 0d5c766eef271384bab79cf527f98264, type: 3}
-  colliderRadius: 0.1
-  collideOffset: 0.1
---- !u!114 &1586763545787945174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496749303880633815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d729dbfd957e0e41b8fead49ad3d459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaponConfig: {fileID: 11400000, guid: 8fb25a8afbc8def4d9f4ec11412a2069, type: 2}
+  m_CollisionDetection: 2
 --- !u!114 &-8108749216110822839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,5 +95,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e107493e63637409fad9c2a0ed31ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 8850292019634070174}
-  _collision: {fileID: 1586763545787945174}
+  Rigidbody: {fileID: 8850292019634070174}
+  _collision: {fileID: 3014074012511612954}
+  Player: {fileID: 0}
+  _projectileParticle: {fileID: 163948, guid: 153ff601b9ac43240921bf65f009e220, type: 3}
+  _muzzleParticle: {fileID: 170656, guid: 0d5c766eef271384bab79cf527f98264, type: 3}
+--- !u!114 &3014074012511612954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496749303880633815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc9377e6bf54f340b2055eb86ff64e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponConfig: {fileID: 11400000, guid: 8fb25a8afbc8def4d9f4ec11412a2069, type: 2}
+  _impactParticle: {fileID: 121496, guid: 5e8a137808d7d374487f34e236c723db, type: 3}

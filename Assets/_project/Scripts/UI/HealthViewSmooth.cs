@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class HealthViewSmooth : MonoBehaviour
 {
-    [SerializeField] private Bar _health;
+    [SerializeField] private BarComponent _health;
     [SerializeField] private Slider _slider;
 
-    public Bar Health => _health;
+    public BarComponent Health => _health;
 
     public virtual void OnEnable()
     {

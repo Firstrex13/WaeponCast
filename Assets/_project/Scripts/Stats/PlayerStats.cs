@@ -38,6 +38,7 @@ public class PlayerStats
     {
         Force += UpgradeForceCount;
     }
+
     public void UpgradeAttackRate()
     {
         if(AttackRate >= 1f)

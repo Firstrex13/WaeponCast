@@ -12,17 +12,17 @@ public class AIEnemyBoss : AIEnemy
     [SerializeField] private int _changeToDistanceStatePeriod;
 
     private State _curentState;
-    private float _timer;
+
 
     private void Start()
     {
         _curentState = State.DistanceAttack;
-        _timer = 0f;
+        AttackTimer = 0f;
     }
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        AttackTimer += Time.deltaTime;
 
         if (_curentState == State.DistanceAttack)
         {
@@ -39,12 +39,12 @@ public class AIEnemyBoss : AIEnemy
                 Attack = StartCoroutine(DistanceAttackCoroutine());
             }
         }
-        else if(_curentState == State.MelleAttack)
+        else if (_curentState == State.MelleAttack)
         {
-            if(_timer > _changeToDistanceStatePeriod)
+            if (AttackTimer > _changeToDistanceStatePeriod)
             {
                 ChangeState(State.DistanceAttack);
-                _timer = 0;
+                AttackTimer = 0;
                 return;
             }
 
@@ -66,7 +66,7 @@ public class AIEnemyBoss : AIEnemy
                         {
                             if (Attack != null)
                             {
-                                StopCoroutine(Attack);
+                                StopCoroutine(Attack);                        
                             }
 
                             Attack = StartCoroutine(AttackCoroutine());
@@ -77,6 +77,12 @@ public class AIEnemyBoss : AIEnemy
                         Agent.ResetPath();
                     }
                 }
+            }
+            else
+            {
+                Agent.ResetPath();
+                Animations.PlayIdle();
+                Attack = null;
             }
         }
     }
@@ -90,7 +96,7 @@ public class AIEnemyBoss : AIEnemy
     {
         Delay = new WaitForSeconds(AttackSpeed);
 
-        while (_timer < _changeToMelleStatePeriod)
+        while (AttackTimer < _changeToMelleStatePeriod)
         {
             yield return Delay;
 
@@ -99,7 +105,7 @@ public class AIEnemyBoss : AIEnemy
 
         Attack = null;
         ChangeState(State.MelleAttack);
-        _timer = 0;
+        AttackTimer = 0;
     }
 
     private void ChangeState(State state)

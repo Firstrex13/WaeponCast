@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mana : Bar
+public class Mana : BarComponent
 {
     [SerializeField] private int _speedRecovery;
 
