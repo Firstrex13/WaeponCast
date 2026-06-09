@@ -2779,15 +2779,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 329616328}
-        m_TargetAssemblyTypeName: AttackRateUpgradeOnButton, Assembly-CSharp
-        m_MethodName: UpgradeStat
-        m_Mode: 1
+        m_TargetAssemblyTypeName: StatsUpgraderOnButton, Assembly-CSharp
+        m_MethodName: UpgradeStatOnButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: _attackRateStat
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &329616326
@@ -2837,15 +2837,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 329616322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a320d60a44b39c44be1e0d4ba2f3c0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e55e9a835df0f54898aa1c463796640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 1
+  UpgradeCost: 4
   CurrentStat: {fileID: 1196993080}
   NextLevelStat: {fileID: 788764682}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 670407135}
+  _stat: _attackRateStat
 --- !u!1 &396163478
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,15 +5474,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 765646492}
-        m_TargetAssemblyTypeName: ManaUpgraderOnButton, Assembly-CSharp
-        m_MethodName: UpgradeStat
-        m_Mode: 1
+        m_TargetAssemblyTypeName: StatsUpgraderOnButton, Assembly-CSharp
+        m_MethodName: UpgradeStatOnButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: _manaStat
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &765646490
@@ -5531,15 +5532,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 765646486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe11f3b0d774f249a1e350cda52b758, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e55e9a835df0f54898aa1c463796640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 1
+  UpgradeCost: 2
   CurrentStat: {fileID: 1538706260}
   NextLevelStat: {fileID: 1099061590}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 1130576942}
+  _stat: _manaStat
 --- !u!1 &788764679
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,15 +6496,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1145297928}
-        m_TargetAssemblyTypeName: HealthUpgraderOnButton, Assembly-CSharp
-        m_MethodName: UpgradeStat
-        m_Mode: 1
+        m_TargetAssemblyTypeName: StatsUpgraderOnButton, Assembly-CSharp
+        m_MethodName: UpgradeStatOnButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_FloatArgument: 1
+          m_StringArgument: _healthStat
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1145297926
@@ -6552,7 +6554,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1145297923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a30c7ca58560548a75dff0c431c879, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e55e9a835df0f54898aa1c463796640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
@@ -6561,6 +6563,7 @@ MonoBehaviour:
   NextLevelStat: {fileID: 1459110786}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 1546144516}
+  _stat: _healthStat
 --- !u!1 &1196993077
 GameObject:
   m_ObjectHideFlags: 0
@@ -6828,7 +6831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68ab99e48a0432f46a8df924ae4d8979, type: 2}
   m_sharedMaterial: {fileID: -7176817638020944566, guid: 68ab99e48a0432f46a8df924ae4d8979, type: 2}
@@ -7420,7 +7423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68ab99e48a0432f46a8df924ae4d8979, type: 2}
   m_sharedMaterial: {fileID: -7176817638020944566, guid: 68ab99e48a0432f46a8df924ae4d8979, type: 2}
@@ -7955,7 +7958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68ab99e48a0432f46a8df924ae4d8979, type: 2}
   m_sharedMaterial: {fileID: -7176817638020944566, guid: 68ab99e48a0432f46a8df924ae4d8979, type: 2}
@@ -8504,6 +8507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelUpPanel: {fileID: 174740925}
   _menuPanel: {fileID: 1264436778}
+  _player: {fileID: 7568473833833240807}
   _statsUpgraders:
   - {fileID: 1145297928}
   - {fileID: 765646492}
@@ -10412,15 +10416,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1888192049}
-        m_TargetAssemblyTypeName: ForceUpgraderOnButton, Assembly-CSharp
-        m_MethodName: UpgradeStat
-        m_Mode: 1
+        m_TargetAssemblyTypeName: StatsUpgraderOnButton, Assembly-CSharp
+        m_MethodName: UpgradeStatOnButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: _forceStat
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1888192047
@@ -10470,15 +10474,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1888192043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc61897d5ec60d4d80798cffa6d10e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e55e9a835df0f54898aa1c463796640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 1
+  UpgradeCost: 3
   CurrentStat: {fileID: 939032630}
   NextLevelStat: {fileID: 64145978}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 1545920402}
+  _stat: _forceStat
 --- !u!1 &1919457575
 GameObject:
   m_ObjectHideFlags: 0
@@ -12064,6 +12069,7 @@ MonoBehaviour:
   NextLevelStat: {fileID: 0}
   NotEnoughCoinsText: {fileID: 0}
   Cost: {fileID: 0}
+  _stat: 
 --- !u!1 &3809015048590147664
 GameObject:
   m_ObjectHideFlags: 0

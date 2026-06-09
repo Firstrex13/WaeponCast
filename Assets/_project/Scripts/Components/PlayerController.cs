@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -15,14 +14,11 @@ public class PlayerController : MonoBehaviour
 
     private bool _moving;
     private bool _canMove;
+    private float _timer;
+    private float _stopPeriod = 1f;
 
     public bool Moving => _moving;
     public bool CanMove => _canMove;
-
-    private Coroutine _stopPlayer;
-
-    private float _timer;
-    private float _stopPeriod = 1f;
 
     private void Awake()
     {
@@ -69,8 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             _moving = true;
             Quaternion lookRotation = Quaternion.LookRotation(_inputReader.Velocity);
-            float step = _rotationSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
+            LookAtNeedDirection(lookRotation);
         }
         else
         {
@@ -78,10 +73,15 @@ public class PlayerController : MonoBehaviour
             if (_unitChecker.NearestEnemy)
             {
                 Quaternion lookRotation = Quaternion.LookRotation(_unitChecker.NearestEnemy.transform.position - transform.position);
-                float step = _rotationSpeed * Time.deltaTime;
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
+                LookAtNeedDirection(lookRotation);
             }
         }
+    }
+
+    private void LookAtNeedDirection(Quaternion lookRotation)
+    {
+        float step = _rotationSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
     }
 
     private void Move()

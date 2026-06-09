@@ -51,9 +51,7 @@ public class EnemyUnit : Enemy
 
         yield return delay;
         Instantiate(_dieEffect, transform.position, Quaternion.identity);
-
         int randomNumber = UnityEngine.Random.Range(0, 100);
-
         gameObject.SetActive(false);
         SendDieMessage(this);
 

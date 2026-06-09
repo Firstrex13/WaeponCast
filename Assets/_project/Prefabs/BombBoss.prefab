@@ -5507,7 +5507,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   Agent: {fileID: 3662121064193677286}
   Animations: {fileID: 384724722394649715}
-  AttackSpeed: 2
+  AttackSpeed: 1.5
   DistanceToAttack: 3
   _changeToMelleStatePeriod: 5
   _changeToDistanceStatePeriod: 10

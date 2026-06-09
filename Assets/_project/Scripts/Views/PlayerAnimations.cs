@@ -55,7 +55,5 @@ public class PlayerAnimations : MonoBehaviour
     private void SetThrowSpeedMultiplayer()
     {
         _animator.SetFloat(ThrowSpeedMultiplayer, 1 + Progress.Stats.AttackRate);
-    }
-
-    
+    }  
 }

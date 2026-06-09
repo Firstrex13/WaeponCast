@@ -6,11 +6,10 @@ public class PlayerHealth : BarComponent, IDamageable
     [SerializeField] private float _invulnerableTime;
 
     private PlayerProgress _playerProgress;
+    private float _timer;
 
     public event Action Healed;
     public event Action Died;
-
-    private float _timer;
 
     private void Update()
     {

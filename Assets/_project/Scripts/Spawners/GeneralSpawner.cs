@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseSpawner<T> : MonoBehaviour where T : MonoBehaviour
+public class GeneralSpawner<T> : MonoBehaviour where T : MonoBehaviour
 {
     protected ObjectPool<T> Pool;
 

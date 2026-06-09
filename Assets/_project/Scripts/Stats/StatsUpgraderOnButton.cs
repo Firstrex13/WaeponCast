@@ -5,26 +5,47 @@ using Zenject;
 
 public class StatsUpgraderOnButton : MonoBehaviour
 {
+    private const string HEALTH_STAT = "_healthStat";
+    private const string MANA_STAT = "_manaStat";
+    private const string FORECE_STAT = "_forceStat";
+    private const string ATTACK_RATE_STAT = "_attackRateStat";
+
     [SerializeField] private GameSaver _saver;
-    [SerializeField] protected int UpgradeCost;
-    [SerializeField] protected TextMeshProUGUI CurrentStat;
-    [SerializeField] protected TextMeshProUGUI NextLevelStat;
-    [SerializeField] protected TextMeshProUGUI NotEnoughCoinsText;
-    [SerializeField] protected TextMeshProUGUI Cost;
+    [SerializeField] private int UpgradeCost;
+    [SerializeField] private TextMeshProUGUI CurrentStat;
+    [SerializeField] private TextMeshProUGUI NextLevelStat;
+    [SerializeField] private TextMeshProUGUI NotEnoughCoinsText;
+    [SerializeField] private TextMeshProUGUI Cost;
+    [SerializeField] private string _stat;
 
-    protected IProgressService ProgressService;
-    protected CoinCounter CoinCounter;
-
+    private IProgressService ProgressService;
+    private CoinCounter CoinCounter;
     private WaitForSeconds _delay;
-
     private Coroutine _coroutine;
 
-    public virtual void UpgradeStat()
+
+    private void OnEnable()
     {
-        _saver.SaveGame();
+        UpdateStatsDisplay(_stat);
     }
 
-    public virtual void UpdateDisplay() { }
+    public void UpgradeStatOnButton(string stat)
+    {
+        _stat = stat;
+        if (CoinCounter.TotalCoinCount >= UpgradeCost)
+        {
+            ProgressService.GetProgress().Stats.UpgradeStat(stat);
+            ProgressService.GetProgress().Counter.DecreaseCoin(UpgradeCost);
+            UpdateStatsDisplay(stat);
+        }
+        else
+        {
+            ShowNotEnoghMoneyText();
+            UpdateStatsDisplay(stat);
+        }
+
+        _saver.SaveGame();
+    }
 
     [Inject]
     public void Construct(IProgressService progress)
@@ -33,14 +54,14 @@ public class StatsUpgraderOnButton : MonoBehaviour
         CoinCounter = progress.GetProgress().Counter;
     }
 
-    protected void ShowNotEnoghMoneyText()
+    private void ShowNotEnoghMoneyText()
     {
-        if(_coroutine != null)
+        if (_coroutine != null)
         {
-            StopCoroutine( _coroutine );
+            StopCoroutine(_coroutine);
         }
 
-       _coroutine = StartCoroutine(PopUpText());
+        _coroutine = StartCoroutine(PopUpText());
     }
 
     private IEnumerator PopUpText()
@@ -53,6 +74,36 @@ public class StatsUpgraderOnButton : MonoBehaviour
         {
             NotEnoughCoinsText.alpha -= 0.1f;
             yield return _delay;
+        }
+    }
+
+    private void UpdateStatsDisplay(string stat)
+    {
+        switch (stat)
+        {
+            case HEALTH_STAT:
+                CurrentStat.text = ProgressService.GetProgress().Stats.Health.ToString();
+                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Health + ProgressService.GetProgress().Stats.UpgradeHealthCount}";
+                Cost.text = UpgradeCost.ToString();
+                break;
+            case MANA_STAT:
+                CurrentStat.text = ProgressService.GetProgress().Stats.Mana.ToString();
+                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Mana + ProgressService.GetProgress().Stats.UpgradeManaCount}";
+                Cost.text = UpgradeCost.ToString();
+                break;
+            case FORECE_STAT:
+                CurrentStat.text = ProgressService.GetProgress().Stats.Force.ToString();
+                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Force + ProgressService.GetProgress().Stats.UpgradeForceCount}";
+                Cost.text = UpgradeCost.ToString();
+                break;
+            case ATTACK_RATE_STAT:
+                CurrentStat.text = ProgressService.GetProgress().Stats.AttackRate.ToString();
+                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.AttackRate + ProgressService.GetProgress().Stats.UpgradeAttackRateCount}";
+                Cost.text = UpgradeCost.ToString();
+                break;
+
+            default:
+                break;
         }
     }
 }

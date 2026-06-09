@@ -6,7 +6,6 @@ public class Coin : MonoBehaviour
     [SerializeField] private ParticleSystem _coinEffect;
 
     private float _rotationSpeed = 100;
-
     private Coroutine SendMessageCoroutine;
 
     private void Start()
