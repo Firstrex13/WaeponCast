@@ -35,4 +35,18 @@ public class GameSaver : MonoBehaviour
         YG2.saves.Json = json;
         YG2.SaveProgress();
     }
+
+    public void ResetProgress()
+    {
+        if (YG2.saves.Json != null)
+        {
+            YG2.SetDefaultSaves();
+            Progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 0, 0, 10, 5, 2, 0.1f));
+            _coinCounter.SetTotalCount(0);
+            string json = JsonUtility.ToJson(Progress);
+            YG2.saves.Json = json;
+            YG2.SaveProgress();
+
+        }
+    }
 }

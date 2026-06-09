@@ -24,13 +24,13 @@ public class CoinMenuView : MonoBehaviour
         _coinCounter.CoinCountUpdated += UpdateCoinCount;
     }
 
+    public void UpdateCoinCount()
+    {
+        _coinText.text = _coinCounter.TotalCoinCount.ToString();
+    }
+
     private void OnDisable()
     {
         _coinCounter.CoinCountUpdated -= UpdateCoinCount;
-    }
-
-    private void UpdateCoinCount()
-    {
-        _coinText.text = _coinCounter.TotalCoinCount.ToString();
     }
 }

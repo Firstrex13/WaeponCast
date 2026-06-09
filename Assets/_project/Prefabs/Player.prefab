@@ -1490,7 +1490,7 @@ MonoBehaviour:
   _animations: {fileID: 174023234994822722}
   _playerController: {fileID: 6302676011896887513}
   _abillityUser: {fileID: 5673157950418071090}
-  _mana: {fileID: 326298646158188736}
+  _mana: {fileID: 3950739620028515731}
 --- !u!1 &4192108790264432269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPosition: {fileID: 3367002352905910863}
-  _mana: {fileID: 326298646158188736}
+  _mana: {fileID: 3950739620028515731}
 --- !u!114 &3829132821515406448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1886,9 +1886,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.6850082, g: 0.93333334, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1965,9 +1965,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2845,7 +2845,6 @@ GameObject:
   - component: {fileID: 174023234994822722}
   - component: {fileID: 6302676011896887513}
   - component: {fileID: 3983880434075936346}
-  - component: {fileID: 326298646158188736}
   - component: {fileID: 1853932450446633211}
   - component: {fileID: 6400875135453430331}
   - component: {fileID: 6206296544013924255}
@@ -2964,7 +2963,7 @@ MonoBehaviour:
   _audioManager: {fileID: 1456437507506467206}
   _animations: {fileID: 174023234994822722}
   _health: {fileID: 6400875135453430331}
-  _mana: {fileID: 326298646158188736}
+  _mana: {fileID: 3950739620028515731}
   _playerController: {fileID: 6302676011896887513}
   _playerHealthView: {fileID: 6206296544013924255}
 --- !u!114 &1456437507506467206
@@ -3026,19 +3025,6 @@ MonoBehaviour:
   _lightningConfig: {fileID: 11400000, guid: 8fb25a8afbc8def4d9f4ec11412a2069, type: 2}
   _NovaSmallConfig: {fileID: 11400000, guid: 817729975f344a24683972f96c6de037, type: 2}
   _fireballConfig: {fileID: 11400000, guid: eb6c8de011574b046b7c4a793047f11f, type: 2}
---- !u!114 &326298646158188736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7568473833435199886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3db4386f42d63504d948eae23fd06765, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speedRecovery: 2
 --- !u!114 &1853932450446633211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3051,7 +3037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551412616c0aeed409359fca3be943a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mana: {fileID: 326298646158188736}
+  _mana: {fileID: 3950739620028515731}
   _slider: {fileID: 5549413073267908493}
   _text: {fileID: 6036510148385446349}
 --- !u!114 &6400875135453430331
@@ -3094,6 +3080,7 @@ GameObject:
   - component: {fileID: 3066160050725653230}
   - component: {fileID: 3338854165098344425}
   - component: {fileID: 1354545748338629975}
+  - component: {fileID: 3950739620028515731}
   m_Layer: 7
   m_Name: Mana
   m_TagString: Untagged
@@ -3142,7 +3129,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &3338854165098344425
 MonoBehaviour:
@@ -3184,6 +3171,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3950739620028515731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626322613890631662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db4386f42d63504d948eae23fd06765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedRecovery: 2
+  _canvas: {fileID: 3066160050725653230}
 --- !u!1 &7626592377411126394
 GameObject:
   m_ObjectHideFlags: 0
