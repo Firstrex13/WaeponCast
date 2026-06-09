@@ -18,6 +18,8 @@ public class PlayerStats
     public int UpgradeForceCount;
     public float UpgradeAttackRateCount;
 
+    public float MaxAttackRateLevel = 1f;
+
     public PlayerStats(int health, int mana, int force, float attackRate, int upgadeHealthCount, int upgradeManaCount, int upgradeForceCount, float upgradeAttackRateCount)
     {
         Health = health;
@@ -44,10 +46,11 @@ public class PlayerStats
                 Force += UpgradeManaCount;
                 break;
             case ATTACK_RATE_STAT:
-                if (AttackRate >= 1f)
+                if (AttackRate >= MaxAttackRateLevel)
                 {
                     return;
                 }
+
                 AttackRate += UpgradeAttackRateCount;
                 break;
 

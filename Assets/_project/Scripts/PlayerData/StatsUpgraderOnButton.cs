@@ -97,8 +97,13 @@ public class StatsUpgraderOnButton : MonoBehaviour
                 Cost.text = UpgradeCost.ToString();
                 break;
             case ATTACK_RATE_STAT:
-                CurrentStat.text = ProgressService.GetProgress().Stats.AttackRate.ToString();
+                float value = ProgressService.GetProgress().Stats.AttackRate;
+                CurrentStat.text = value.ToString();
                 NextLevelStat.text = $"{ProgressService.GetProgress().Stats.AttackRate + ProgressService.GetProgress().Stats.UpgradeAttackRateCount}";
+                if(ProgressService.GetProgress().Stats.AttackRate >= 1)
+                {
+                    NextLevelStat.text = $"Max";
+                }
                 Cost.text = UpgradeCost.ToString();
                 break;
 

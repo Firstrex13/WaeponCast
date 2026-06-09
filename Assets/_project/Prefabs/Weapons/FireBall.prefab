@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9032810530829805541}
   - component: {fileID: 2463934068963521944}
   - component: {fileID: 1735986945284915589}
-  - component: {fileID: 8630341700838717464}
   - component: {fileID: 7307565329194577215}
   - component: {fileID: 8077186082455017927}
   m_Layer: 0
@@ -51,7 +50,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -84,23 +83,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8630341700838717464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615579564686986142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acd27932048c3254597a02078fa2cb26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactParticle: {fileID: 130848, guid: d16221e794fe16e4e8994a7f8c770561, type: 3}
-  projectileParticle: {fileID: 147436, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
-  muzzleParticle: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
-  colliderRadius: 0.1
-  collideOffset: 0.1
 --- !u!114 &7307565329194577215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d901e63189d5e8246ba8bfecc99c4dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 1735986945284915589}
+  Rigidbody: {fileID: 1735986945284915589}
+  Player: {fileID: 0}
+  ProjectileParticle: {fileID: 147436, guid: 3b671081e44be1c4aa4355e8ba6e8a5e, type: 3}
+  MuzzleParticle: {fileID: 193574, guid: 5c2bdcf6f0badc34f9f192b0995e4a79, type: 3}
   _collision: {fileID: 8077186082455017927}
 --- !u!114 &8077186082455017927
 MonoBehaviour:
@@ -132,3 +117,4 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
+  _impactParticle: {fileID: 130848, guid: d16221e794fe16e4e8994a7f8c770561, type: 3}

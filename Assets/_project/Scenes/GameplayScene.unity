@@ -1312,7 +1312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.4379, y: -12.5}
+  m_AnchoredPosition: {x: -6.4379005, y: -12.5}
   m_SizeDelta: {x: 187.1241, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &309619854
@@ -2093,13 +2093,28 @@ MonoBehaviour:
   - {fileID: 2024567221}
   _waves:
   - _objectPooller: {fileID: 1891515032}
+    _spawnInterval: 5
+    _objectsPerWave: 10
+    _enemiesCount: 0
+    _waveInterval: 0
+  - _objectPooller: {fileID: 271870859}
     _spawnInterval: 3
-    _objectsPerWave: 2
+    _objectsPerWave: 8
+    _enemiesCount: 0
+    _waveInterval: 0
+  - _objectPooller: {fileID: 1891515032}
+    _spawnInterval: 4
+    _objectsPerWave: 15
+    _enemiesCount: 0
+    _waveInterval: 0
+  - _objectPooller: {fileID: 271870859}
+    _spawnInterval: 2
+    _objectsPerWave: 12
     _enemiesCount: 0
     _waveInterval: 0
   - _objectPooller: {fileID: 1891515032}
     _spawnInterval: 3
-    _objectsPerWave: 2
+    _objectsPerWave: 20
     _enemiesCount: 0
     _waveInterval: 0
   _waveNumber: 0
@@ -8952,8 +8967,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56.240913, y: 0}
-  m_SizeDelta: {x: 348.6219, y: 100}
+  m_AnchoredPosition: {x: 78.87, y: 0}
+  m_SizeDelta: {x: 393.89, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888099086
 MonoBehaviour:
@@ -9426,9 +9441,9 @@ Canvas:
   m_GameObject: {fileID: 1909548584}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 4572738379044125587}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 16.1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -11762,6 +11777,14 @@ PrefabInstance:
     - target: {fileID: 4674396253430457718, guid: 7c880e9731c83de40a453f4c4d39631a, type: 3}
       propertyPath: m_Name
       value: Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773874198000181345, guid: 7c880e9731c83de40a453f4c4d39631a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 4572738379044125587}
+    - target: {fileID: 4773874198000181345, guid: 7c880e9731c83de40a453f4c4d39631a, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4847414150782708302, guid: 7c880e9731c83de40a453f4c4d39631a, type: 3}
       propertyPath: m_Sprite

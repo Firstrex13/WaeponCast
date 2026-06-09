@@ -81,7 +81,6 @@ public class EnemiesSpawner : MonoBehaviour
         WaitForSeconds spawnEnemyDelay = new WaitForSeconds(_waves[_waveNumber].SpawnInterval);
         WaitForSeconds waveLaunchDelay = new WaitForSeconds(_waves[_waveNumber + 1].WaveInterval);
 
-
         while (_player != null && _waveNumber < _waves.Count)
         {
             if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
@@ -112,7 +111,6 @@ public class EnemiesSpawner : MonoBehaviour
             }
 
             int randomPoint = UnityEngine.Random.Range(0, _spawnPositions.Length);
-
             GameObject pooledObject = _waves[_waveNumber].ObjectPooller.GetPooledObject();
             EnemyUnit enemy = pooledObject.GetComponent<EnemyUnit>();
             enemy.transform.position = _spawnPositions[randomPoint].position;

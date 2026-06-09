@@ -6,8 +6,6 @@ public class Grenade : Weapon
     [SerializeField] private AnimationCurve _yCurve;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private float _speed;
-    [SerializeField] private GameObject _projectileParticle;
-    [SerializeField] private GameObject _muzzleParticle;
 
     private Vector3 _startPosition;
     private float _totalTime;
@@ -18,8 +16,8 @@ public class Grenade : Weapon
         _playerPosition = Player.transform;
         _startPosition = transform.position;
         _totalTime = 2f;
-        Instantiate(_muzzleParticle, transform.position, Quaternion.identity, transform);
-        Instantiate(_projectileParticle, transform.position, Quaternion.identity, transform);
+        Instantiate(MuzzleParticle, transform.position, Quaternion.identity, transform);
+        Instantiate(ProjectileParticle, transform.position, Quaternion.identity, transform);
         StartCoroutine(Move());
     }
 
