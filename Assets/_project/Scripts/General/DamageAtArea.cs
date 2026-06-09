@@ -21,6 +21,9 @@ public class DamageAtArea : Collision
                 Instantiate(_impactParticle, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
+
+            Instantiate(_impactParticle, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
 
         if (other.TryGetComponent<Wall>(out _))

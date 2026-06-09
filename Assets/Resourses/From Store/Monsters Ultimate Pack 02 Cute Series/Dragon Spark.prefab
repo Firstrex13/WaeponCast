@@ -938,6 +938,7 @@ GameObject:
   - component: {fileID: 6608853029203374993}
   - component: {fileID: 5079558038731081600}
   - component: {fileID: 4844570130302132176}
+  - component: {fileID: 6819264282166715136}
   m_Layer: 6
   m_Name: Dragon Spark
   m_TagString: Untagged
@@ -1103,7 +1104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72631c3d92440ca4197fd9f4ae7fa08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0.5
+  _radius: 0.6
   _mask:
     serializedVersion: 2
     m_Bits: 128
@@ -1152,8 +1153,35 @@ MonoBehaviour:
   Player: {fileID: 0}
   Agent: {fileID: 299574052867682953}
   Animations: {fileID: 991506176856563386}
-  AttackSpeed: 1.2
+  AttackSpeed: 1.5
   DistanceToAttack: 2
+--- !u!54 &6819264282166715136
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955717841895258307}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &955717841895258309
 GameObject:
   m_ObjectHideFlags: 0

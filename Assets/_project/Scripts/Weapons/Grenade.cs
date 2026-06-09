@@ -30,10 +30,9 @@ public class Grenade : Weapon
         while (enabled)
         {
             progress += Time.deltaTime * _speed;
-            float t = Mathf.Clamp01(progress / _totalTime);
 
-            Vector3 horizontalPosition = Vector3.Lerp(_startPosition, target, t);
-            float height = _yCurve.Evaluate(t) * Vector3.Distance(_startPosition, target) * 0.2f;
+            Vector3 horizontalPosition = Vector3.Lerp(_startPosition, target, progress);
+            float height = _yCurve.Evaluate(progress) * Vector3.Distance(_startPosition, target) * 0.2f;
 
             Rigidbody.MovePosition(horizontalPosition + Vector3.up * height);
             yield return null;

@@ -13,7 +13,6 @@ public class AIEnemyBoss : AIEnemy
 
     private State _curentState;
 
-
     private void Start()
     {
         _curentState = State.DistanceAttack;
@@ -34,6 +33,11 @@ public class AIEnemyBoss : AIEnemy
                 if (Attack != null)
                 {
                     return;
+                }
+
+                if(Attack != null)
+                {
+                    StopCoroutine(Attack);
                 }
 
                 Attack = StartCoroutine(DistanceAttackCoroutine());
@@ -64,6 +68,11 @@ public class AIEnemyBoss : AIEnemy
                         }
                         else
                         {
+                            if(Attack != null)
+                            {
+                                return;
+                            }
+
                             if (Attack != null)
                             {
                                 StopCoroutine(Attack);                        
@@ -103,7 +112,6 @@ public class AIEnemyBoss : AIEnemy
             Animations.PlayDistanceAttack();
         }
 
-        Attack = null;
         ChangeState(State.MelleAttack);
         AttackTimer = 0;
     }
@@ -111,5 +119,6 @@ public class AIEnemyBoss : AIEnemy
     private void ChangeState(State state)
     {
         _curentState = state;
+        Attack = null;
     }
 }

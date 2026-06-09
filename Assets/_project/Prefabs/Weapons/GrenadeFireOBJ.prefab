@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6530867562840990506}
   - component: {fileID: 1005935799125310450}
   - component: {fileID: 7521908355969065217}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GrenadeFireOBJ
   m_TagString: Missile
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _playerPosition: {fileID: 0}
-  _speed: 2
+  _speed: 1.2
   _projectileParticle: {fileID: 1258406917094090, guid: 14a334c03c1cccd458efe9a3d4fbc240, type: 3}
   _muzzleParticle: {fileID: 1509306094841910, guid: fcdd1e8116a2d2b4c8d9919c404efdc8, type: 3}
 --- !u!114 &7521908355969065217
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponConfig: {fileID: 11400000, guid: 471b97b45ae41a6428e2b8806e0c4318, type: 2}
-  _radious: 1.5
+  _radious: 2.5
   _layerMask:
     serializedVersion: 2
     m_Bits: 384
