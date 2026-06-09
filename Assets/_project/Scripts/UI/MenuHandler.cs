@@ -23,11 +23,6 @@ public class MenuHandler : MonoBehaviour
         _menuPanel.SetActive(false);
         _player.gameObject.SetActive(false);
 
-        //foreach (var stat in _statsUpgraders)
-        //{
-        //    stat.RefreshStatsView();
-        //}
-
         _levelUpPanel.SetActive(true);
     }
 

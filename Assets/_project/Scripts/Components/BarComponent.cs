@@ -10,9 +10,15 @@ public class BarComponent : MonoBehaviour, IBar
     public int Max => MaxValue;
 
     public event Action Hit;
+    public event Action Died;
 
     public virtual void OnHit()
     {
         Hit?.Invoke();
+    }
+
+    public virtual void OnDied()
+    {
+        Died?.Invoke();
     }
 }

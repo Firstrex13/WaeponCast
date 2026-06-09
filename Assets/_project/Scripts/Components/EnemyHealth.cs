@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
 
 public class EnemyHealth : BarComponent, IDamageable
 {
     [SerializeField] private HealthConfig _config;
     [SerializeField] private DamageTextPopUp _damageTextPopUp;
-
-    public event Action EnemyDied;
 
     public float CurentHealth => Current;
 
@@ -32,7 +29,7 @@ public class EnemyHealth : BarComponent, IDamageable
                 if (CurrentValue <= 0)
                 {
                     CurrentValue = 0;
-                    EnemyDied?.Invoke();
+                    OnDied();
                     _damageTextPopUp.ShowDamageText(damage);
                 }
 
@@ -45,5 +42,10 @@ public class EnemyHealth : BarComponent, IDamageable
     public override void OnHit()
     {
         base.OnHit();
+    }
+
+    public override void OnDied()
+    {
+        base.OnDied();
     }
 }

@@ -10,9 +10,7 @@ public class PausePanel : MonoBehaviour
 
     private Toggle _toggle;
     private Slider _slider;
-
     private Volume _volume;
-
     private float _minValue = 0;
     private float _maxValue = 1;
 

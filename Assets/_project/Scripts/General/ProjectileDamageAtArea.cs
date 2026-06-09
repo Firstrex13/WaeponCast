@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DamageAtArea : Collision
+public class ProjectileDamageAtArea : Collision
 {
     [SerializeField] private WeaponConfig _weaponConfig;
     [SerializeField] private float  _radious;

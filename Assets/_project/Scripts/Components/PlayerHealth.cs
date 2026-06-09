@@ -9,7 +9,6 @@ public class PlayerHealth : BarComponent, IDamageable
     private float _timer;
 
     public event Action Healed;
-    public event Action Died;
 
     private void Update()
     {
@@ -49,7 +48,7 @@ public class PlayerHealth : BarComponent, IDamageable
             if (CurrentValue <= 0)
             {
                 CurrentValue = 0;
-                Died?.Invoke();
+                OnDied();
             }
 
             OnHit();
@@ -79,5 +78,10 @@ public class PlayerHealth : BarComponent, IDamageable
     public override void OnHit()
     {
         base.OnHit();
+    }
+
+    public override void OnDied()
+    {
+        base.OnDied();
     }
 }

@@ -7,6 +7,6 @@
         false,
         false
     ],
-    "idSave": 186,
-    "Json": "{\"Stats\":{\"Health\":190,\"Mana\":145,\"Force\":78,\"AttackRate\":0.7000000476837158,\"UpgradeHealthCount\":10,\"UpgradeManaCount\":5,\"UpgradeForceCount\":2,\"UpgradeAttackRateCount\":0.10000000149011612},\"Counter\":{\"TotalCoinCount\":0}}"
+    "idSave": 190,
+    "Json": "{\"Stats\":{\"Health\":190,\"Mana\":145,\"Force\":78,\"AttackRate\":0.8000000715255737,\"UpgradeHealthCount\":10,\"UpgradeManaCount\":5,\"UpgradeForceCount\":2,\"UpgradeAttackRateCount\":0.10000000149011612},\"Counter\":{\"TotalCoinCount\":2}}"
 }

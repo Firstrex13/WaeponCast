@@ -5,12 +5,12 @@ public class Boss : Enemy
 {
     private void Start()
     {
-        Health.EnemyDied += DieWithDelay; ;
+        Health.Died += DieWithDelay; ;
     }
 
     private void OnDestroy()
     {
-        Health.EnemyDied -= DieWithDelay;
+        Health.Died -= DieWithDelay;
     }
 
     public void DieWithDelay()
