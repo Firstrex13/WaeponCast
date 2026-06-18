@@ -2108,7 +2108,7 @@ MonoBehaviour:
   - {fileID: 16236356}
   - {fileID: 2024567221}
   _waves:
-  - _objectPooller: {fileID: 1891515032}
+  - _objectPooller: {fileID: 271870859}
     _spawnInterval: 2
     _objectsPerWave: 3
     _enemiesCount: 0
@@ -2118,7 +2118,7 @@ MonoBehaviour:
     _objectsPerWave: 3
     _enemiesCount: 0
     _waveInterval: 0
-  - _objectPooller: {fileID: 1891515032}
+  - _objectPooller: {fileID: 271870859}
     _spawnInterval: 2
     _objectsPerWave: 4
     _enemiesCount: 0
@@ -2128,7 +2128,7 @@ MonoBehaviour:
     _objectsPerWave: 4
     _enemiesCount: 0
     _waveInterval: 0
-  - _objectPooller: {fileID: 1891515032}
+  - _objectPooller: {fileID: 271870859}
     _spawnInterval: 1
     _objectsPerWave: 5
     _enemiesCount: 0

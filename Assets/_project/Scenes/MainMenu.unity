@@ -7293,7 +7293,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1621545278}
         m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
-        m_MethodName: OpenLevelsPanel
+        m_MethodName: OpenSkillsPenal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

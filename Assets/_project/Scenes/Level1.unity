@@ -2113,7 +2113,7 @@ MonoBehaviour:
     _objectsPerWave: 3
     _enemiesCount: 0
     _waveInterval: 0
-  - _objectPooller: {fileID: 271870859}
+  - _objectPooller: {fileID: 1891515032}
     _spawnInterval: 2
     _objectsPerWave: 3
     _enemiesCount: 0
@@ -2123,7 +2123,7 @@ MonoBehaviour:
     _objectsPerWave: 4
     _enemiesCount: 0
     _waveInterval: 0
-  - _objectPooller: {fileID: 271870859}
+  - _objectPooller: {fileID: 1891515032}
     _spawnInterval: 1
     _objectsPerWave: 4
     _enemiesCount: 0
