@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6530867562840990506}
   - component: {fileID: 1005935799125310450}
   - component: {fileID: 7521908355969065217}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrenadeFireOBJ
   m_TagString: Missile
   m_Icon: {fileID: 0}
@@ -96,20 +96,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 6530867562840990506}
-  _collision: {fileID: 7521908355969065217}
   Player: {fileID: 0}
+  ProjectileParticle: {fileID: 1258406917094090, guid: 14a334c03c1cccd458efe9a3d4fbc240, type: 3}
+  MuzzleParticle: {fileID: 1509306094841910, guid: fcdd1e8116a2d2b4c8d9919c404efdc8, type: 3}
+  _collision: {fileID: 7521908355969065217}
   _yCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: -0.0033226013
       value: 0
-      inSlope: 9.20377
-      outSlope: 9.20377
+      inSlope: 14.438949
+      outSlope: 14.438949
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.0157294
+      outWeight: 0.05832815
+    - serializedVersion: 3
+      time: 0.16754735
+      value: 1.011554
+      inSlope: 0.037927512
+      outSlope: 0.037927512
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.64311606
+      outWeight: 0.26532826
+    - serializedVersion: 3
+      time: 0.42507067
+      value: 0.9846998
+      inSlope: -0.2804918
+      outSlope: -0.2804918
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.31229705
     - serializedVersion: 3
       time: 1.0098573
       value: -0.00007979758
@@ -124,8 +144,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   _playerPosition: {fileID: 0}
   _speed: 1.2
-  _projectileParticle: {fileID: 1258406917094090, guid: 14a334c03c1cccd458efe9a3d4fbc240, type: 3}
-  _muzzleParticle: {fileID: 1509306094841910, guid: fcdd1e8116a2d2b4c8d9919c404efdc8, type: 3}
 --- !u!114 &7521908355969065217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,8 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponConfig: {fileID: 11400000, guid: 471b97b45ae41a6428e2b8806e0c4318, type: 2}
-  _radious: 2.5
+  _radious: 2.2
   _layerMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 448
   _impactParticle: {fileID: 180702, guid: a7c694f0877ea874fa57e033221095c3, type: 3}

@@ -9,6 +9,7 @@ public class StatsUpgraderOnButton : MonoBehaviour
     private const string MANA_STAT = "_manaStat";
     private const string FORECE_STAT = "_forceStat";
     private const string ATTACK_RATE_STAT = "_attackRateStat";
+    private const string MANA_RECOVERY_SPEED_STAT = "_manaRecoverySpeedStat";
 
     [SerializeField] private GameSaver _saver;
     [SerializeField] private int UpgradeCost;
@@ -99,14 +100,18 @@ public class StatsUpgraderOnButton : MonoBehaviour
             case ATTACK_RATE_STAT:
                 float value = ProgressService.GetProgress().Stats.AttackRate;
                 CurrentStat.text = value.ToString();
-                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.AttackRate + ProgressService.GetProgress().Stats.UpgradeAttackRateCount}";
+                NextLevelStat.text = $"{value + ProgressService.GetProgress().Stats.UpgradeAttackRateCount}";
                 if(ProgressService.GetProgress().Stats.AttackRate >= 1)
                 {
                     NextLevelStat.text = $"Max";
                 }
                 Cost.text = UpgradeCost.ToString();
                 break;
-
+            case MANA_RECOVERY_SPEED_STAT:
+                CurrentStat.text = ProgressService.GetProgress().Stats.ManaRecoverySpeed.ToString();
+                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.ManaRecoverySpeed + ProgressService.GetProgress().Stats.UpgradeManaRecoverySpeedCount}";
+                Cost.text = UpgradeCost.ToString();
+                break;
             default:
                 break;
         }

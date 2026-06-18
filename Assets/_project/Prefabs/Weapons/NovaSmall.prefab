@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3992069712971176610}
   - component: {fileID: 6995938100299263712}
   - component: {fileID: 1502179332338031878}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NovaSmall
   m_TagString: Missile
   m_Icon: {fileID: 0}

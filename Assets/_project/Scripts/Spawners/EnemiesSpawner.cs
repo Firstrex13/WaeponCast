@@ -33,6 +33,8 @@ public class EnemiesSpawner : MonoBehaviour
         }
     }
 
+    private const int startSpawnEnemyDelay = 2;
+
     [SerializeField] private Enemy _bossPrefab;
     [SerializeField] private Slider _bossHealthSlider;
 
@@ -78,8 +80,11 @@ public class EnemiesSpawner : MonoBehaviour
 
     private IEnumerator Create()
     {
+        WaitForSeconds startSpawnDelay = new WaitForSeconds(startSpawnEnemyDelay);
         WaitForSeconds spawnEnemyDelay = new WaitForSeconds(_waves[_waveNumber].SpawnInterval);
         WaitForSeconds waveLaunchDelay = new WaitForSeconds(_waves[_waveNumber + 1].WaveInterval);
+
+        yield return startSpawnDelay;
 
         while (_player != null && _waveNumber < _waves.Count)
         {

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Mana : BarComponent
 {
-    [SerializeField] private int _speedRecovery;
     [SerializeField] private Canvas _canvas;
+    private float _speedRecovery;
 
     private PlayerProgress _playerProgress;
 
@@ -11,11 +11,12 @@ public class Mana : BarComponent
     {
         _playerProgress = playerProgress.GetProgress();
     }
-    
+
     private void Start()
     {
-        MaxValue =  _playerProgress.Stats.Mana;
+        MaxValue = _playerProgress.Stats.Mana;
         CurrentValue = MaxValue;
+        _speedRecovery = _playerProgress.Stats.ManaRecoverySpeed;
         _canvas.renderMode = RenderMode.ScreenSpaceCamera;
         _canvas.worldCamera = Camera.main;
         _canvas.planeDistance = 16;

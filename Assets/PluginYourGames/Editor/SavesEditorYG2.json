@@ -1,0 +1,12 @@
+{
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 58,
+    "Json": "{\"Stats\":{\"Health\":100,\"Mana\":100,\"Force\":0,\"AttackRate\":0.0,\"ManaRecoverySpeed\":6.0,\"UpgradeHealthCount\":10,\"UpgradeManaCount\":5,\"UpgradeForceCount\":2,\"UpgradeAttackRateCount\":0.10000000149011612,\"UpgradeManaRecoverySpeedCount\":0.5,\"MaxAttackRateLevel\":1.0},\"Counter\":{\"TotalCoinCount\":0}}"
+}

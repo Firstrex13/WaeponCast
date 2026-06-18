@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8850292019634070174}
   - component: {fileID: -8108749216110822839}
   - component: {fileID: 3014074012511612954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightningBlue
   m_TagString: Missile
   m_Icon: {fileID: 0}

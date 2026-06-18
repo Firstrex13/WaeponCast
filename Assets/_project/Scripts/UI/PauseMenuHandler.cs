@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -91,12 +93,14 @@ public class PauseMenuHandler : MonoBehaviour
     private void OpenWinPanel()
     {
         _winPanel.SetActive(true);
+        _pauseButton.SetActive(false);
         DeactivateBossUI();
     }
 
     private void OpenLosePanel()
     {
         _losePanel.SetActive(true);
+        _pauseButton.SetActive(false);
         DeactivateBossUI();
     }
 

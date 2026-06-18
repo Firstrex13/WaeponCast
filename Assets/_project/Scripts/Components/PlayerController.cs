@@ -61,11 +61,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (_inputReader.Velocity != Vector3.zero)
+        if (_inputReader.Direction != Vector3.zero)
         {
             _moving = true;
-            Quaternion lookRotation = Quaternion.LookRotation(_inputReader.Velocity);
-            LookAtNeedDirection(lookRotation);
+            Quaternion lookRotation = Quaternion.LookRotation(_inputReader.Direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
         }
         else
         {
@@ -73,23 +73,17 @@ public class PlayerController : MonoBehaviour
             if (_unitChecker.NearestEnemy)
             {
                 Quaternion lookRotation = Quaternion.LookRotation(_unitChecker.NearestEnemy.transform.position - transform.position);
-                LookAtNeedDirection(lookRotation);
+                transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
             }
         }
-    }
-
-    private void LookAtNeedDirection(Quaternion lookRotation)
-    {
-        float step = _rotationSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
     }
 
     private void Move()
     {
         if (_canMove)
         {
-            _playerAnimations.PlayMove(_inputReader.Velocity.magnitude);
-            _rigidbody.velocity = _inputReader.Velocity * _moveSpeed;
+            _playerAnimations.PlayMove(_inputReader.Direction.magnitude);
+            _rigidbody.velocity = _inputReader.Direction * _moveSpeed;
         }
     }
 

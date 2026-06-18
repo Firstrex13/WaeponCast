@@ -3,21 +3,18 @@ using UnityEngine;
 
 public class PlayerHealth : BarComponent, IDamageable
 {
-    [SerializeField] private float _invulnerableTime;
-
     private PlayerProgress _playerProgress;
-    private float _timer;
 
     public event Action Healed;
 
     private void Update()
     {
-        _timer -= Time.deltaTime;
+        Timer -= Time.deltaTime;
     }
 
     public void Initialize(IProgressService playerProgress)
     {
-        _timer = 0;
+        Timer = 0;
         _playerProgress = playerProgress.GetProgress();
         MaxValue = _playerProgress.Stats.Health;
         CurrentValue = MaxValue;
@@ -30,7 +27,7 @@ public class PlayerHealth : BarComponent, IDamageable
             return;
         }
 
-        if (_timer > 0)
+        if (Timer > 0)
         {
             return;
         }
@@ -43,7 +40,7 @@ public class PlayerHealth : BarComponent, IDamageable
         if (damage > 0)
         {
             CurrentValue -= damage;
-            _timer = _invulnerableTime;
+            Timer = InvulnerableTime;
 
             if (CurrentValue <= 0)
             {

@@ -9,7 +9,7 @@ public class EntryPoint : MonoBehaviour
     public IProgressService Progress {  get; private set; }
 
     private void Start()
-    {
+    {    
         BootStartScene();
     }
 

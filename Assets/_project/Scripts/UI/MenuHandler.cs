@@ -7,6 +7,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _title;
     [SerializeField] private StatsUpgraderOnButton[] _statsUpgraders;
 
     public void StartGame()
@@ -23,6 +24,7 @@ public class MenuHandler : MonoBehaviour
     {
         _menuPanel.SetActive(false);
         _player.gameObject.SetActive(false);
+        _title.SetActive(false);
 
         _levelUpPanel.SetActive(true);
     }
@@ -34,18 +36,22 @@ public class MenuHandler : MonoBehaviour
             _levelUpPanel.SetActive(false);
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
+            _title.SetActive(true);
+
         }
         else if (_settingsPanel.activeSelf)
         {
             _settingsPanel.SetActive(false);
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
+            _title.SetActive(true);
         }
     }
 
     public void OpenSettingsPanel()
     {
         _menuPanel.SetActive(false);
+        _title.SetActive(false);
         _player.gameObject.SetActive(false);
         _settingsPanel.SetActive(true);
     }
