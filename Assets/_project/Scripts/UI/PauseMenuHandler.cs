@@ -13,6 +13,8 @@ public class PauseMenuHandler : MonoBehaviour
     [SerializeField] private GameObject _BossUI;
     [SerializeField] private EnemiesSpawner _enemiesSpawner;
     [SerializeField] private GameSaver _gameSaver;
+    [SerializeField] private TextMeshProUGUI _winCoinsCount;
+    [SerializeField] private TextMeshProUGUI _loseCoinsCount;
 
     [SerializeField] private PlayerHealth _playerHealth;
 
@@ -73,26 +75,34 @@ public class PauseMenuHandler : MonoBehaviour
     public void ReturnToMenu()
     {
         _gameSaver.SaveGame();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(Scenes.MAIN_MENU);
     }
 
     public void ReturnToMenuAfterWin()
     {
         _coinCounter.AddCoinsToTotalCount();
         _gameSaver.SaveGame();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(Scenes.MAIN_MENU);
     }
 
     public void ReturnToMenuAfterLose()
     {
         _coinCounter.AddCoinsToTotalCount();
         _gameSaver.SaveGame();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(Scenes.MAIN_MENU);
+    }
+
+    public void RestartLevel()
+    {
+        _coinCounter.AddCoinsToTotalCount();
+        _gameSaver.SaveGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OpenWinPanel()
     {
         _winPanel.SetActive(true);
+        _winCoinsCount.text = _coinCounter.CoinCountOnLevel.ToString();
         _pauseButton.SetActive(false);
         DeactivateBossUI();
     }
@@ -100,6 +110,7 @@ public class PauseMenuHandler : MonoBehaviour
     private void OpenLosePanel()
     {
         _losePanel.SetActive(true);
+        _loseCoinsCount.text = _coinCounter.CoinCountOnLevel.ToString();
         _pauseButton.SetActive(false);
         DeactivateBossUI();
     }

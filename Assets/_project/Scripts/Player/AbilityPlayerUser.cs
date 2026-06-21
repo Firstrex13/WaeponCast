@@ -8,6 +8,11 @@ public class AbilityPlayerUser : AbillityUser
 
     public float ManaCost => _manaCost;
 
+    public void Initialize(Mana mana)
+    {
+        _mana = mana;
+    }
+
     public void ThrowWeapon()
     {
         Weapon.Throw(SpawnPosition);

@@ -10,14 +10,15 @@ public class StatsUpgraderOnButton : MonoBehaviour
     private const string FORECE_STAT = "_forceStat";
     private const string ATTACK_RATE_STAT = "_attackRateStat";
     private const string MANA_RECOVERY_SPEED_STAT = "_manaRecoverySpeedStat";
+    private const string MAX_VALUE = "Max";
 
     [SerializeField] private GameSaver _saver;
     [SerializeField] private int UpgradeCost;
     [SerializeField] private TextMeshProUGUI CurrentStat;
-    [SerializeField] private TextMeshProUGUI NextLevelStat;
     [SerializeField] private TextMeshProUGUI NotEnoughCoinsText;
     [SerializeField] private TextMeshProUGUI Cost;
     [SerializeField] private string _stat;
+    [SerializeField] private WeaponConfig _weaponConfig;
 
     private IProgressService ProgressService;
     private CoinCounter CoinCounter;
@@ -84,32 +85,27 @@ public class StatsUpgraderOnButton : MonoBehaviour
         {
             case HEALTH_STAT:
                 CurrentStat.text = ProgressService.GetProgress().Stats.Health.ToString();
-                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Health + ProgressService.GetProgress().Stats.UpgradeHealthCount}";
                 Cost.text = UpgradeCost.ToString();
                 break;
             case MANA_STAT:
                 CurrentStat.text = ProgressService.GetProgress().Stats.Mana.ToString();
-                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Mana + ProgressService.GetProgress().Stats.UpgradeManaCount}";
                 Cost.text = UpgradeCost.ToString();
                 break;
             case FORECE_STAT:
-                CurrentStat.text = ProgressService.GetProgress().Stats.Force.ToString();
-                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.Force + ProgressService.GetProgress().Stats.UpgradeForceCount}";
+                CurrentStat.text = (_weaponConfig.Damage + ProgressService.GetProgress().Stats.Force).ToString();
                 Cost.text = UpgradeCost.ToString();
                 break;
             case ATTACK_RATE_STAT:
-                float value = ProgressService.GetProgress().Stats.AttackRate;
+                float value = 1 + ProgressService.GetProgress().Stats.AttackRate;
                 CurrentStat.text = value.ToString();
-                NextLevelStat.text = $"{value + ProgressService.GetProgress().Stats.UpgradeAttackRateCount}";
-                if(ProgressService.GetProgress().Stats.AttackRate >= 1)
+                if(value == 2)
                 {
-                    NextLevelStat.text = $"Max";
+                    CurrentStat.text = MAX_VALUE;
                 }
                 Cost.text = UpgradeCost.ToString();
                 break;
             case MANA_RECOVERY_SPEED_STAT:
                 CurrentStat.text = ProgressService.GetProgress().Stats.ManaRecoverySpeed.ToString();
-                NextLevelStat.text = $"{ProgressService.GetProgress().Stats.ManaRecoverySpeed + ProgressService.GetProgress().Stats.UpgradeManaRecoverySpeedCount}";
                 Cost.text = UpgradeCost.ToString();
                 break;
             default:

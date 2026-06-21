@@ -1,7 +1,5 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -11,8 +9,6 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _levelsPanel;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _title;
-    [SerializeField] private TextMeshProUGUI _activeLevelNumberText;
-    [SerializeField] private Image[] _activeLevelImages;
 
     private string _activeScene;
 
@@ -28,25 +24,13 @@ public class MenuHandler : MonoBehaviour
 
     public void StartGame()
     {
+        ChooseActiveScene(_activeScene);
         SceneManager.LoadScene(_activeScene);
     }
 
     public void ChooseActiveScene(string sceneName)
     {
         _activeScene = sceneName;
-
-        if (_activeScene == Scenes.LEVEL1)
-        {
-            _activeLevelNumberText.text = "1";
-            _activeLevelImages[1].color = Color.gray;
-            _activeLevelImages[0].color = Color.green;
-        }
-        else if (_activeScene == Scenes.LEVEL2)
-        {
-            _activeLevelNumberText.text = "2";
-            _activeLevelImages[1].color = Color.green;
-            _activeLevelImages[0].color = Color.gray;
-        }
     }
 
     public void OpenSkillsPenal()

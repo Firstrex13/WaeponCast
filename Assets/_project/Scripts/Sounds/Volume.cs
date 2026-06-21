@@ -1,15 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class Volume 
+[Serializable]
+public class Volume
 {
-    private float _minValue = -80f;
+    [HideInInspector] public float MinValue = -80f;
+    [HideInInspector] public float CurrentValue;
 
     public void SetValue(float value, AudioMixerGroup mixerGroup)
     {
         if (value == 0)
         {
-            mixerGroup.audioMixer.SetFloat(mixerGroup.name, _minValue);
+            mixerGroup.audioMixer.SetFloat(mixerGroup.name, MinValue);
         }
         else
         {

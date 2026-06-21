@@ -32,6 +32,11 @@ public class Attacker : MonoBehaviour
         _isAttacking = false;
     }
 
+    public void Initialize(Mana mana)
+    {
+        _mana = mana;
+    }
+
     private void Attack()
     {
         _isAttacking = true;

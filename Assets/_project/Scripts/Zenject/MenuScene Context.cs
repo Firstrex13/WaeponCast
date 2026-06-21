@@ -4,6 +4,6 @@ public class MenuSceneContext : MonoInstaller
 {
     public override void InstallBindings()
     {
-      //  Container.Bind<IProgressService>();
+
     }
 }

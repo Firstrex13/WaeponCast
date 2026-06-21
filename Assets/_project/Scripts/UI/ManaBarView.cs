@@ -18,6 +18,13 @@ public class ManaBarView : MonoBehaviour
         UpdateValue();
     }
 
+    public void Initialize( Mana mana, Slider manaSlider, TextMeshProUGUI manaText)
+    {
+        _mana = mana;
+        _slider = manaSlider;
+        _text = manaText;
+    }
+
     private void UpdateValue()
     {
         float currentValue = _mana.Current / _mana.Max;

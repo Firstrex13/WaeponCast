@@ -1,5 +1,7 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Mana _mana;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private PlayerHealthView _playerHealthView;
+    [SerializeField] private ManaBarView _manaBarView;
+    [SerializeField] private Attacker _attacker;
+    [SerializeField] private AbilityPlayerUser _abilityPlayerUser;
 
     private void Start()
     {
@@ -22,11 +27,15 @@ public class Player : MonoBehaviour
         _health.Died -= PlayDie;
     } 
 
-    public void InitializePlayer(IProgressService playerProgress)
+    public void InitializePlayer(IProgressService playerProgress, Slider manaSlider, TextMeshProUGUI manaText, Mana mana)
     {
+        _mana = mana;
         _health.Initialize(playerProgress);
         _mana.Initialize(playerProgress);
         _playerHealthView.Initialize();
+        _manaBarView.Initialize(_mana, manaSlider, manaText);
+        _attacker.Initialize(_mana);
+        _abilityPlayerUser.Initialize(_mana);
     }
 
     private void PlayHit()

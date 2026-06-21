@@ -2,6 +2,6 @@ namespace YG
 {
     public partial class SavesYG
     {
-        public string Json;    
+        public string Json;     
     } 
 }
