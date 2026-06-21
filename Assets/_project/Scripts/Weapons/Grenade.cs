@@ -6,6 +6,7 @@ public class Grenade : Weapon
     [SerializeField] private AnimationCurve _yCurve;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private float _speed;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     private Vector3 _startPosition;
     private float _totalTime;
@@ -24,6 +25,7 @@ public class Grenade : Weapon
     private IEnumerator Move()
     {
         Vector3 target = _playerPosition.position;
+        Instantiate(_particleSystem, target, Quaternion.identity);
 
         while (enabled)
         {
