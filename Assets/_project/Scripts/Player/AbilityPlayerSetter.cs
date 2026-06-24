@@ -11,25 +11,20 @@ public class AbilityPlayerSetter : AbilitySetterGeneral
 
     private void Start()
     {
-        AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate - Progress.Stats.AttackRate, _lightningConfig.ManaCost);
+        SetWeapon();
+        Debug.Log($"Weapon {Weapons.CurrentWeapon} chosen");
     }
 
-    private void Update()
+    public void SetWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if(Weapons.CurrentWeapon == WeaponsList.LIGHTNING)
         {
-             AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate - Progress.Stats.AttackRate, _lightningConfig.ManaCost);
+            AbillityUser.SetupAbility(new WeaponAbillity(_lightningConfig.Weapon, _lightningConfig.ThrowForce, Progress.Stats.Force), _lightningConfig.AttackRate - Progress.Stats.AttackRate, _lightningConfig.ManaCost);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            AbillityUser.SetupAbility(new WeaponAbillity(_NovaSmallConfig.Weapon, _NovaSmallConfig.ThrowForce, Progress.Stats.Force), _NovaSmallConfig.AttackRate - Progress.Stats.AttackRate, _NovaSmallConfig.ManaCost);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if(Weapons.CurrentWeapon == WeaponsList.FIREBALL)
         {
             AbillityUser.SetupAbility(new WeaponAbillity(_fireballConfig.Weapon, _fireballConfig.ThrowForce, Progress.Stats.Force), _fireballConfig.AttackRate - Progress.Stats.AttackRate, _fireballConfig.ManaCost);
-        }
+        }      
     }
 
     [Inject]
