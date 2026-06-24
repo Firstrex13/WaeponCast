@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 299574052867682953, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 955717841895258307, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
       propertyPath: m_Name
       value: Dragon Spark Variant

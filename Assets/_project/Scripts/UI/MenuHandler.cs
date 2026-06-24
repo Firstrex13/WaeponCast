@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Zenject;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -9,17 +11,16 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _levelsPanel;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _title;
+    [SerializeField] private Button[] _levelButtons;
 
     private string _activeScene;
+    private IProgressService _playerProgress;
 
-    private void Start()
+
+    [Inject]
+    public void Construct(IProgressService playerProgress)
     {
-        if(_activeScene == null)
-        {
-            _activeScene = Scenes.LEVEL1;
-        }
-
-        ChooseActiveScene(_activeScene);
+        _playerProgress = playerProgress;
     }
 
     public void StartGame()
@@ -82,5 +83,10 @@ public class MenuHandler : MonoBehaviour
         _title.SetActive(false);
         _player.gameObject.SetActive(false);
         _levelsPanel.SetActive(true);
+
+        for (int i = 0; i < _playerProgress.GetProgress().LevelManager.CountOfOpenedLevels; i++)
+        {
+            _levelButtons[i].interactable = true;
+        }
     }
 }

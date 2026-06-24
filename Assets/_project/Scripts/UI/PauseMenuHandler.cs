@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +18,7 @@ public class PauseMenuHandler : MonoBehaviour
     [SerializeField] private PlayerHealth _playerHealth;
 
     private CoinCounter _coinCounter;
+    private LevelManager _levelManager;
 
     private bool _bossIsActive;
 
@@ -52,6 +52,7 @@ public class PauseMenuHandler : MonoBehaviour
     {
         _playerHealth = player.GetComponent<PlayerHealth>();
         _coinCounter = progress.GetProgress().Counter;
+        _levelManager = progress.GetProgress().LevelManager;
     }
 
     public void OpenMenu()
@@ -80,7 +81,15 @@ public class PauseMenuHandler : MonoBehaviour
 
     public void ReturnToMenuAfterWin()
     {
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
         _coinCounter.AddCoinsToTotalCount();
+
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            _levelManager.OpenNextLevel();
+        }
+
         _gameSaver.SaveGame();
         SceneManager.LoadScene(Scenes.MAIN_MENU);
     }
@@ -117,7 +126,7 @@ public class PauseMenuHandler : MonoBehaviour
 
     private void ActivateBossUI()
     {
-        if(_bossIsActive == false)
+        if (_bossIsActive == false)
         {
             _bossIsActive = true;
         }
