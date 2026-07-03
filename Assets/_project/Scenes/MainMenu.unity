@@ -5857,7 +5857,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1848936731}
-        m_TargetAssemblyTypeName: AbillitySeetterOnButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: AbillitySetterOnButton, Assembly-CSharp
         m_MethodName: SetWeapon
         m_Mode: 5
         m_Arguments:
@@ -13807,7 +13807,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1848936731}
-        m_TargetAssemblyTypeName: AbillitySeetterOnButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: AbillitySetterOnButton, Assembly-CSharp
         m_MethodName: SetWeapon
         m_Mode: 5
         m_Arguments:
@@ -14477,9 +14477,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848936725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7990cf9a55c89f4ab06c27b4eb7b983, type: 3}
+  m_Script: {fileID: 11500000, guid: e01352f948f1d7847981182c00674fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 42528879}
+  _lightning: {fileID: 2100000, guid: 885dcdd682ae12e49874de64289d356d, type: 2}
+  _fireball: {fileID: 2100000, guid: 6b69ca84f27ff2844bce12937344caf0, type: 2}
+  _lightningButton: {fileID: 1780676978}
+  _fireballButton: {fileID: 537357781}
+  _saver: {fileID: 709478205}
 --- !u!1001 &1874461939
 PrefabInstance:
   m_ObjectHideFlags: 0
