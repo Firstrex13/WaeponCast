@@ -4,6 +4,7 @@ using System;
 public class LevelManager
 {
     public int CountOfOpenedLevels;
+    public string CurrentLevelName;
 
     public  LevelManager(int countOfOpenedLevels)
     {
@@ -13,5 +14,10 @@ public class LevelManager
     public void OpenNextLevel()
     {
         CountOfOpenedLevels++;
+    }
+
+    public void SetCurrentLevel(string level)
+    {
+        CurrentLevelName = level;
     }
 }

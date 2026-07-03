@@ -1,13 +1,21 @@
+using System;
+
 public enum WeaponsList
 {
     LIGHTNING,
     FIREBALL
 }
 
-public static class Weapons
+[Serializable]
+public class Weapons
 {
     public const string LIGHTNING = "Lightning";
     public const string FIREBALL = "Fireball";
 
-    public static WeaponsList CurrentWeapon; 
+    public WeaponsList CurrentWeapon; 
+
+    public Weapons(WeaponsList weaponsList)
+    {
+        CurrentWeapon = weaponsList;
+    }
 }

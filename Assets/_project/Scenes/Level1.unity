@@ -4276,12 +4276,17 @@ MonoBehaviour:
   _waves:
   - _objectPooller: {fileID: 1891515032}
     _spawnInterval: 2
-    _objectsPerWave: 1
+    _objectsPerWave: 2
     _enemiesCount: 0
     _waveInterval: 0
   - _objectPooller: {fileID: 1891515032}
     _spawnInterval: 2
-    _objectsPerWave: 1
+    _objectsPerWave: 4
+    _enemiesCount: 0
+    _waveInterval: 0
+  - _objectPooller: {fileID: 1891515032}
+    _spawnInterval: 2
+    _objectsPerWave: 6
     _enemiesCount: 0
     _waveInterval: 0
   _waveNumber: 0

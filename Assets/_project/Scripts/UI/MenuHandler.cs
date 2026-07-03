@@ -11,21 +11,27 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _levelsPanel;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _title;
+    [SerializeField] private GameObject _lightningButton;
+    [SerializeField] private GameObject _fireballButton;
     [SerializeField] private Button[] _levelButtons;
+    [SerializeField] private Button[] _weaponButtons;
 
     private string _activeScene;
     private IProgressService _playerProgress;
+    private LevelManager _levelManager;
 
 
     [Inject]
     public void Construct(IProgressService playerProgress)
     {
         _playerProgress = playerProgress;
+        _levelManager = _playerProgress.GetProgress().LevelManager;
     }
 
     public void StartGame()
     {
         ChooseActiveScene(_activeScene);
+        _levelManager.SetCurrentLevel(_activeScene);
         SceneManager.LoadScene(_activeScene);
     }
 
@@ -87,6 +93,36 @@ public class MenuHandler : MonoBehaviour
         for (int i = 0; i < _playerProgress.GetProgress().LevelManager.CountOfOpenedLevels; i++)
         {
             _levelButtons[i].interactable = true;
+        }
+    }
+
+    public void OpenCloseWeaponsButtons()
+    {
+        if (!_lightningButton.activeSelf)
+        {
+            _lightningButton.SetActive(true);
+        }
+        else
+        {
+            _lightningButton.SetActive(false);
+        }
+
+        if (!_fireballButton.activeSelf)
+        {
+            _fireballButton.SetActive(true);
+        }
+        else
+        {
+            _fireballButton.SetActive(false);
+        }
+
+        for (int i = 0; i < _playerProgress.GetProgress().LevelManager.CountOfOpenedLevels; i++)
+        {
+            if (_playerProgress.GetProgress().LevelManager.CountOfOpenedLevels >= 2)
+            {
+                _weaponButtons[1].interactable = true;
+
+            }
         }
     }
 }

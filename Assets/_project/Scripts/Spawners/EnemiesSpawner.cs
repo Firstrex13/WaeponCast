@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -45,9 +46,11 @@ public class EnemiesSpawner : MonoBehaviour
 
     [SerializeField] private List<Wave> _waves;
     [SerializeField] private int _waveNumber;
+    [SerializeField] private int _totalEnemiesOnLevel;
+
+    private int _currentCountEnemies = 0;
 
     private Coroutine _spawnCoroutine;
-    [SerializeField] private int _totalEnemiesOnLevel;
 
     public event Action<Vector3> CoinDropped;
     public event Action AllEnemiesDefeated;
@@ -78,6 +81,7 @@ public class EnemiesSpawner : MonoBehaviour
     public void Construct(Player player)
     {
         _player = player;
+
     }
 
     private IEnumerator Create()

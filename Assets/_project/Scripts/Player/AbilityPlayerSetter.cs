@@ -8,11 +8,11 @@ public class AbilityPlayerSetter : AbilitySetterGeneral
     [SerializeField] private WeaponConfig _fireballConfig;
 
     public PlayerProgress Progress { get; private set; }
+    private Weapons Weapons;
 
     private void Start()
     {
         SetWeapon();
-        Debug.Log($"Weapon {Weapons.CurrentWeapon} chosen");
     }
 
     public void SetWeapon()
@@ -31,5 +31,7 @@ public class AbilityPlayerSetter : AbilitySetterGeneral
     public void Construct(IProgressService progress)
     {
         Progress = progress.GetProgress();
+        Weapons = progress.GetProgress().Weapons;
+        
     }
 }

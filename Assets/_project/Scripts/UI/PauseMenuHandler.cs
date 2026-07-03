@@ -80,12 +80,12 @@ public class PauseMenuHandler : MonoBehaviour
     }
 
     public void ReturnToMenuAfterWin()
-    {
+    {     
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         _coinCounter.AddCoinsToTotalCount();
 
-        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        if (nextIndex < Scenes.SceneNames.Length && (SceneManager.GetActiveScene().buildIndex - 1) == _levelManager.CountOfOpenedLevels)
         {
             _levelManager.OpenNextLevel();
         }
