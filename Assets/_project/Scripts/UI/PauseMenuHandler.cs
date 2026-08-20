@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 using Zenject;
 
 public class PauseMenuHandler : MonoBehaviour
@@ -19,6 +20,7 @@ public class PauseMenuHandler : MonoBehaviour
 
     private CoinCounter _coinCounter;
     private LevelManager _levelManager;
+    private Leaderboard _leaderboard;
 
     private bool _bossIsActive;
 
@@ -53,6 +55,7 @@ public class PauseMenuHandler : MonoBehaviour
         _playerHealth = player.GetComponent<PlayerHealth>();
         _coinCounter = progress.GetProgress().Counter;
         _levelManager = progress.GetProgress().LevelManager;
+        _leaderboard = progress.GetProgress().Leaderboard;
     }
 
     public void OpenMenu()
@@ -80,7 +83,9 @@ public class PauseMenuHandler : MonoBehaviour
     }
 
     public void ReturnToMenuAfterWin()
-    {     
+    {
+        YG2.SetLeaderboard("LeaderboardDesk", _coinCounter.TotalCoins);
+
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         _coinCounter.AddCoinsToTotalCount();

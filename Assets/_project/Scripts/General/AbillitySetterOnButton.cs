@@ -10,6 +10,7 @@ public class AbillitySetterOnButton : MonoBehaviour
     [SerializeField] private GameObject _lightningButton;
     [SerializeField] private GameObject _fireballButton;
     [SerializeField] private GameSaver _saver;
+    [SerializeField] private StatsUpgraderOnButton _statsUpgraderOnButton;
 
     public PlayerProgress Progress { get; private set; }
     private Weapons Weapons;
@@ -42,6 +43,7 @@ public class AbillitySetterOnButton : MonoBehaviour
                 _icon.material = _lightning;
                 _lightningButton.SetActive(false);
                 _fireballButton.SetActive(false);
+                _statsUpgraderOnButton.SetLightningForce();
                 _saver.SaveGame();
                 break;
             case Weapons.FIREBALL:
@@ -49,6 +51,7 @@ public class AbillitySetterOnButton : MonoBehaviour
                 _icon.material = _fireball;
                 _lightningButton.SetActive(false);
                 _fireballButton.SetActive(false);
+                _statsUpgraderOnButton.SetFireballForce();
                 _saver.SaveGame();
                 break;
             default:

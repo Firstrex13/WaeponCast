@@ -13,6 +13,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _title;
     [SerializeField] private GameObject _lightningButton;
     [SerializeField] private GameObject _fireballButton;
+    [SerializeField] private GameObject _leaderboard;
     [SerializeField] private Button[] _levelButtons;
     [SerializeField] private Button[] _weaponButtons;
 
@@ -45,6 +46,7 @@ public class MenuHandler : MonoBehaviour
         _menuPanel.SetActive(false);
         _player.gameObject.SetActive(false);
         _title.SetActive(false);
+        _leaderboard.SetActive(false);
 
         _levelUpPanel.SetActive(true);
     }
@@ -57,6 +59,7 @@ public class MenuHandler : MonoBehaviour
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
             _title.SetActive(true);
+            _leaderboard.SetActive(true);
 
         }
         else if (_settingsPanel.activeSelf)
@@ -65,6 +68,7 @@ public class MenuHandler : MonoBehaviour
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
             _title.SetActive(true);
+            _leaderboard.SetActive(true);
         }
         else if (_levelsPanel.activeSelf)
         {
@@ -72,6 +76,7 @@ public class MenuHandler : MonoBehaviour
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
             _title.SetActive(true);
+            _leaderboard.SetActive(true);
         }
     }
 
@@ -80,6 +85,7 @@ public class MenuHandler : MonoBehaviour
         _menuPanel.SetActive(false);
         _title.SetActive(false);
         _player.gameObject.SetActive(false);
+        _leaderboard.SetActive(false);
         _settingsPanel.SetActive(true);
     }
 
@@ -88,11 +94,24 @@ public class MenuHandler : MonoBehaviour
         _menuPanel.SetActive(false);
         _title.SetActive(false);
         _player.gameObject.SetActive(false);
+        _leaderboard.SetActive(false);
         _levelsPanel.SetActive(true);
 
-        for (int i = 0; i < _playerProgress.GetProgress().LevelManager.CountOfOpenedLevels; i++)
+        int basicOuntLevels = 1;
+
+        if (_playerProgress.GetProgress().LevelManager.CountOfOpenedLevels == 0)
         {
-            _levelButtons[i].interactable = true;
+            for (int i = 0; i < basicOuntLevels; i++)
+            {
+                _levelButtons[i].interactable = true;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _playerProgress.GetProgress().LevelManager.CountOfOpenedLevels; i++)
+            {
+                _levelButtons[i].interactable = true;
+            }
         }
     }
 

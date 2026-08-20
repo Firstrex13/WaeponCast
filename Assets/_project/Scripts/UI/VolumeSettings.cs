@@ -31,11 +31,32 @@ public class VolumeSettings : MonoBehaviour
         _slider.onValueChanged.AddListener(ChangeValue);
         IsPaused?.Invoke();
 
-        Volume = new Volume();
-        Volume.CurrentValue = 1;
+        if (Volume == null)
+        {
+            Volume = new Volume();
+            Volume.CurrentValue = 1;
+        }
 
-        Volume.SetValue(Volume.CurrentValue, _masterMixer);
-        _slider.value = Volume.CurrentValue;
+        if (PlayerPrefs.HasKey("ToggleMusic"))
+        {
+            Volume.SetValue(PlayerPrefs.GetInt("ToggleMusic"), _masterMixer);
+
+            if (PlayerPrefs.GetInt("ToggleMusic") == 0)
+            {
+                _toggle.isOn = true;
+            }
+            else
+            {
+                _toggle.isOn = false;
+            }
+        }
+
+        if (PlayerPrefs.HasKey("VolumeValue"))
+        {
+            Volume.SetValue(PlayerPrefs.GetFloat("VolumeValue"), _masterMixer);
+
+            _slider.value = PlayerPrefs.GetFloat("VolumeValue");
+        }
     }
 
     private void OnDisable()
@@ -51,26 +72,19 @@ public class VolumeSettings : MonoBehaviour
         if (enabled)
         {
             Volume.SetValue(_minValue, _musicMixer);
+            PlayerPrefs.SetInt("ToggleMusic", 0);
         }
         else
         {
             Volume.SetValue(_maxValue, _musicMixer);
+            PlayerPrefs.SetInt("ToggleMusic", 1);
         }
-
-        SaveGame();
     }
 
     public void ChangeValue(float value)
     {
         Volume.SetValue(value, _masterMixer);
         Volume.CurrentValue = value;
-        SaveGame();
-    }
-
-    public void SaveGame()
-    {
-        string json = JsonUtility.ToJson(Volume.CurrentValue);
-        YG2.saves.Json = json;
-        YG2.SaveProgress();
+        PlayerPrefs.SetFloat("VolumeValue", Volume.CurrentValue);
     }
 }

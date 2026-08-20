@@ -18,7 +18,9 @@ public class StatsUpgraderOnButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI NotEnoughCoinsText;
     [SerializeField] private TextMeshProUGUI Cost;
     [SerializeField] private string _stat;
-    [SerializeField] private WeaponConfig _weaponConfig;
+    [SerializeField] private WeaponConfig _lightningConfig;
+    [SerializeField] private WeaponConfig _fireballConfig;
+    [SerializeField] private int _forceOfCurrentWeapon;
 
     private IProgressService ProgressService;
     private CoinCounter CoinCounter;
@@ -28,6 +30,11 @@ public class StatsUpgraderOnButton : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_forceOfCurrentWeapon == 0)
+        {
+            _forceOfCurrentWeapon = _lightningConfig.Damage;
+        }
+
         UpdateStatsDisplay(_stat);
     }
 
@@ -47,6 +54,16 @@ public class StatsUpgraderOnButton : MonoBehaviour
         }
 
         _saver.SaveGame();
+    }
+
+    public void SetLightningForce()
+    {
+        _forceOfCurrentWeapon = _lightningConfig.Damage;
+    }
+
+    public void SetFireballForce()
+    {
+        _forceOfCurrentWeapon = _fireballConfig.Damage;
     }
 
     [Inject]
@@ -92,13 +109,13 @@ public class StatsUpgraderOnButton : MonoBehaviour
                 Cost.text = UpgradeCost.ToString();
                 break;
             case FORECE_STAT:
-                CurrentStat.text = (_weaponConfig.Damage + ProgressService.GetProgress().Stats.Force).ToString();
+                CurrentStat.text = (_forceOfCurrentWeapon + ProgressService.GetProgress().Stats.Force).ToString();
                 Cost.text = UpgradeCost.ToString();
                 break;
             case ATTACK_RATE_STAT:
                 float value = 1 + ProgressService.GetProgress().Stats.AttackRate;
                 CurrentStat.text = value.ToString();
-                if(value == 2)
+                if (value == 2)
                 {
                     CurrentStat.text = MAX_VALUE;
                 }

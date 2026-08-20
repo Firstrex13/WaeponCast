@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ligthning
   m_EditorClassIdentifier: 
   <Weapon>k__BackingField: {fileID: -8108749216110822839, guid: 323df1d26825d7846a8536c4c72a05f5, type: 3}
-  <Damage>k__BackingField: 100
+  <Damage>k__BackingField: 75
   <AttackRate>k__BackingField: 1.5
   <ThrowForce>k__BackingField: 20
   <ManaCost>k__BackingField: 10
