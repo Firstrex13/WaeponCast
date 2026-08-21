@@ -6,6 +6,7 @@ public class HealthViewSmooth : MonoBehaviour
 {
     [SerializeField] private BarComponent _health;
     [SerializeField] private Slider _slider;
+    [SerializeField] private Image _background;
 
     public BarComponent Health => _health;
 
@@ -45,8 +46,8 @@ public class HealthViewSmooth : MonoBehaviour
             time += Time.deltaTime;
 
             float currentValue = _health.Current / _health.Max;
-
-            _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime);
+            _slider.value = currentValue;
+            _background.fillAmount = Mathf.MoveTowards(_background.fillAmount, currentValue, Time.deltaTime);
             yield return null;
         }
     }

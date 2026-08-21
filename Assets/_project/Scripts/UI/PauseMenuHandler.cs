@@ -84,11 +84,11 @@ public class PauseMenuHandler : MonoBehaviour
 
     public void ReturnToMenuAfterWin()
     {
-        YG2.SetLeaderboard("LeaderboardDesk", _coinCounter.TotalCoins);
-
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         _coinCounter.AddCoinsToTotalCount();
+
+        YG2.SetLeaderboard("LeaderboardDesk", _coinCounter.TotalCoins);
 
         if (nextIndex < Scenes.SceneNames.Length && (SceneManager.GetActiveScene().buildIndex - 1) == _levelManager.CountOfOpenedLevels)
         {
