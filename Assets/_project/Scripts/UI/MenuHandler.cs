@@ -14,8 +14,10 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _lightningButton;
     [SerializeField] private GameObject _fireballButton;
     [SerializeField] private GameObject _leaderboard;
+    [SerializeField] private GameObject _leaderboardIcon;
     [SerializeField] private Button[] _levelButtons;
     [SerializeField] private Button[] _weaponButtons;
+
 
     private string _activeScene;
     private IProgressService _playerProgress;
@@ -51,32 +53,49 @@ public class MenuHandler : MonoBehaviour
         _levelUpPanel.SetActive(true);
     }
 
+    public void OpenLeaderbordPanel()
+    {
+        _leaderboardIcon.SetActive(false);
+        _menuPanel.SetActive(false);
+        _title.SetActive(false);
+        _leaderboard.SetActive(true);
+    }
+
     public void ReturnToMainMenu()
     {
         if (_levelUpPanel.activeSelf)
         {
             _levelUpPanel.SetActive(false);
+            _leaderboard.SetActive(false);
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
             _title.SetActive(true);
-            _leaderboard.SetActive(true);
 
         }
         else if (_settingsPanel.activeSelf)
         {
             _settingsPanel.SetActive(false);
+            _leaderboard.SetActive(false);
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
             _title.SetActive(true);
-            _leaderboard.SetActive(true);
         }
         else if (_levelsPanel.activeSelf)
         {
             _levelsPanel.SetActive(false);
+            _leaderboard.SetActive(false);
             _menuPanel.SetActive(true);
             _player.gameObject.SetActive(true);
             _title.SetActive(true);
-            _leaderboard.SetActive(true);
+        }
+        else if (_leaderboard.activeSelf)
+        {
+            _levelsPanel.SetActive(false);
+            _leaderboard.SetActive(false);
+            _menuPanel.SetActive(true);
+            _player.gameObject.SetActive(true);
+            _title.SetActive(true);
+            _leaderboardIcon.SetActive(true);
         }
     }
 
