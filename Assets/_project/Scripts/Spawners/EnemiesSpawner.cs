@@ -39,6 +39,7 @@ public class EnemiesSpawner : MonoBehaviour
 
     [SerializeField] private Enemy _bossPrefab;
     [SerializeField] private Slider _bossHealthSlider;
+    [SerializeField] private Image _bossHealthWhiteBackground;
     [SerializeField] private TextMeshProUGUI _bossHealthCount;
 
     [SerializeField] private Player _player;
@@ -81,7 +82,6 @@ public class EnemiesSpawner : MonoBehaviour
     public void Construct(Player player)
     {
         _player = player;
-
     }
 
     private IEnumerator Create()
@@ -114,7 +114,7 @@ public class EnemiesSpawner : MonoBehaviour
                     AbilityBossSetter bossSetter = boss.GetComponent<AbilityBossSetter>();
                     bossSetter.Initialize(_player);
                     aiBoss.Initialize(_player);
-                    bossHealth.Initialize(_bossHealthSlider, _bossHealthCount);
+                    bossHealth.Initialize(_bossHealthSlider, _bossHealthCount, _bossHealthWhiteBackground);
                     BossSpawned?.Invoke();
                     boss.Died += DecreaseEnemyCount;
                     yield return null;

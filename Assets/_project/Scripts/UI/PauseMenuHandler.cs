@@ -88,7 +88,7 @@ public class PauseMenuHandler : MonoBehaviour
 
         _coinCounter.AddCoinsToTotalCount();
 
-        YG2.SetLeaderboard("LeaderboardDesk", _coinCounter.TotalCoins);
+        YG2.SetLeaderboard("LeaderboardDeskGame1", _coinCounter.TotalCoins);
 
         if (nextIndex < Scenes.SceneNames.Length && (SceneManager.GetActiveScene().buildIndex - 1) == _levelManager.CountOfOpenedLevels)
         {

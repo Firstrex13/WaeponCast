@@ -18,9 +18,9 @@ public class BossHealthView : HealthViewSmooth
         _text.text = Health.Current.ToString();
     }
 
-    public void Initialize(Slider slider, TextMeshProUGUI text)
+    public void Initialize(Slider slider, TextMeshProUGUI text, Image image)
     {
-        SetSlider(slider);
+        SetSlider(slider, image);
         _text = text;
         _text.text = Health.Current.ToString();
     }

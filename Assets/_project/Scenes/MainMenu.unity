@@ -4946,6 +4946,7 @@ RectTransform:
   m_LocalScale: {x: 1.1513095, y: 1.1513095, z: 1.1513095}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2095723252}
   - {fileID: 90967310}
   - {fileID: 1408889046}
   - {fileID: 678521253}
@@ -5006,14 +5007,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423e13a42d313f948a13bcedae13febe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameLB: GameLeaderboard
+  nameLB: LeaderboardDeskGame1
   maxQuantityPlayers: 20
   quantityTop: 3
   quantityAround: 6
   updateLBMethod: 1
   entriesText: {fileID: 0}
   advanced: 1
-  rootSpawnPlayersData: {fileID: 678521253}
+  rootSpawnPlayersData: {fileID: 2095723252}
   playerDataPrefab: {fileID: 7442660659306160117, guid: c66c7bac89f010b47979344bbb77584b, type: 3}
   playerPhoto: 1
   isHiddenPlayerPhoto: {fileID: 0}
@@ -10482,7 +10483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16427083, y: 0.7018519}
   m_AnchorMax: {x: 0.8795209, y: 0.8837408}
-  m_AnchoredPosition: {x: -27.300049, y: 3.9250488}
+  m_AnchoredPosition: {x: -27.300049, y: 3.9248047}
   m_SizeDelta: {x: -62.1, y: -15.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1255535357
@@ -13750,7 +13751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -36.699997, y: 0.000091552734}
+  m_AnchoredPosition: {x: -36.699997, y: 0.00012207031}
   m_SizeDelta: {x: 252.7, y: -9.5}
   m_Pivot: {x: -0.00000012479722, y: 0.49999884}
 --- !u!114 &1581498951
@@ -17302,6 +17303,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095242129}
   m_CullTransparentMesh: 1
+--- !u!1 &2095723251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095723252}
+  m_Layer: 5
+  m_Name: Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2095723252
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095723251}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 405979040}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -408, y: 193}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2116037918
 PrefabInstance:
   m_ObjectHideFlags: 0

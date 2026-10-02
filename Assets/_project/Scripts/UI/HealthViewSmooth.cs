@@ -52,8 +52,9 @@ public class HealthViewSmooth : MonoBehaviour
         }
     }
 
-    public void SetSlider(Slider slider)
+    public void SetSlider(Slider slider, Image image)
     {
         _slider = slider;
+        _background = image;
     }
 }
