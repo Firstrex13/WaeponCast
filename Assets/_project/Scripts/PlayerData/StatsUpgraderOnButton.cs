@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -13,7 +14,6 @@ public class StatsUpgraderOnButton : MonoBehaviour
     private const string MAX_VALUE = "Max";
 
     [SerializeField] private GameSaver _saver;
-    [SerializeField] private int UpgradeCost;
     [SerializeField] private TextMeshProUGUI CurrentStat;
     [SerializeField] private TextMeshProUGUI NotEnoughCoinsText;
     [SerializeField] private TextMeshProUGUI Cost;
@@ -21,6 +21,8 @@ public class StatsUpgraderOnButton : MonoBehaviour
     [SerializeField] private WeaponConfig _lightningConfig;
     [SerializeField] private WeaponConfig _fireballConfig;
     [SerializeField] private int _forceOfCurrentWeapon;
+
+    private int _upgradeCost;
 
     private IProgressService ProgressService;
     private CoinCounter CoinCounter;
@@ -41,10 +43,10 @@ public class StatsUpgraderOnButton : MonoBehaviour
     public void UpgradeStatOnButton(string stat)
     {
         _stat = stat;
-        if (CoinCounter.TotalCoinCount >= UpgradeCost)
+        if (CoinCounter.TotalCoinCount >= _upgradeCost)
         {
             ProgressService.GetProgress().Stats.UpgradeStat(stat);
-            ProgressService.GetProgress().Counter.DecreaseCoin(UpgradeCost);
+            ProgressService.GetProgress().Counter.DecreaseCoin(_upgradeCost);
             UpdateStatsDisplay(stat);
         }
         else
@@ -102,15 +104,18 @@ public class StatsUpgraderOnButton : MonoBehaviour
         {
             case HEALTH_STAT:
                 CurrentStat.text = ProgressService.GetProgress().Stats.Health.ToString();
-                Cost.text = UpgradeCost.ToString();
+                _upgradeCost = ProgressService.GetProgress().Stats.UpgradeHealthCost;
+                Cost.text = _upgradeCost.ToString();
                 break;
             case MANA_STAT:
                 CurrentStat.text = ProgressService.GetProgress().Stats.Mana.ToString();
-                Cost.text = UpgradeCost.ToString();
+                _upgradeCost = ProgressService.GetProgress().Stats.UpgradeManaCost;
+                Cost.text = _upgradeCost.ToString();
                 break;
             case FORECE_STAT:
                 CurrentStat.text = (_forceOfCurrentWeapon + ProgressService.GetProgress().Stats.Force).ToString();
-                Cost.text = UpgradeCost.ToString();
+                _upgradeCost = ProgressService.GetProgress().Stats.UpgradeForceCost;
+                Cost.text = _upgradeCost.ToString();
                 break;
             case ATTACK_RATE_STAT:
                 float value = 1 + ProgressService.GetProgress().Stats.AttackRate;
@@ -119,11 +124,13 @@ public class StatsUpgraderOnButton : MonoBehaviour
                 {
                     CurrentStat.text = MAX_VALUE;
                 }
-                Cost.text = UpgradeCost.ToString();
+                _upgradeCost = ProgressService.GetProgress().Stats.UpgradeAttackRateCost;
+                Cost.text = _upgradeCost.ToString();
                 break;
             case MANA_RECOVERY_SPEED_STAT:
                 CurrentStat.text = ProgressService.GetProgress().Stats.ManaRecoverySpeed.ToString();
-                Cost.text = UpgradeCost.ToString();
+                _upgradeCost = ProgressService.GetProgress().Stats.UpgradeManaRecoverySpeedCost;
+                Cost.text = _upgradeCost.ToString();
                 break;
             default:
                 break;

@@ -9,6 +9,8 @@ public class PlayerStats
     private const string ATTACK_RATE_STAT = "_attackRateStat";
     private const string MANA_RECOVERY_SPEED_STAT = "_manaRecoverySpeedStat";
 
+    private float _upgradeCostMultiplier = 1.2f;
+
     public int Health;
     public int Mana;
     public int Force;
@@ -20,6 +22,12 @@ public class PlayerStats
     public int UpgradeForceCount;
     public float UpgradeAttackRateCount;
     public float UpgradeManaRecoverySpeedCount;
+
+    public int UpgradeHealthCost = 5;
+    public int UpgradeManaCost = 4;
+    public int UpgradeForceCost = 6;
+    public int UpgradeAttackRateCost = 8;
+    public int UpgradeManaRecoverySpeedCost = 8;
 
     public float MaxAttackRateLevel = 1f;
 
@@ -43,12 +51,15 @@ public class PlayerStats
         {
             case HEALTH_STAT:
                 Health += UpgradeHealthCount;
+                UpgradeHealthCost = Convert.ToInt32(UpgradeHealthCost * _upgradeCostMultiplier);
                 break;
             case MANA_STAT:
                 Mana += UpgradeManaCount;
+                UpgradeManaCost = Convert.ToInt32(UpgradeManaCost * _upgradeCostMultiplier);
                 break;
             case FORECE_STAT:
                 Force += UpgradeForceCount;
+                UpgradeForceCost = Convert.ToInt32(UpgradeForceCost * _upgradeCostMultiplier);
                 break;
             case ATTACK_RATE_STAT:
                 if (AttackRate >= MaxAttackRateLevel)
@@ -57,9 +68,11 @@ public class PlayerStats
                 }
 
                 AttackRate += UpgradeAttackRateCount;
+                UpgradeAttackRateCost = Convert.ToInt32(UpgradeAttackRateCost * _upgradeCostMultiplier);
                 break;
             case MANA_RECOVERY_SPEED_STAT:
                 ManaRecoverySpeed += UpgradeManaRecoverySpeedCount;
+                UpgradeManaRecoverySpeedCost = Convert.ToInt32(UpgradeManaRecoverySpeedCost * _upgradeCostMultiplier);
                 break;
             default:
                 break;
