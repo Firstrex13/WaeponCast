@@ -112,6 +112,7 @@ public class EnemiesSpawner : MonoBehaviour
                         StopCoroutine(_spawnCoroutine);
                         _spawnCoroutine = null;
                         Enemy boss = Instantiate(_bossPrefab, Vector3.zero, Quaternion.identity);
+                        _totalEnemiesOnLevel++;
                         BossHealthView bossHealth = boss.GetComponent<BossHealthView>();
                         AIEnemyBoss aiBoss = boss.GetComponent<AIEnemyBoss>();
                         AbilityBossSetter bossSetter = boss.GetComponent<AbilityBossSetter>();
