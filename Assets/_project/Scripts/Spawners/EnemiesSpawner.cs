@@ -68,7 +68,7 @@ public class EnemiesSpawner : MonoBehaviour
             _totalEnemiesOnLevel += wave.ObjectsPerWave;
         }
 
-        _totalEnemiesOnLevel++;
+        //_totalEnemiesOnLevel++;
 
         if (_spawnCoroutine != null)
         {
@@ -102,22 +102,32 @@ public class EnemiesSpawner : MonoBehaviour
                     _waveNumber++;
                     WaveChanged?.Invoke(_waveNumber + 1);
                     _waves[_waveNumber].ResetCount();
+                    Debug.Log("next wave");
                 }
 
-                if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
+                if (SceneManager.GetActiveScene().name == "Level3")
+                {
+                    if (_waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
+                    {
+                        StopCoroutine(_spawnCoroutine);
+                        _spawnCoroutine = null;
+                        Enemy boss = Instantiate(_bossPrefab, Vector3.zero, Quaternion.identity);
+                        BossHealthView bossHealth = boss.GetComponent<BossHealthView>();
+                        AIEnemyBoss aiBoss = boss.GetComponent<AIEnemyBoss>();
+                        AbilityBossSetter bossSetter = boss.GetComponent<AbilityBossSetter>();
+                        bossSetter.Initialize(_player);
+                        aiBoss.Initialize(_player);
+                        bossHealth.Initialize(_bossHealthSlider, _bossHealthCount, _bossHealthWhiteBackground);
+                        BossSpawned?.Invoke();
+                        boss.Died += DecreaseEnemyCount;
+                        yield return null;
+                    }
+                }
+
+                if(_waveNumber >= _waves.Count - 1 && _waves[_waveNumber].EnemiesCount >= _waves[_waveNumber].ObjectsPerWave)
                 {
                     StopCoroutine(_spawnCoroutine);
-                    _spawnCoroutine = null;
-                    Enemy boss = Instantiate(_bossPrefab, Vector3.zero, Quaternion.identity);
-                    BossHealthView bossHealth = boss.GetComponent<BossHealthView>();
-                    AIEnemyBoss aiBoss = boss.GetComponent<AIEnemyBoss>();
-                    AbilityBossSetter bossSetter = boss.GetComponent<AbilityBossSetter>();
-                    bossSetter.Initialize(_player);
-                    aiBoss.Initialize(_player);
-                    bossHealth.Initialize(_bossHealthSlider, _bossHealthCount, _bossHealthWhiteBackground);
-                    BossSpawned?.Invoke();
-                    boss.Died += DecreaseEnemyCount;
-                    yield return null;
+                    break;
                 }
             }
 
