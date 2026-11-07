@@ -7,6 +7,6 @@
         false,
         false
     ],
-    "idSave": 6,
-    "Json": "{\"Stats\":{\"Health\":120,\"Mana\":105,\"Force\":0,\"AttackRate\":0.0,\"ManaRecoverySpeed\":2.0,\"UpgradeHealthCount\":10,\"UpgradeManaCount\":5,\"UpgradeForceCount\":2,\"UpgradeAttackRateCount\":0.10000000149011612,\"UpgradeManaRecoverySpeedCount\":0.5,\"UpgradeHealthCost\":7,\"UpgradeManaCost\":5,\"UpgradeForceCost\":6,\"UpgradeAttackRateCost\":8,\"UpgradeManaRecoverySpeedCost\":8,\"MaxAttackRateLevel\":1.0},\"Counter\":{\"TotalCoinCount\":1},\"LevelManager\":{\"CountOfOpenedLevels\":3,\"CurrentLevelName\":\"Level3\"},\"Weapons\":{\"CurrentWeapon\":0},\"FirstPlay\":true}"
+    "idSave": 4,
+    "Json": "{\"Stats\":{\"UpgradeCostMultiplier\":1.2000000476837159,\"Health\":110,\"Mana\":100,\"Force\":2,\"AttackRate\":0.0,\"ManaRecoverySpeed\":2.0,\"UpgradeHealthCount\":10,\"UpgradeManaCount\":5,\"UpgradeForceCount\":2,\"UpgradeAttackRateCount\":0.10000000149011612,\"UpgradeManaRecoverySpeedCount\":0.5,\"UpgradeHealthCost\":6,\"UpgradeManaCost\":4,\"UpgradeForceCost\":7,\"UpgradeAttackRateCost\":8,\"UpgradeManaRecoverySpeedCost\":8,\"MaxAttackRateLevel\":1.0},\"Counter\":{\"TotalCoinCount\":0},\"LevelManager\":{\"CountOfOpenedLevels\":3,\"CurrentLevelName\":\"Level2\"},\"Weapons\":{\"CurrentWeapon\":0},\"FirstPlay\":true}"
 }

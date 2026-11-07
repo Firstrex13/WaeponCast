@@ -24,7 +24,7 @@ public class GameSaver : MonoBehaviour
         }
         else
         {
-            PlayerProgress progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 2, 0, 0, 10, 5, 2, 0.1f, 0.5f), new LevelManager(1), new Weapons(WeaponsList.LIGHTNING), new Leaderboard(), true);
+            PlayerProgress progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 2, 0, 0, 10, 5, 2, 0.1f, 0.5f, 1.2f), new LevelManager(1), new Weapons(WeaponsList.LIGHTNING), new Leaderboard(), true);
             return progress;
         }
     }
@@ -41,12 +41,11 @@ public class GameSaver : MonoBehaviour
         if (YG2.saves.Json != null)
         {
             YG2.SetDefaultSaves();
-            Progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 2, 0, 0, 10, 5, 2, 0.1f, 0.5f), new LevelManager(1), new Weapons(WeaponsList.LIGHTNING), new Leaderboard(),true);
+            Progress = new PlayerProgress(new CoinCounter(), new PlayerStats(100, 100, 2, 0, 0, 10, 5, 2, 0.1f, 0.5f, 1.2f), new LevelManager(1), new Weapons(WeaponsList.LIGHTNING), new Leaderboard(),true);
             _coinCounter.SetTotalCount(0);
             string json = JsonUtility.ToJson(Progress);
             YG2.saves.Json = json;
             YG2.SaveProgress();
-
         }
     }
 }

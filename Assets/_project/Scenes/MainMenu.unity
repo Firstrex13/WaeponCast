@@ -2342,7 +2342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 6
   CurrentStat: {fileID: 222616008}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 1368155354}
@@ -7686,7 +7685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23.51001, y: 411}
+  m_AnchoredPosition: {x: 23.51001, y: 485}
   m_SizeDelta: {x: -213.15, y: 566.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &722182002
@@ -7750,7 +7749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 8
   CurrentStat: {fileID: 1188190736}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 272189328}
@@ -8323,7 +8321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 8
   CurrentStat: {fileID: 310880047}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 1281972302}
@@ -9577,7 +9574,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 5
   CurrentStat: {fileID: 1980307682}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 1651779367}
@@ -11022,7 +11018,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _saver: {fileID: 709478205}
-  UpgradeCost: 4
   CurrentStat: {fileID: 1156748614}
   NotEnoughCoinsText: {fileID: 680180917}
   Cost: {fileID: 322641042}
